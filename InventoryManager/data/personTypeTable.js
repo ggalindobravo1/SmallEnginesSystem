@@ -2,7 +2,6 @@
 const personType =[
     {userTypeID:1, userTypeName:"Employee", userTypeCreateAt: 2018/07/07, userTypeUpdateAt:2022/07/07  },
     {userTypeID:2, userTypeName:"Customer", userTypeCreateAt: 2018/07/07, userTypeUpdateAt:2022/08/07  },
-    //{userTypeID:3, userTypeName:"Supplier", userTypeCreateAt: 2018/07/07, userTypeUpdateAt:2022/09/07  },
     {userTypeID:3, userTypeName:"Tester", userTypeCreateAt: 2018/07/07, userTypeUpdateAt:2022/10/07  },
 ]
 

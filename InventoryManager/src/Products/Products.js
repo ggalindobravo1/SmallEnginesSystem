@@ -10,11 +10,13 @@ const products =[
 
 // Function that only executes on loading page 
 window.onload = function() {
-
+    getCurrentUser();
     // Store in an array the product objects saved
     let prodsArr = getSavedProds();
     
     renderProducts(prodsArr);
+
+
 }
 
 const renderProducts = (prodsArr) =>{
@@ -37,6 +39,7 @@ const renderProducts = (prodsArr) =>{
 const getSavedProds = () => {
     // Get the Table "Products"
     let prodsLocalStg = localStorage.getItem('Products');
+    
     
     try{
         if(prodsLocalStg != null){

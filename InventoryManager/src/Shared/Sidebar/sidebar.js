@@ -2,66 +2,45 @@ class SideMenu extends HTMLElement {
     connectedCallback() {
       this.innerHTML = `
 
-  <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-  <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-      <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-          <span class="fs-5 d-none d-sm-inline">Menu</span>
+      <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white" id="sidenav">
+      <a href="#" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none" onclick="relocateFnc(1)">
+        <div class="fs-5 d-none d-sm-inline"><i class="fa fa-home fa-4x"></i></div>
       </a>
       <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-          <li class="nav-item">
-              <a href="#" class="nav-link align-middle px-0">
-                  <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
-              </a>
-          </li>
+            
+            <li>
+                <a href="#submenu2"  class="nav-link px-0 align-middle" onclick="relocateFnc(2)" id="inventory">
+                <i class="fa fa-th-large"></i> <span class="ms-1 d-none d-sm-inline">Inventory</span></a>
+             </li>
           <li>
               <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                  <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
+              <i class="fa fa-tags"></i> <span class="ms-1 d-none d-sm-inline">Oders</span> </a>
               <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                   <li class="w-100">
-                      <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>
+                      <a href="#" class="nav-link px-0" onclick="relocateFnc(3)" id="orders"> <span class="d-sm-inline">Purchase Order</span> </a>
                   </li>
-                  <li>
-                      <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-              <a href="#" class="nav-link px-0 align-middle">
-                  <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>
-          </li>
-          <li>
-              <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                  <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Bootstrap</span></a>
-              <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                  <li class="w-100">
-                      <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>
-                  </li>
-                  <li>
-                      <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>
+                  <li>   
+                    <a href="#" class="nav-link px-0" onclick="relocateFnc(4)" id="salesords"> <span class="d-none d-sm-inline">Sales Order</span> </a>
                   </li>
               </ul>
           </li>
           <li>
-              <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                  <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
-                  <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                  <li class="w-100">
-                      <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
-                  </li>
-                  <li>
-                      <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
-                  </li>
-                  <li>
-                      <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
-                  </li>
-                  <li>
-                      <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
-                  </li>
-              </ul>
+              <a href="#" class="nav-link px-0 align-middle" onclick="relocateFnc(5)" id="products">
+                  <i class="fa fa-tasks"></i> <span class="ms-1 d-none d-sm-inline">Products</span></a>
           </li>
           <li>
-              <a href="#" class="nav-link px-0 align-middle">
-                  <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Customers</span> </a>
+                <a href="#submenu2"  class="nav-link px-0 align-middle" onclick="relocateFnc(6)" id="POS">
+                <i class="fa fa-usd"></i> <span class="ms-1 d-none d-sm-inline">POS</span></a>
+            </li>
+          
+          <li>
+              <a href="#submenu3"  class="nav-link px-0 align-middle" onclick="relocateFnc(7)" id="suppliers">
+                  <i class="fa fa-link"></i> <span class="ms-1 d-none d-sm-inline">Suppliers</span> </a>
+                
+          </li>
+          <li>
+              <a href="#" class="nav-link px-0 align-middle" onclick="relocateFnc(8)" id="customers">
+                  <i class="fa fa-group"></i> <span class="ms-1 d-none d-sm-inline">Customers</span> </a>
           </li>
       </ul>
       <hr>
@@ -77,11 +56,12 @@ class SideMenu extends HTMLElement {
               <li>
                   <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="#">Sign out</a></li>
+              <li><a class="dropdown-item" id="signOutHead">Sign out</a></li>
           </ul>
       </div>
   </div>
-</div>`}
+ 
+`}
 }
 
 customElements.define('main-side', SideMenu);

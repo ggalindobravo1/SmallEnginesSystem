@@ -1,21 +1,50 @@
 //document.getElementById("myForm").onsubmit = function() {myFunction()};
 
+const validUsers = [
+    {
+        id:1, 
+        name:"Sam",
+        email: "sam@hotmail.com",
+        password: "123456789"
+    },
+    {
+        id:2, 
+        name:"Emma",
+        email: "emmam@hotmail.com",
+        password: "789456123"
+    }, 
+    {
+        id:2, 
+        name:"Mike",
+        email: "mike@hotmail.com",
+        password: "111222"
+    }
+]
+
 function myFunction(event) {
     event.preventDefault();
-    console.log(event.target.inputEmail.value);
-    console.log(event.target.inputPassword.value);
-
-    let msg = "";
-    //evaluate if the username input is not null
-    if(!event.target.inputEmail.value.trim())
-        msg = "--Enter a valid user name \n";
-
-    //evaluate if the password input is less than 5 chars
-    if(5>event.target.inputPassword.value.length || !event.target.inputPassword.value.trim())
-       msg += "--Provide a valid password longer than 5 characters \n"; 
+    document.getElementById("formMessage").textContent = "";
 
 
-    console.log(event.target);
+    let msg = "Invalid Password or Username";
+    
+    
+    validUsers.forEach(user => {
+        if(user.email == event.target.inputEmail.value && user.password == event.target.inputPassword.value )
+        { 
+            msg = "Welcome " + user.name;
+            localStorage.setItem("ActiveUser", JSON.stringify(user));
+            document.getElementById('statusSpinner').hidden = false;
+            console.log("Logged in")
+            setTimeout(() => {
+                location.replace(location.href.split('/').slice(0, -2).join('/')+"/Home/Index.html");
+              }, "2000")
+        }
+    })
 
     document.getElementById("formMessage").textContent = msg;
+}
+
+const getPath = () =>{
+    return "login Page";
 }

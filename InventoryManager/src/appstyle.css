@@ -9,10 +9,7 @@ body {
   flex-flow: column;
   height: 100%;
 }
-.no-gutters {
-  margin-right: 0;
-  margin-left: 0;
-}
+
 
 
 .box header {

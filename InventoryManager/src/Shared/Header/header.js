@@ -8,7 +8,30 @@ class Header extends HTMLElement {
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-       
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" onclick="relocateFnc(1)" id="home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="relocateFnc(3)" id="orders">Oders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="relocateFnc(5)" id="products">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="relocateFnc(6)" id="POS">POS</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="#" onclick="relocateFnc(7)" id="suppliers">Suppliers</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#" onclick="relocateFnc(8)" id="customers">Customers</a>
+      </li>
+        </ul>
+  
+      </div>
 
         <div class="col-sm-2 dropdown  mr-5">
           <strong id="signinMessage" class="text-danger" role="status" aria-label="Not Authenticated Message" hidden></strong>
@@ -27,7 +50,7 @@ class Header extends HTMLElement {
                     onclick="outFnc()">
                     Sign out</a></li>
                 </ul>
-            </div>
+        </div>
 
       </div>
     </nav>

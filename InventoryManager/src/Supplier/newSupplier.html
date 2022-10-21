@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Inventory Manager Home</title>
+		<link rel="stylesheet" href="../appstyle.css" />
+        <link rel="stylesheet" href="supplier.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css"
+			integrity="sha512-CpIKUSyh9QX2+zSdfGP+eWLx23C8Dj9/XmHjZY2uDtfkdLGo0uY12jgcnkX9vXOgYajEKb/jiw67EYm+kBf+6g=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+	</head>
+	<body>
+		<div class="box">
+			<header>
+				<main-header></main-header>
+			</header>
+
+			<section>
+				<form action="https://webdevbasics.net/scripts/demo.php" method="post">
+                    <h2>New Supplier</h2>
+					<fieldset style="margin: 25px 5px;">
+						<legend>*Business Information</legend>
+						<div class="two-col">
+							<div>
+								<label for="sName">*Supplier Name</label>
+								<input
+									id="sName"
+									name="sName"
+									placeholder="Supplier Name"
+									type="text"
+									required
+								/>
+							</div>
+							<div>
+								<label for="detail">Supplier Additional Details</label>
+								<input
+									id="detail"
+									name="detail"
+									placeholder="Additional Details"
+									type="text"
+									required
+								/>
+							</div>
+                            <div>
+								<label for="email">*Email</label>
+								<input
+									id="email"
+									name="email"
+									placeholder="email@domain.com"
+									type="email"
+									required
+								/>
+							</div>
+							<div>
+								<label for="telephone">*Telephone</label>
+								<input
+									id="telephone"
+									name="telephone"
+									placeholder="289 123 4567"
+									type="tel"
+									required
+								/>
+							</div>
+                            <div>
+								<label for="ext">Extension</label>
+								<input
+									id="ext"
+									name="ext"
+									placeholder="289 123 4567"
+									type="text"
+									required
+								/>
+							</div>
+						</div>
+                        <br>
+					</fieldset>
+					<fieldset>
+						<legend>*Address</legend>
+						<div class="two-col">
+							<div>
+								<label for="street">*Street</label>
+								<input
+									id="street"
+									name="street"
+									placeholder="# Street St"
+									type="text"
+									required
+								/>
+							</div>
+                            <div>
+								<label for="street">*City</label>
+								<input
+									id="city"
+									name="city"
+									placeholder="City"
+									type="text"
+									required
+								/>
+							</div>
+                            <div>
+								<label for="province">*Province</label> <select id="province" name="province" required>
+                                    <option value="">
+                                        None
+                                    </option>
+                                    <option value="NL">
+                                        Newfoundland and Labrador
+                                    </option>
+                                    <option value="PE">
+                                        Prince Edward Island
+                                    </option>
+                                    <option value="NS">
+                                        Nova Scotia
+                                    </option>
+                                    <option value="NB">
+                                        New Brunswick
+                                    </option>
+                                    <option value="QC">
+                                        Quebec
+                                    </option>
+                                    <option value="ON">
+                                        Ontario
+                                    </option>
+                                    <option value="MB">
+                                        Manitoba
+                                    </option>
+                                    <option value="PE">
+                                        Prince Edward Island
+                                    </option>
+                                    <option value="SK">
+                                        Saskatchewan
+                                    </option>
+                                    <option value="AB">
+                                        Alberta
+                                    </option>
+                                    <option value="BC">
+                                        British Columbia
+                                    </option>
+                                    <option value="YT">
+                                        Yukon
+                                    </option>
+                                    <option value="NT">
+                                        Northwest Territories
+                                    </option>
+                                    <option value="NU">
+                                        Nunavut
+                                    </option>
+                                </select>
+							</div>
+                            <div>
+								<label for="postalCode">*Postal Code</label>
+								<input
+									id="postalCode"
+									name="postalCode"
+									placeholder="Postal Code"
+									type="text"
+									required
+								/>
+							</div>
+							
+						</div>
+                        <br>
+					</fieldset>
+					<div>
+						<input type="submit" value="Submit" />
+					</div>
+				</form>
+			</section>
+
+			<footer>
+				<main-footer></main-footer>
+			</footer>
+		</div>
+	</body>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.min.js"
+		integrity="sha512-5BqtYqlWfJemW5+v+TZUs22uigI8tXeVah5S/1Z6qBLVO7gakAOtkOzUtgq6dsIo5c0NJdmGPs0H9I+2OHUHVQ=="
+		crossorigin="anonymous"
+		referrerpolicy="no-referrer"
+	></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"
+		integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA=="
+		crossorigin="anonymous"
+		referrerpolicy="no-referrer"
+	></script>
+	<script src="../Shared/Header/header.js"></script>
+	<script src="../Shared/Footer/footer.js"></script>
+	<script src="../Shared/sharedFunctions.js"></script>
+	<script src="../Home/Index.js"></script>
+	<script src="supplier.js"></script>
+</html>

@@ -10,31 +10,31 @@ const relocateFnc = (num) => {
   let finalPage = "";
   switch (num) {
     case 1:
-      finalPage = "/Home/Index.html";
+      finalPage = "/Home/index.html";
       break;
     case 2:
-      finalPage = "/Inventory/Inventory.html";
+      finalPage = "/Inventory/index.html";
       break;
     case 3:
-      finalPage = "/Orders/Orders.html";
+      finalPage = "/Invoice/index.html";
       break;
     case 4:
-      finalPage = "/Oders/SalesOrders.html";
+      finalPage = "/Oders/index.html";
       break;
     case 5:
-      finalPage = "/Products/Products.html";
+      finalPage = "/Product/index.html";
       break;
     case 6:
-      finalPage = "/POS/POS.html";
+      finalPage = "/POS/index.html";
       break;
     case 7:
-      finalPage = "/Suppliers/Suppliers.html";
+      finalPage = "/Supplier/index.html";
       break;
     case 8:
-      finalPage = "/Customers/Customers.html";
+      finalPage = "/Person/index.html";
       break;
     default:
-      finalPage = "/Home/Index.html";
+      finalPage = "/Home/index.html";
   }
 
   location.replace(location.href.split("/").slice(0, -2).join("/") + finalPage);

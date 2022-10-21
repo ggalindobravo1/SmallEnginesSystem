@@ -37,7 +37,7 @@ function myFunction(event) {
             document.getElementById('statusSpinner').hidden = false;
             console.log("Logged in")
             setTimeout(() => {
-                location.replace(location.href.split('/').slice(0, -2).join('/')+"/Home/Index.html");
+                location.replace(location.href.split('/').slice(0, -2).join('/')+"/Home/index.html");
               }, "2000")
         }
     })

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Inventory Manager Home</title>
+		<link rel="stylesheet" href="../appstyle.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css"
+			integrity="sha512-CpIKUSyh9QX2+zSdfGP+eWLx23C8Dj9/XmHjZY2uDtfkdLGo0uY12jgcnkX9vXOgYajEKb/jiw67EYm+kBf+6g=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+
+			#myInput {
+				background-image: url("/css/searchicon.png");
+				background-position: 10px 10px;
+				background-repeat: no-repeat;
+				width: 100%;
+				font-size: 16px;
+				padding: 12px 20px 12px 40px;
+				border: 1px solid #ddd;
+				margin-bottom: 12px;
+			}
+
+			#myTable {
+				border-collapse: collapse;
+				width: 100%;
+				border: 1px solid #ddd;
+				font-size: 18px;
+			}
+
+			#myTable th,
+			#myTable td {
+				text-align: left;
+				padding: 12px;
+			}
+
+			#myTable tr {
+				border-bottom: 1px solid #ddd;
+			}
+
+			#myTable tr.header,
+			#myTable tr:hover {
+				background-color: hsl(186.21, 54.72%, 20.78%);
+				color: white;
+			}
+
+			#myTable tr:hover
+			{
+				background-color: rgb(130, 177, 184);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<header>
+				<main-header></main-header>
+			</header>
+
+			<section>
+				<h2>My Suppliers <i class="fa-solid fa-truck-field fa-2x"></i></h2>
+
+				<input
+					type="text"
+					id="myInput"
+					onkeyup="filterTableSupplier()"
+					placeholder="Search by name.."
+					title="Type in a name"
+				/>
+
+				<table id="myTable">
+					<tr class="header">
+						<th style="width: 20%">Name</th>
+						<th style="width: 10%">Detail</th>
+						<th style="width: 5%">Postal Code</th>
+						<th style="width: 5%">Phone</th>
+						<th style="width: 5%">Email</th>
+					</tr>
+					<tr>
+						<td>OE Sypply</td>
+						<td>Battery and oil</td>
+						<td>L1S1J2</td>
+						<td>222-000-1555</td>
+						<td>supplier@oesupply.ca</td>
+					</tr>
+					<tr>
+						<td>Ontario's Lawn Mowers</td>
+						<td>Lawn Mowers</td>
+						<td>L1S1G9</td>
+						<td>456-557-8877</td>
+						<td>ckarl@olm.ca</td>
+					</tr>
+					<tr>
+						<td>Bardon Supplies Ltd.</td>
+						<td>Engine supplies</td>
+						<td>L0S1J0</td>
+						<td>789-000-0498</td>
+						<td>supplier@bardon.ca</td>
+					</tr>
+					<tr>
+						<td>TML Supply Company</td>
+						<td>Lawn Mowers</td>
+						<td>L1L1P3</td>
+						<td>122-040-9898</td>
+						<td>cken@tml.ca</td>
+					</tr>
+					<tr>
+						<td>Flexo Products Limited</td>
+						<td>Car supplies</td>
+						<td>L5F4G5</td>
+						<td>998-582-4050</td>
+						<td>bdiaz@flexoproducts.ca</td>
+					</tr>
+				</table>
+			</section>
+
+			<footer>
+				<main-footer></main-footer>
+			</footer>
+		</div>
+	</body>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.min.js"
+		integrity="sha512-5BqtYqlWfJemW5+v+TZUs22uigI8tXeVah5S/1Z6qBLVO7gakAOtkOzUtgq6dsIo5c0NJdmGPs0H9I+2OHUHVQ=="
+		crossorigin="anonymous"
+		referrerpolicy="no-referrer"
+	></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"
+		integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA=="
+		crossorigin="anonymous"
+		referrerpolicy="no-referrer"
+	></script>
+	<script src="../Shared/Header/header.js"></script>
+	<script src="../Shared/Footer/footer.js"></script>
+	<script src="../Shared/sharedFunctions.js"></script>
+	<script src="../Home/Index.js"></script>
+	<script src="supplier.js"></script>
+</html>

@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Inventory Manager Home</title>
 		<link rel="stylesheet" href="../appstyle.css" />
-        <link rel="stylesheet" href="supplier.css" />
+		<link rel="stylesheet" href="supplier.css" />
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -26,15 +26,15 @@
 
 			<section>
 				<form action="https://webdevbasics.net/scripts/demo.php" method="post">
-                    <h2>New Supplier</h2>
-					<fieldset style="margin: 25px 5px;">
+					<h2 id="tittle">New Supplier</h2>
+					<fieldset style="margin: 25px 5px">
 						<legend>*Business Information</legend>
 						<div class="two-col">
 							<div>
-								<label for="sName">*Supplier Name</label>
+								<label for="name">*Supplier Name</label>
 								<input
-									id="sName"
-									name="sName"
+									id="name"
+									name="name"
 									placeholder="Supplier Name"
 									type="text"
 									required
@@ -50,7 +50,7 @@
 									required
 								/>
 							</div>
-                            <div>
+							<div>
 								<label for="email">*Email</label>
 								<input
 									id="email"
@@ -70,18 +70,18 @@
 									required
 								/>
 							</div>
-                            <div>
+							<div>
 								<label for="ext">Extension</label>
 								<input
 									id="ext"
 									name="ext"
-									placeholder="289 123 4567"
+									placeholder="12345"
 									type="text"
 									required
 								/>
 							</div>
 						</div>
-                        <br>
+						<br />
 					</fieldset>
 					<fieldset>
 						<legend>*Address</legend>
@@ -96,7 +96,7 @@
 									required
 								/>
 							</div>
-                            <div>
+							<div>
 								<label for="street">*City</label>
 								<input
 									id="city"
@@ -106,56 +106,27 @@
 									required
 								/>
 							</div>
-                            <div>
-								<label for="province">*Province</label> <select id="province" name="province" required>
-                                    <option value="">
-                                        None
-                                    </option>
-                                    <option value="NL">
-                                        Newfoundland and Labrador
-                                    </option>
-                                    <option value="PE">
-                                        Prince Edward Island
-                                    </option>
-                                    <option value="NS">
-                                        Nova Scotia
-                                    </option>
-                                    <option value="NB">
-                                        New Brunswick
-                                    </option>
-                                    <option value="QC">
-                                        Quebec
-                                    </option>
-                                    <option value="ON">
-                                        Ontario
-                                    </option>
-                                    <option value="MB">
-                                        Manitoba
-                                    </option>
-                                    <option value="PE">
-                                        Prince Edward Island
-                                    </option>
-                                    <option value="SK">
-                                        Saskatchewan
-                                    </option>
-                                    <option value="AB">
-                                        Alberta
-                                    </option>
-                                    <option value="BC">
-                                        British Columbia
-                                    </option>
-                                    <option value="YT">
-                                        Yukon
-                                    </option>
-                                    <option value="NT">
-                                        Northwest Territories
-                                    </option>
-                                    <option value="NU">
-                                        Nunavut
-                                    </option>
-                                </select>
+							<div>
+								<label for="province">*Province</label>
+								<select id="province" name="province" required>
+									<option value="">None</option>
+									<option value="NL">Newfoundland and Labrador</option>
+									<option value="PE">Prince Edward Island</option>
+									<option value="NS">Nova Scotia</option>
+									<option value="NB">New Brunswick</option>
+									<option value="QC">Quebec</option>
+									<option value="ON">Ontario</option>
+									<option value="MB">Manitoba</option>
+									<option value="PE">Prince Edward Island</option>
+									<option value="SK">Saskatchewan</option>
+									<option value="AB">Alberta</option>
+									<option value="BC">British Columbia</option>
+									<option value="YT">Yukon</option>
+									<option value="NT">Northwest Territories</option>
+									<option value="NU">Nunavut</option>
+								</select>
 							</div>
-                            <div>
+							<div>
 								<label for="postalCode">*Postal Code</label>
 								<input
 									id="postalCode"
@@ -165,9 +136,8 @@
 									required
 								/>
 							</div>
-							
 						</div>
-                        <br>
+						<br />
 					</fieldset>
 					<div>
 						<input type="submit" value="Submit" />
@@ -197,4 +167,29 @@
 	<script src="../Shared/sharedFunctions.js"></script>
 	<script src="../Home/Index.js"></script>
 	<script src="supplier.js"></script>
+    <script type="text/javascript">
+			const queryString = window.location.search;
+			console.log(queryString);
+            const urlParams = new URLSearchParams(queryString);
+            const supplierID = urlParams.get('supplierID')
+            console.log(supplierID);
+
+            const found = suppliers.find(supplier => supplier.supplierID == supplierID);
+            console.log(found);
+
+			document.getElementById("name").value = found.supplierName;
+			document.getElementById("detail").value = found.supplierDetail;
+            document.getElementById("email").value = found.supplierEmail;
+            document.getElementById("telephone").value = found.supplierPhone;
+            document.getElementById("ext").value = found.supplierExt;
+            document.getElementById("street").value = found.supplierStreet;
+            document.getElementById("city").value = found.supplierCity;
+            document.getElementById("postalCode").value = found.supplierPostalCode;
+            document.getElementById("street").value = found.supplierStreet;
+            document.getElementById("province").value = found.supplierProvince;
+
+            if (supplierID)
+                document.getElementById("tittle").innerHTML = "Update Supplier";
+
+	</script>
 </html>

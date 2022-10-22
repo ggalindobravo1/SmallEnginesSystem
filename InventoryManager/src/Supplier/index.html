@@ -55,8 +55,7 @@
 				color: white;
 			}
 
-			#myTable tr:hover
-			{
+			#myTable tr:hover {
 				background-color: rgb(130, 177, 184);
 			}
 		</style>
@@ -70,6 +69,12 @@
 			<section>
 				<h2>My Suppliers <i class="fa-solid fa-truck-field fa-2x"></i></h2>
 
+				<div>
+					<a href="./newSupplier.html">
+						<input type="submit" value="New Supplier" />
+					</a>
+				</div>
+				<br />
 				<input
 					type="text"
 					id="myInput"
@@ -85,6 +90,9 @@
 						<th style="width: 5%">Postal Code</th>
 						<th style="width: 5%">Phone</th>
 						<th style="width: 5%">Email</th>
+						<th style="width: 1%"></th>
+						<th style="width: 1%"></th>
+						<th style="width: 1%"></th>
 					</tr>
 					<tr>
 						<td>OE Sypply</td>
@@ -92,6 +100,21 @@
 						<td>L1S1J2</td>
 						<td>222-000-1555</td>
 						<td>supplier@oesupply.ca</td>
+						<td>
+							<a href="./viewSupplier.html">
+								<i class="fa-solid fa-eye"></i>
+							</a>
+						</td>
+						<td>
+							<a href="./newSupplier.html?supplierID=1">
+								<i class="fa-solid fa-pen"></i>
+							</a>
+						</td>
+						<td>
+							<a href="./deleteSupplier.html">
+								<i class="fa-solid fa-trash"></i>
+							</a>
+						</td>
 					</tr>
 					<tr>
 						<td>Ontario's Lawn Mowers</td>
@@ -99,6 +122,21 @@
 						<td>L1S1G9</td>
 						<td>456-557-8877</td>
 						<td>ckarl@olm.ca</td>
+						<td>
+							<a href="./viewSupplier.html">
+								<i class="fa-solid fa-eye"></i>
+							</a>
+						</td>
+						<td>
+							<a href="./newSupplier.html?supplierID=2">
+								<i class="fa-solid fa-pen"></i>
+							</a>
+						</td>
+						<td>
+							<a href="./deleteSupplier.html">
+								<i class="fa-solid fa-trash"></i>
+							</a>
+						</td>
 					</tr>
 					<tr>
 						<td>Bardon Supplies Ltd.</td>
@@ -106,6 +144,21 @@
 						<td>L0S1J0</td>
 						<td>789-000-0498</td>
 						<td>supplier@bardon.ca</td>
+						<td>
+							<a href="./viewSupplier.html">
+								<i class="fa-solid fa-eye"></i>
+							</a>
+						</td>
+						<td>
+							<a href="./newSupplier.html?supplierID=3">
+								<i class="fa-solid fa-pen"></i>
+							</a>
+						</td>
+						<td>
+							<a href="./deleteSupplier.html">
+								<i class="fa-solid fa-trash"></i>
+							</a>
+						</td>
 					</tr>
 					<tr>
 						<td>TML Supply Company</td>
@@ -113,6 +166,21 @@
 						<td>L1L1P3</td>
 						<td>122-040-9898</td>
 						<td>cken@tml.ca</td>
+						<td>
+							<a href="./viewSupplier.html">
+								<i class="fa-solid fa-eye"></i>
+							</a>
+						</td>
+						<td>
+							<a href="./newSupplier.html?supplierID=4">
+								<i class="fa-solid fa-pen"></i>
+							</a>
+						</td>
+						<td>
+							<a href="./deleteSupplier.html">
+								<i class="fa-solid fa-trash"></i>
+							</a>
+						</td>
 					</tr>
 					<tr>
 						<td>Flexo Products Limited</td>
@@ -120,8 +188,36 @@
 						<td>L5F4G5</td>
 						<td>998-582-4050</td>
 						<td>bdiaz@flexoproducts.ca</td>
+						<td>
+							<a href="./viewSupplier.html">
+								<i class="fa-solid fa-eye"></i>
+							</a>
+						</td>
+						<td>
+							<a href="./newSupplier.html?supplierID=5">
+								<i class="fa-solid fa-pen"></i>
+							</a>
+						</td>
+						<td>
+							<a href="./deleteSupplier.html">
+								<i class="fa-solid fa-trash"></i>
+							</a>
+						</td>
 					</tr>
 				</table>
+				<center>
+					<nav aria-label="Page navigation example">
+						<ul class="pagination">
+							<li class="page-item">
+								<a class="page-link" href="#">Previous</a>
+							</li>
+							<li class="page-item"><a class="page-link" href="#">1</a></li>
+							<li class="page-item"><a class="page-link" href="#">2</a></li>
+							<li class="page-item"><a class="page-link" href="#">3</a></li>
+							<li class="page-item"><a class="page-link" href="#">Next</a></li>
+						</ul>
+					</nav>
+				</center>
 			</section>
 
 			<footer>

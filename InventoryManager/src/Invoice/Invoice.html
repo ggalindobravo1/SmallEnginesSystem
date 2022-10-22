@@ -5,12 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory Manager Home</title>
     <link rel="stylesheet" href="../appstyle.css">
-    <link rel="stylesheet" href="./Invoice.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="../Shared/Header/header.js"></script>
-    <script src="../Shared/Footer/footer.js"></script>
-    <script src="../Shared/sharedFunctions.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css"
+			integrity="sha512-CpIKUSyh9QX2+zSdfGP+eWLx23C8Dj9/XmHjZY2uDtfkdLGo0uY12jgcnkX9vXOgYajEKb/jiw67EYm+kBf+6g=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+    <style>
+			* {
+				box-sizing: border-box;
+			}
+
+			#myInput {
+				background-image: url("/css/searchicon.png");
+				background-position: 10px 10px;
+				background-repeat: no-repeat;
+				width: 100%;
+				font-size: 16px;
+				padding: 12px 20px 12px 40px;
+				border: 1px solid #ddd;
+				margin-bottom: 12px;
+			}
+
+			#myTable {
+				border-collapse: collapse;
+				width: 100%;
+				border: 1px solid #ddd;
+				font-size: 18px;
+			}
+
+			#myTable th,
+			#myTable td {
+				text-align: left;
+				padding: 12px;
+			}
+
+			#myTable tr {
+				border-bottom: 1px solid #ddd;
+			}
+
+			#myTable tr.header,
+			#myTable tr:hover {
+				background-color: hsl(186.21, 54.72%, 20.78%);
+				color: white;
+			}
+
+			#myTable tr:hover
+			{
+				background-color: rgb(130, 177, 184);
+			}
+		</style>
   </head>
 <body>
 
@@ -22,90 +71,130 @@
     </header>
 
     <section>
+
+      <h2>Invoice List  <i class="fa-solid fa-file-invoice-dollar fa-2x"></i></i></h2>
+      <div>
+        <a href="./newInvoice.html">
+          <input type="submit" value="New Invoice" />
+        </a>
+      </div>
+      <br />
       
-     
-<h2>Inventory</h2>
-
-<input type="text" id="myInput" onkeyup="searchByName()" placeholder="Search for names.." title="Type in a name">
-
-<table id="myTable">
-  <tr class="header">
-    <th style="width:25%;">invoiceType</th>
-    <th style="width:25%;">invoiceStatus</th>
-    <th style="width:20%;">invoiceDate</th>
-    <th style="width:20%;">invoiceSubtotal</th>
-    <th style="width:10%;">Action</th>
-  </tr>
-  <tr>
-    <td>Purchase Order</td>
-    <td>Bought</td>
-    <td>2022-07-15</td>
-    <td>1339.004</td>
-    <td> 
-      <a href="#" class=""><i class="fa fa-file-text"></i></a>
-      <a href="#" ><i class="fa fa-trash"></i></a>
-      <a href="#" ><i class="fa fa-refresh"></i></a>
-
-    </td>
-  </tr>
-  <tr>
-    <td>Purchase Order</td>
-    <td>Bought</td>
-    <td>2022-07-15</td>
-    <td>82.65</td>
-  </tr>
-  <tr>
-    <td>Purchase Order</td>
-    <td>Pending</td>
-    <td>2022-10-15</td>
-    <td>86.96</td>
-  </tr>
-  <tr>
-    <td>Purchase Order</td>
-    <td>Pending</td>
-    <td>2022-10-15</td>
-    <td>69.55</td>
-  </tr>
-  <tr>
-    <td>Purchase Order</td>
-    <td>Bought</td>
-    <td>2022-09-15</td>
-    <td>765.55</td>
-  </tr>
-  <tr>
-    <td>Purchase Order</td>
-    <td>Bought</td>
-    <td>2022-09-15</td>
-    <td>1305.00</td>
-  </tr>
-  <tr>
-    <td>Purchase Order</td>
-    <td>Bought</td>
-    <td>2022-09-15</td>
-    <td>534.91</td>
-  </tr>
-  <tr>
-    <td>Purchase Order</td>
-    <td>Bought</td>
-    <td>2022-09-15</td>
-    <td>165.30</td>
-  </tr>
-  <tr>
-    <td>Purchase Order</td>
-    <td>Bought</td>
-    <td>2022-04-15</td>
-    <td>2609.95</td>
-  </tr>
-  <tr>
-    <td>Purchase Order</td>
-    <td>Bought</td>
-    <td>2022-03-15</td>
-    <td>2892.65</td>
-  </tr>
-</table>
-
-
-    </section>
+      <input type="text" id="myInput" onkeyup="searchByExtId()" placeholder="Search for External ID.." title="Type in an ID">
+      
+      <table id="myTable">
+        <tr class="header">
+          <th style="width:10%;">External ID</th>
+          <th style="width:20%;">Type</th>
+          <th style="width:20%;">Status</th>
+          <th style="width:20%;">Date</th>
+          <th style="width:20%;">Subtotal</th>
+          <th style="width:10%;">Action</th>
+        </tr>
+        <tr>
+          <td>5555444</td>
+          <td>Purchase Order</td>
+          <td>Bought</td>
+          <td>2022-07-15</td>
+          <td>1534.00</td>
+          <td>
+            <a href="./ViewInvoice.html" class="" title="View/Edit Record" ><i class="fa-solid fa-eye"></i></a>      
+          </td>
+        </tr>
+        <tr>
+          <td>545454</td>
+          <td>Purchase Order</td>
+          <td>Bought</td>
+          <td>2022-07-15</td>
+          <td>82.65</td>
+          <td>
+            <a href="#" class="" title="View/Edit Record"><i class="fa-solid fa-eye"></i></a>      
+          </td>
+        </tr>
+        <tr>
+          <td>12344</td>
+          <td>Purchase Order</td>
+          <td>Pending</td>
+          <td>2022-10-15</td>
+          <td>86.96</td>
+          <td>
+            <a href="#" class="" title="View/Edit Record"><i class="fa-solid fa-eye"></i></a>      
+          </td>
+        </tr>
+        <tr>
+          <td>545741</td>
+          <td>Purchase Order</td>
+          <td>Pending</td>
+          <td>2022-10-15</td>
+          <td>69.55</td>
+          <td>
+            <a href="#" class="" title="View/Edit Record"><i class="fa-solid fa-eye"></i></a>      
+          </td>
+        </tr>
+        <tr>
+          <td>45689</td>
+          <td>Purchase Order</td>
+          <td>Bought</td>
+          <td>2022-09-15</td>
+          <td>765.55</td>
+          <td>
+            <a href="#" class="" title="View/Edit Record"><i class="fa-solid fa-eye"></i></a>      
+          </td>
+        </tr>
+        <tr>
+          <td>99775</td>
+          <td>Purchase Order</td>
+          <td>Bought</td>
+          <td>2022-09-15</td>
+          <td>1305.00</td>
+          <td>
+            <a href="#" class="" title="View/Edit Record"><i class="fa-solid fa-eye"></i></a>      
+          </td>
+        </tr>
+        <tr>
+          <td>44566</td>
+          <td>Purchase Order</td>
+          <td>Bought</td>
+          <td>2022-09-15</td>
+          <td>534.91</td>
+          <td>
+            <a href="#" class="" title="View/Edit Record"><i class="fa-solid fa-eye"></i></a>      
+          </td>
+        </tr>
+        <tr>
+          <td>1112258</td>
+          <td>Purchase Order</td>
+          <td>Bought</td>
+          <td>2022-09-15</td>
+          <td>165.30</td>
+          <td>
+            <a href="#" class="" title="View/Edit Record"><i class="fa-solid fa-eye"></i></a>      
+          </td>
+        </tr>
+        <tr>
+          <td>1452</td>
+          <td>Purchase Order</td>
+          <td>Bought</td>
+          <td>2022-04-15</td>
+          <td>2609.95</td>
+          <td>
+            <a href="#" class="" title="View/Edit Record"><i class="fa-solid fa-eye"></i></a>      
+          </td>
+        </tr>
+        <tr>
+          <td>23232</td>
+          <td>Purchase Order</td>
+          <td>Bought</td>
+          <td>2022-03-15</td>
+          <td>2892.65</td>
+          <td>
+            <a href="#" class="" title="View/Edit Record"><i class="fa-solid fa-eye"></i></a>      
+          </td>
+        </tr>
+      </table>
+      
+      
+      </section>
 
     <footer >
       <main-footer></main-footer>
@@ -116,11 +205,24 @@
     
     
     
-    
-      
-    <script src="./Invoice.js"></script>
-    <script src="./index.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+   
 
 </body>
+<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.min.js"
+		integrity="sha512-5BqtYqlWfJemW5+v+TZUs22uigI8tXeVah5S/1Z6qBLVO7gakAOtkOzUtgq6dsIo5c0NJdmGPs0H9I+2OHUHVQ=="
+		crossorigin="anonymous"
+		referrerpolicy="no-referrer"
+	></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"
+		integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA=="
+		crossorigin="anonymous"
+		referrerpolicy="no-referrer"
+	></script>
+  <script src="../Shared/Header/header.js"></script>
+  <script src="../Shared/Footer/footer.js"></script>
+  <script src="../Shared/sharedFunctions.js"></script>      
+  <script src="./Invoice.js"></script>
+  <script src="../Home/Index.js"></script>
 </html>

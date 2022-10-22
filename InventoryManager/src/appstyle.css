@@ -103,12 +103,13 @@ textarea {
 select {
 	height: 25px;
 }
-input[type=submit] {
+input[type=submit], button[type=submit]{
 	background: #e9a442;
 	color: whitesmoke;
 	border: 2px solid whitesmoke;
 	font-size: 16px;
 	margin-top: 15px;
+  margin-bottom: 15px;
 	padding: 5px 25px;
 }
 /******************

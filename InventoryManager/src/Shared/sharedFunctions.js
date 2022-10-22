@@ -16,7 +16,7 @@ const relocateFnc = (num) => {
       finalPage = "/Inventory/index.html";
       break;
     case 3:
-      finalPage = "/Invoice/index.html";
+      finalPage = "/Invoice/Invoice.html";
       break;
     case 4:
       finalPage = "/Oders/index.html";

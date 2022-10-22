@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Inventory Manager Home</title>
+		<link rel="stylesheet" href="../appstyle.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css"
+			integrity="sha512-CpIKUSyh9QX2+zSdfGP+eWLx23C8Dj9/XmHjZY2uDtfkdLGo0uY12jgcnkX9vXOgYajEKb/jiw67EYm+kBf+6g=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+	</head>
+
+	<body>
+		<div class="box">
+			<header>
+				<main-header></main-header>
+			</header>
+
+			<section>
+
+                <form action="https://webdevbasics.net/scripts/demo.php" method="post">
+                    <h2>View Invoice</h2>
+					<fieldset style="margin: 25px 5px;">
+						<legend>Order Information</legend>
+						<div class="two-col m-2">
+							<div>
+								<label><strong>Id: </strong></label>
+								<label>1</label>
+							</div>
+							<div>
+								<label><strong>Type: </strong></label>
+								<label>Purchase Order</label>
+							</div>
+                            <div>
+                                <label ><strong>Supplier: </strong></label>
+								<label class="viewData">supplier master</label>
+                                <input type="text" hidden="true" class="editData"/>
+							</div>
+							<div>
+								<label><strong>Status: </strong></label>
+                                <label class="viewData">Bought</label>
+                                <select name="status" id="status" hidden class="editData">
+                                    <option value="Bought">Bought</option>
+                                    <option value="Generated">Generated</option>
+                                    <option value="Cancelled">Cancelled</option>
+                                    <option value="Pending">Pending</option>
+                                </select>
+							</div>
+                            <div>
+                                <label><strong>External Number ID: </strong></label>
+								<label class="viewData">5555444</label>
+                                <input type="number" hidden class="editData"/>
+							</div> 
+                            <div>
+								<label><strong>Sub Status: </strong></label>
+                                <label class="viewData">Complete</label>
+                                <select name="subStatus" id="subStatus" hidden class="editData">
+                                    <option value="Complete">Complete</option>
+                                    <option value="Incomplete">Incomplete</option>
+                                    <option value="Cancelled">Cancelled</option>
+                                    <option value="Pending">Pending</option>
+                                </select>
+							</div>
+                                                     
+						</div>
+                        <br>
+					</fieldset>
+                    <fieldset style="margin: 25px 5px;">
+                        <legend>Order Details</legend>
+                        
+                            <div>
+                                
+                                <table style="width:100%;" class="m-2">
+                                    <tr>
+                                        <th style="width:10%;">Qty</th>
+                                        <th style="width:50%;">Detail</th>
+                                        <th style="width:10%;">Unit Price</th>
+                                        <th style="width:20%;">Item Status</th>
+                                        <th style="width:10%;">Last Status</th>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><label class="viewData">Mobil 1 5W30 Motor Oil</label>
+                                            <input type="text" hidden class="editData"/>
+                                        </td>
+                                        <td><label>17.00</label>
+                                            
+                                        </td>
+                                        <td><label class="viewData">Complete Delivered</label>
+                                            <select name="subStatus" id="subStatus" hidden class="editData">
+                                                <option value="Complete Delivered">Complete Delivered</option>
+                                                <option value="Incomplete">Incomplete Delivered</option>
+                                                <option value="Cancelled">Cancelled</option>
+                                                <option value="Pending">Pending</option>
+                                            </select>
+                                        </td>
+                                        <td><label class="viewData">2022-07-22</label>
+                                            <input type="date" hidden class="editData"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td><label class="viewData">Certified Group Size 35 Auto/Car/Truck Battery, 525 CCA</label>
+                                            <input type="text" hidden class="editData"/>
+                                        </td>
+                                        <td><label>150.00</label>
+                                            
+                                        </td>
+                                        <td><label class="viewData">Complete Delivered</label>
+                                            <select name="subStatus" id="subStatus" hidden class="editData">
+                                                <option value="Complete Delivered">Complete Delivered</option>
+                                                <option value="Incomplete">Incomplete Delivered</option>
+                                                <option value="Cancelled">Cancelled</option>
+                                                <option value="Pending">Pending</option>
+                                            </select>
+                                        </td>
+                                        <td><label class="viewData">2022-07-22</label>
+                                            <input type="date" hidden class="editData"/>       
+                                        </td>
+                                    </tr>
+                                </table>
+							</div>
+                        <div class="two-col m-2">
+                            <div>
+                                <label><strong>Subtotal: </strong></label>
+								<label>1534.00</label>
+							</div>
+                            <div>
+                                <label><strong>Tax: </strong></label>
+								<label>199.42</label>
+							</div>
+                            <div>
+                                <label><strong>Discount % : </strong></label>
+								<label class="viewData">0</label>
+                                <input type="number" hidden class="editData"/>
+							</div>
+                            <div>
+                                <label><strong>Order Completion Date: </strong></label>
+								<label class="viewData">2022-07-22</label>
+                                <input type="date" hidden class="editData"/>
+							</div>
+
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Audit</legend>
+                        <div class="two-col m-2">
+                            <div>
+                                <label><strong>Created by: </strong></label>
+								<label>Sam@hotmail.com</label>
+							</div>
+                            <div>
+                                <label><strong>Created at: </strong></label>
+								<label>2022-07-10</label>
+							</div>
+                            <div>
+                                <label><strong>Updated at: </strong></label>
+								<label id="lastUpdate">2022-09-15</label>
+							</div>
+
+                        </div>
+                    </fieldset>
+				
+					<div class="my-3">
+                        <br/>
+                        <button type="button" class="btn btn-danger" onclick="return confirm('Orders cannot be deleted, only closed as Cancelled')"> Delete Invoice</button>
+                        <button type="button" class="btn btn-secondary" id="btnEdit" onclick="editInvoice()"> Edit Invoice </button>
+                        <button type="button" class="btn btn-success" id="btnSaveEdit" hidden onclick="saveChanges()">Save Changes</button>
+                        <button type="button" class="btn btn-light" id="btnCancel" hidden onclick="cancelEdit()">Cancel</button>
+                        <button type="button" class="btn btn-dark" onclick="history.back()">Back</button>
+
+					</div>
+				</form>
+
+			</section>
+
+			<footer>
+				<main-footer></main-footer>
+			</footer>
+		</div>
+	</body>
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.min.js"
+		integrity="sha512-5BqtYqlWfJemW5+v+TZUs22uigI8tXeVah5S/1Z6qBLVO7gakAOtkOzUtgq6dsIo5c0NJdmGPs0H9I+2OHUHVQ=="
+		crossorigin="anonymous"
+		referrerpolicy="no-referrer"
+	></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"
+		integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA=="
+		crossorigin="anonymous"
+		referrerpolicy="no-referrer"
+	></script>
+	<script src="../Shared/Header/header.js"></script>
+	<script src="../Shared/Footer/footer.js"></script>
+	<script src="../Shared/sharedFunctions.js"></script>
+    <script src="./viewInvoice.js"></script>
+    <script src="../Home/Index.js"></script>
+</html>

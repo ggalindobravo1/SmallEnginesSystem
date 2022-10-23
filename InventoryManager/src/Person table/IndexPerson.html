@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/PersonT.css">
+    <title>Filter search Index</title>
+</head>
+
+<body>
+    <script src="TablePerson.js"></script>
+
+    <div>
+        <div class="btn">
+            <a href="NewPerson.html"><i></i>NewPerson</a>
+        </div>
+        <h2>Search by name or department</h2>
+    </div>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by department"
+        title="Search by..">
+    <table id="personTable">
+        <tr class="header">
+            <th>ID</th>
+            <th>Type</th>
+            <th>Department</th>
+            <th>Full Name</th>
+            <th style="width:150px;">Action</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>Sales</td>
+            <td>Wendy Salinas</td>
+            <td>
+                <a href="ViewPerson.html" class="block-action" ><i class="fa fa-pencil"></i></a>
+            </td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>1</td>
+            <td>Sales</td>
+            <td>William Barrios</td>
+            <td>
+                <a href="#" class="block-action"><i class="fa fa-pencil"></i></a>
+            </td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>1</td>
+            <td>Ordering and Purchasing</td>
+            <td>Sam Lopez</td>
+            <td>
+                <a href="#" class="block-action"><i class="fa fa-pencil"></i></a>
+            </td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>1</td>
+            <td>Mantainance</td>
+            <td>Eugene Herrera</td>
+            <td>
+                <a href="#" class="block-action"><i class="fa fa-pencil"></i></a>
+            </td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>1</td>
+            <td>Mantainance</td>
+            <td>Sarah Connors</td>
+            <td>
+                <a href="#" class="block-action"><i class="fa fa-pencil"></i></a>
+            </td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>1</td>
+            <td>Admin</td>
+            <td>Emily Galan</td>
+            <td>
+                <a href="#" class="block-action"><i class="fa fa-pencil"></i></a>
+            </td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>1</td>
+            <td>Corporative</td>
+            <td>Emma Valdez</td>
+            <td>
+                <a href="#" class="block-action"><i class="fa fa-pencil"></i></a>
+            </td>
+        </tr>
+    </table>
+ </body>
+</html>

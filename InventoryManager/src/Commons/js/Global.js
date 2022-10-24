@@ -1,7 +1,9 @@
+const basePath = "/InventoryManager/src/Commons/json-data/";
+
 const globalData = {
     // Add new Crud for each table
-    personTypesData: new CrudData('personTypes', './json-data/personsTypes.json'),
-    personData: new CrudData('person', './json-data/persons.json', "id", (person) => {
+    personTypesData: new CrudData('personTypes', basePath + 'personsTypes.json'),
+    personData: new CrudData('person', basePath + 'persons.json', "id", (person) => {
         const personType = globalData.personTypesData.findById(person.type);
         if (personType) {
             person.typeName = personType.name;
@@ -27,8 +29,8 @@ globalData.initData = async (callBack) => {
             await globalData[keys[i]].init();
         }
     }
-    
-    if (window.location.search && window.location.search.length >0) {
+
+    if (window.location.search && window.location.search.length > 0) {
         globalData.searchParams = new URLSearchParams(window.location.search);
     } else {
         globalData.searchParams = new URLSearchParams("?");
@@ -87,9 +89,12 @@ function processElementToIncludeHtml(elmnt) {
     return false;
 };
 
-function createActionTable(cssAction, redirectTo) {
+function createActionTable(cssAction, redirectTo, title) {
     const action = document.createElement("a");
     action.href = redirectTo;
+    action.title = title;
+    action.setAttribute("data-toggle", "tooltip");
+    action.classList.add("col-3");
     action.classList.add("block-action");
 
     const actionI = document.createElement("i");
@@ -126,6 +131,11 @@ TableActions.prototype.refresh = function (jsonFilter) {
     for (let i = 0; i < jsonFilter.length; i++) {
         this.addRow(jsonFilter[i], tableBody);
     }
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="tooltip"]'))
+    tooltipTriggerList.forEach(element => {
+        new bootstrap.Tooltip(element);
+    });
 }
 
 TableActions.prototype.addRow = function (item, tableBody) {
@@ -140,9 +150,15 @@ TableActions.prototype.addRow = function (item, tableBody) {
     // Actions
     if (this.actions && this.actions.length > 0) {
         const td = tr.insertCell();
+        td.classList.add("row");
         for (let i = 0; i < this.actions.length; i++) {
             const myAction = this.actions[i];
-            td.appendChild(createActionTable(myAction.css, myAction.redirectTo + "?selectId=" + item[this.idField]));
+            td.appendChild(
+                createActionTable(
+                    myAction.css,
+                    myAction.redirectTo + "?selectId=" + item[this.idField],
+                    myAction.title)
+            );
         }
     }
 }

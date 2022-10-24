@@ -89,9 +89,14 @@ function processElementToIncludeHtml(elmnt) {
     return false;
 };
 
-function createActionTable(cssAction, redirectTo, title) {
+function createActionTable(cssAction, redirectTo, actionClick, title) {
     const action = document.createElement("a");
     action.href = redirectTo;
+    if (actionClick) {
+        action.onclick = () => {
+            actionClick();
+        };
+    }
     action.title = title;
     action.setAttribute("data-toggle", "tooltip");
     action.classList.add("col-3");
@@ -106,6 +111,23 @@ function createActionTable(cssAction, redirectTo, title) {
     }
 
     return action;
+}
+
+function addToolTip() {
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="tooltip"]'))
+    tooltipTriggerList.forEach(element => {
+        new bootstrap.Tooltip(element);
+    });
+}
+
+async function restoreData() {
+    // Init all data
+    var keys = Object.keys(globalData);
+    for (let i = 0; i < keys.length; i++) {
+        if (globalData[keys[i]] && globalData[keys[i]].restoreData) {
+            await globalData[keys[i]].restoreData();
+        }
+    }
 }
 
 window.addEventListener('DOMContentLoaded', (event) => includeHTML());
@@ -123,6 +145,41 @@ TableActions.prototype.addAction = function (myAction) {
     this.actions.push(myAction);
 }
 
+TableActions.prototype.addActionEdit = function (redirectTo) {
+    this.actions.push({
+        css: "fa fa-pencil",
+        redirectTo: redirectTo + "?mode=edit",
+        title: "Edit"
+    });
+}
+
+TableActions.prototype.addActionView = function (redirectTo) {
+    this.actions.push({
+        css: "fa fa-bars",
+        redirectTo: redirectTo + "?mode=view",
+        title: "Details"
+    });
+}
+
+TableActions.prototype.addActionDelete = function (crucAction, callBack, confirmMessage) {
+    this.actions.push({
+        css: "fa fa-trash red",
+        redirectTo: "#",
+        title: "Delete",
+        action: (item) => {
+            if (crucAction) {
+                const message = confirmMessage || "Are you sure you want to delete this item?";
+                if (confirm(message) == true) {
+                    crucAction.delete(item);
+                    if (callBack) {
+                        callBack();
+                    }
+                }
+            }
+        }
+    });
+}
+
 TableActions.prototype.refresh = function (jsonFilter) {
     var tableBody = document.getElementById(this.idTable).getElementsByTagName('tbody')[0];
 
@@ -131,11 +188,7 @@ TableActions.prototype.refresh = function (jsonFilter) {
     for (let i = 0; i < jsonFilter.length; i++) {
         this.addRow(jsonFilter[i], tableBody);
     }
-
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="tooltip"]'))
-    tooltipTriggerList.forEach(element => {
-        new bootstrap.Tooltip(element);
-    });
+    addToolTip();
 }
 
 TableActions.prototype.addRow = function (item, tableBody) {
@@ -153,11 +206,23 @@ TableActions.prototype.addRow = function (item, tableBody) {
         td.classList.add("row");
         for (let i = 0; i < this.actions.length; i++) {
             const myAction = this.actions[i];
+            let redirectTo = myAction.redirectTo;
+            if (redirectTo.includes("?")) {
+                redirectTo = redirectTo + "&selectId=" + item[this.idField];
+            } else {
+                redirectTo = redirectTo + "?selectId=" + item[this.idField];
+            }
+
             td.appendChild(
                 createActionTable(
                     myAction.css,
-                    myAction.redirectTo + "?selectId=" + item[this.idField],
-                    myAction.title)
+                    redirectTo,
+                    () => {
+                        if (myAction.action) {
+                            myAction.action(item);
+                        }
+                    },
+                    myAction.title || "")
             );
         }
     }
@@ -194,6 +259,13 @@ CrudData.prototype.init = async function () {
     }
     return;
 }
+
+CrudData.prototype.restoreData = async function () {
+    if (this.storageKey !== 'N/A') {
+        delete localStorage[this.storageKey];
+    }
+    await this.init();
+};
 
 CrudData.prototype.get = function () { return this.data };
 

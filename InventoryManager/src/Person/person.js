@@ -11,11 +11,15 @@ personTableF.initTable = () => {
         "personTable",
         ["id", "typeName", "department", "fullName", "details", "address", "phone", "ext", "email", "createAtFormat", "updateAtFormat"]
     );
-    personTableF.personTable.addAction({ css: "fa fa-search", redirectTo: "IndexPerson.html", title: "Edit" });
-    personTableF.personTable.addAction({ css: "fa fa-bars", redirectTo: "IndexPerson.html", title: "Details" });
-    personTableF.personTable.addAction({ css: "fa fa-trash red", redirectTo: "IndexPerson.html", title: "Delete" });
+    personTableF.personTable.addActionEdit("IndexPerson.html");
+    personTableF.personTable.addActionView("IndexPerson.html");
+    personTableF.personTable.addActionDelete(
+        globalData.personData,
+        () => personTableF.filerTable()
+    );
+    // personTableF.personTable.addAction({ css: "fa fa-trash red", redirectTo: "IndexPerson.html", title: "Delete" });
     // personTableF.personTable.addAction({ css: "fa fa-search", redirectTo: "IndexPerson.html", title: "View" });
-    
+
     personTableF.personTable.refresh(globalData.personData.get());
 }
 

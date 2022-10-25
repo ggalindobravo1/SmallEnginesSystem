@@ -19,6 +19,9 @@ viewPersonF.edit = () => {
     editDataForm();
     document.getElementById("btnEdit").hidden = true;
     document.getElementById("btnSave").hidden = false;
+    viewPersonF.loadTypesSelect();
+    document.getElementById("title").textContent = "Edit Person";
+    document.title = "Edit Person";
 }
 
 viewPersonF.save = () => {
@@ -36,6 +39,19 @@ viewPersonF.save = () => {
     }
     // Send to list
     window.location.href = "../Main/Main.html?page=persons";
+}
+
+viewPersonF.loadTypesSelect = () => {
+    // Load Person Types
+    const listType = document.getElementById("Type");
+    const personTypes = globalData.personTypesData.get();
+    for (i = 0; i < personTypes.length; i++) {
+        const option = document.createElement("option");
+        option.text = personTypes[i].name;
+        option.value = personTypes[i].id;
+        listType.add(option);
+    }
+    listType.value = viewPersonF.person.type;
 }
 
 viewPersonF.init = () => {
@@ -56,18 +72,10 @@ viewPersonF.init = () => {
         // Show Save Btn
         document.getElementById("btnSave").hidden = false;
     } else {
+        document.getElementById("title").textContent = "View Person";
+        document.title = "View Person";
         // Show Delete Btn
         document.getElementById("btnDelete").hidden = false;
-        
-        // Load Person Types
-        const listType = document.getElementById("Type");
-        const personTypes = globalData.personTypesData.get();
-        for (i = 0; i < personTypes.length; i++) {
-            const option = document.createElement("option");
-            option.text = personTypes[i].name;
-            option.value = personTypes[i].id;
-            listType.add(option);
-        }
 
         // Load Person from parameter
         viewPersonF.person = loadDataSelected(globalData.personData,  "../Main/Main.html?page=persons");
@@ -76,10 +84,7 @@ viewPersonF.init = () => {
         }
 
         if (viewPersonF.mode == "edit") {
-            editDataForm();
-            // SHow Save Btn and Hidden Edit
-            document.getElementById("btnEdit").hidden = true;
-            document.getElementById("btnSave").hidden = false;
+            viewPersonF.edit();
         } else {
             // SHow Edit Btn and Hidden Save
             document.getElementById("btnEdit").hidden = false;

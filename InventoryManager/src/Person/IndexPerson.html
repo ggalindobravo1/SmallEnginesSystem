@@ -22,14 +22,18 @@
     </div>
     <div class="container">
         <div class="row align-items-center">
-        <div class="col-4"> </div>
-        <div class="col-4">
-            <input type="text" id="myInput" onkeyup="personTableF.filterTable()" placeholder="Search person by..."
-                title="Type in an Text" >       
-                <span id="icon">
-                    <i class="fas fa-search"></i>
-                </span>               
-        </div>
+            <div class="col-4"> 
+            </div>
+            <div class="col-4">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i
+                                class="fas fa-search"></i></span>
+                    </div>
+                    <input type="text" id="myInput" onkeyup="personTableF.filterTable()" class="form-control" placeholder="Search person by..."
+                        aria-label="Search person by..." aria-describedby="basic-addon1">
+                </div>
+            </div>
         </div>
     </div>
     <div class="col-4">

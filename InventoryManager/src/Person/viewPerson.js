@@ -22,10 +22,19 @@ viewPersonF.edit = () => {
 }
 
 viewPersonF.save = () => {
+    // Add When was updated
     viewPersonF.person.updateAt = getDateTimeFormat(new Date());
+    // Read Field from form and mapping into object
     mapFormToObject(viewPersonF.person);
-    globalData.personData.update(viewPersonF.person);
-    alert("Person saved successfully!!!");
+    // Valid is a new Object or Update
+    if (viewPersonF.mode == "new") {
+        globalData.personData.insert(viewPersonF.person);
+        alert("Person created successfully!!!");
+    } else {
+        globalData.personData.update(viewPersonF.person);
+        alert("Person updated successfully!!!");
+    }
+    // Send to list
     window.location.href = "../Main/Main.html?page=persons";
 }
 

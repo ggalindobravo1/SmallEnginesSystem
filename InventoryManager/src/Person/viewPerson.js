@@ -1,6 +1,8 @@
 const viewPersonF = {
     mode: 'new',
-    person: {}
+    person: {
+        createAt: getDateTimeFormat(new Date())
+    }
 };
 
 viewPersonF.delete = () => {
@@ -20,7 +22,11 @@ viewPersonF.edit = () => {
 }
 
 viewPersonF.save = () => {
-    
+    viewPersonF.person.updateAt = getDateTimeFormat(new Date());
+    mapFormToObject(viewPersonF.person);
+    globalData.personData.update(viewPersonF.person);
+    alert("Person saved successfully!!!");
+    window.location.href = "../Main/Main.html?page=persons";
 }
 
 viewPersonF.init = () => {
@@ -31,6 +37,11 @@ viewPersonF.init = () => {
         }
     }
 
+    // Add Valid form
+    const form = document.getElementById('formPerson');
+    addValidationForm(form, viewPersonF.save);
+
+    // Check Mode
     if (viewPersonF.mode == "new") {
         editDataForm();
         // Show Save Btn

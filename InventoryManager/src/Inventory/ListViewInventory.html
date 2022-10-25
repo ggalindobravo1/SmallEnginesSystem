@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../appstyle.css">
+    <link rel="stylesheet" href="../Commons/css/Global.css">
+    <!--><link rel="stylesheet" href="./person.css"><-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css"
+        integrity="sha512-CpIKUSyh9QX2+zSdfGP+eWLx23C8Dj9/XmHjZY2uDtfkdLGo0uY12jgcnkX9vXOgYajEKb/jiw67EYm+kBf+6g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="../Commons/js/Global.js"></script>
+    <script src="./inventory.js"></script>
+
+    <title>Inventory List</title>
+</head>
+
+<body onload="globalData.initData(inventoryTableF.initTable);">
+    <div class="box">
+        <header>
+            <div include-html="../Commons/views/Header.html"></div>
+        </header>
+        <div class="row align-items-center">
+            <div class="col-2">
+                <h2>Inventory</h2>
+            </div>
+            <div class="col-8">
+            </div>
+            <div class="col-2">
+                <a href="./ViewInventory.html" >
+                    <input type="submit" value="New Item" border-radius: 10px/>
+                </a>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-4"> 
+                </div>
+                <div class="col-4">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i
+                                    class="fas fa-search"></i></span>
+                        </div>
+                        <input type="text" id="myInput" onkeyup="inventoryTableF.filterTable()" class="form-control" placeholder="Search person by..."
+                            aria-label="Search person by..." aria-describedby="basic-addon1">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+        </div>
+
+
+
+        
+
+        
+
+        <table id="inventoryTable">
+            <thead>
+                <tr class="header">
+                    <th>Inventoryid</th>
+                    <th>inventoryQty</th>
+                    <th>inventoryPrice</th>
+                    <th>inventoryUpdateAt</th>
+                    <th style="width:150px;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div include-html="../Commons/views/Footer.html"></div>
+    </div>
+</body>
+
+<!-- ✅ load popper.js ✅ -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.min.js"
+    integrity="sha512-5BqtYqlWfJemW5+v+TZUs22uigI8tXeVah5S/1Z6qBLVO7gakAOtkOzUtgq6dsIo5c0NJdmGPs0H9I+2OHUHVQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"
+    integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</html>

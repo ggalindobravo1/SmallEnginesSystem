@@ -1,0 +1,115 @@
+<section id="inventorySection">
+    <form action="https://webdevbasics.net/scripts/demo.php" method="post">
+        <h2>New Item</h2>
+        <fieldset style="margin: 25px 5px;">
+            <legend>General Information Item:</legend>
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <label for="Itemid"><strong>*Id Item:</strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="inventoryid"></label>
+                        <input id="Itemid" name="Itemid" placeholder="Itemid ID" type="number" data-bind="Inventoryid"
+                            hidden="true" class="editData" required />
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <label for="prodID">*Product Id:</label>
+                        <input id="prodID" data-bind="productID" name="prodID" placeholder="Product Id" type="number"
+                            required />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <label for="quantity">*Quantity:</label>
+                        <input id="quantity" data-bind="inventoryQty" name="quantity" placeholder="Quantity" type="number"
+                            required />
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <label for="Cost">*Cost:</label>
+                        <input id="cost" data-bind="inventoryCost" name="cost" placeholder="Item cost" type="number"
+                            required />
+                    </div>
+                </div>
+            </div>
+            <div class="two-col m-2">
+                <div>
+                    <label for="Price">*Price:</label>
+                    <input id="Price" data-bind="inventoryPrice" name="Price" placeholder="Item Price" type="number" required />
+                </div>
+                
+            </div>
+            <br /><br />
+        </fieldset>
+        <fieldset>
+            <legend>Control Information Item:</legend>
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <label for="Maximum">*Maximum in warehouse:</label>
+                        <input id="Maximum" data-bind="inventoryMaxStorage" name="Maximum" placeholder="Maximum in storage" type="number"
+                            required />
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <label for="Minimum">*Minimum in warehouse:</label>
+                        <input id="Minimum" data-bind="inventoryAlertStorage" name="Minimum" placeholder="Minimum in storage" type="number"
+                            required />
+                    </div>
+                </div>
+            </div>
+            <div class="two-col m-2">
+                <div>
+                    <label for="CreatedAt">*Created date:</label>
+                    <input id="CreatedAt" data-bind="inventoryCreatedAt" name="CreatedAt" placeholder="Item creation date" type="date" required />
+                </div>
+                <div>
+                    <label for="UpdateAt">*Updated date:</label>
+                    <input id="UpdateAt" data-bind="inventoryUpdateAt" name="UpdateAt" placeholder="Item update" type="date" required />
+                </div>
+            </div>><br>
+
+            </select>
+            <br /><br />
+        </fieldset>
+        <div class="row align-items-center">
+            <div class="col-2">
+                <button id="btnDelete" hidden="true" type="button" class="btn btn-danger col" onclick="viewPersonF.delete()"><i
+                        class="fa-solid fa-trash"></i> Delete </button>
+                <button id="btnCancel" type="button" class="btn btn-secondary col" onclick="viewPersonF.cancel()"><i
+                        class="fa-solid fa-cancel"></i> Cancel </button>
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+                <button id="btnEdit" hidden="true" type="button" class="btn btn-primary col" onclick="viewInventoryF.edit()"><i
+                        class="fa-solid fa-pencil"></i> Edit </button>
+                <button id="btnSave" hidden="true" type="button" class="btn btn-primary col" onclick="viewInventoryF.save()"><i
+                        class="fa-solid fa-save"></i> Save </button>
+            </div>
+        </div>
+    </form>
+    <br/>
+    <script>
+        try {
+            mainF.configs;
+        } catch (error) {
+            window.location.href = "../Main/Main.html?page=newItem";
+        }
+    </script>
+</section>

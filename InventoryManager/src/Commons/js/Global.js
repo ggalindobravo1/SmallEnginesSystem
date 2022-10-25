@@ -416,6 +416,7 @@ CrudData.prototype.findById = function (id) {
 CrudData.prototype.insert = function (item) {
     this.processItem(item);
     this.data.push(item);
+    item[this.idField] = this.data.length;
     localStorage[this.storageKey] = JSON.stringify(this.data);
 }
 

@@ -55,6 +55,29 @@ function fillFormData(item) {
     }
 }
 
+function loadDataSelected(crucAction, redirectTo) {
+    let result = null;
+    if (globalData.searchParams.has("selectId")) {
+        let tmp = globalData.searchParams.get("selectId");
+        if (tmp) {
+            result = crucAction.findById(tmp);
+            // If User not exits
+            if (!result) {
+                alert("Invalid Selection!!!");
+                window.location.href = redirectTo;
+            }
+        } else {
+            alert("You must be select one item!!!");
+            window.location.href = redirectTo;
+        }
+    } else {
+        alert("You must be select one item!!!");
+        window.location.href = redirectTo;
+    }
+
+    return result;
+}
+
 function crudDelete(crucAction, confirmMessage, item, callBack) {
     if (crucAction) {
         const message = confirmMessage || "Are you sure you want to delete this item?";

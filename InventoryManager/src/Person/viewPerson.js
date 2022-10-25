@@ -49,21 +49,10 @@ viewPersonF.init = () => {
             listType.add(option);
         }
 
-        if (globalData.searchParams.has("selectId")) {
-            let tmp = globalData.searchParams.get("selectId");
-            if (tmp) {
-                viewPersonF.person = globalData.personData.findById(tmp);
-                // If User not exits
-                if (!viewPersonF.person) {
-                    alert("Invalid User!!!");
-                    window.location.href = "../Main/Main.html?page=persons";
-                    return;
-                }
-            } else {
-                alert("You must be select one person!!!");
-                window.location.href = "../Main/Main.html?page=persons";
-                return;
-            }
+        // Load Person from parameter
+        viewPersonF.person = loadDataSelected(globalData.personData,  "../Main/Main.html?page=persons");
+        if (!viewPersonF.person) {
+            return;
         }
 
         if (viewPersonF.mode == "edit") {

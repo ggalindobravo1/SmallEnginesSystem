@@ -10,7 +10,7 @@ personTableF.initTable = () => {
     personTableF.personTable.addActionView("Main.html?page=newPerson");
     personTableF.personTable.addActionDelete(
         globalData.personData,
-        () => personTableF.filerTable()
+        () => personTableF.filterTable()
     );
     // personTableF.personTable.addAction({ css: "fa fa-trash red", redirectTo: "IndexPerson.html", title: "Delete" });
     // personTableF.personTable.addAction({ css: "fa fa-search", redirectTo: "IndexPerson.html", title: "View" });
@@ -18,7 +18,7 @@ personTableF.initTable = () => {
     personTableF.personTable.refresh(globalData.personData.get());
 }
 
-personTableF.filerTable = () => {
+personTableF.filterTable = () => {
     let input = document.getElementById("myInput");
     let filter = input.value.toUpperCase();
 

@@ -16,3 +16,36 @@
 .red {
   color: #d53031;
 }
+
+/******** Table ********/
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+table>thead tr {
+  background-color: #184C52;
+  border-radius: 50px;
+  color: #fff;
+}
+
+table tr:nth-child(even) {
+  background: #ccc;
+}
+
+table th,
+table td {
+  text-align: left;
+  padding: 11px;
+}
+
+table tr {
+  border-bottom: 1px solid #ddd;
+}
+
+table>tbody tr:hover {
+  background-color: #f1e5c0;
+}

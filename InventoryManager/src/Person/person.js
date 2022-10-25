@@ -2,17 +2,12 @@ const personTableF = {
 };
 
 personTableF.initTable = () => {
-    // Example to get data from query param
-    if (globalData.searchParams.has("selectId")) {
-        //alert("Escogiste " + globalData.personData.findById(globalData.searchParams.get("selectId")).fullName);
-    }
-
     personTableF.personTable = new TableActions(
         "personTable",
-        ["id", "typeName", "department", "fullName", "details", "address", "phone", "ext", "email", "createAtFormat", "updateAtFormat"]
+        ["id", "typeName", "department", "fullName", "details", "address", "phone", "ext", "email", "createAtFormat"]
     );
-    personTableF.personTable.addActionEdit("IndexPerson.html");
-    personTableF.personTable.addActionView("IndexPerson.html");
+    personTableF.personTable.addActionEdit("Main.html?page=newPerson");
+    personTableF.personTable.addActionView("Main.html?page=newPerson");
     personTableF.personTable.addActionDelete(
         globalData.personData,
         () => personTableF.filerTable()
@@ -34,7 +29,9 @@ personTableF.filerTable = () => {
                 p.fullName.toUpperCase().includes(filter) ||
                 p.address.toUpperCase().includes(filter) ||
                 p.phone.toUpperCase().includes(filter) ||
-                p.email.toUpperCase().includes(filter);
+                p.email.toUpperCase().includes(filter) ||
+                p.details.toUpperCase().includes(filter);
+                ;
         });
 
     personTableF.personTable.refresh(jsonFiler);

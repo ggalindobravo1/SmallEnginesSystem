@@ -1,80 +1,115 @@
-<!DOCTYPE html>
-<html lang="en-US">
+<section id="personSection">
+    <form action="https://webdevbasics.net/scripts/demo.php" method="post">
+        <h2>New Person</h2>
+        <fieldset style="margin: 25px 5px;">
+            <legend>*Personal Information:</legend>
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <label for="Fname"><strong>*First name:</strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="firstName"></label>
+                        <input id="Fname" name="Fname" placeholder="First name" type="text" data-bind="firstName"
+                            hidden="true" class="editData" required />
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <label for="Lname">*Last name:</label>
+                        <input id="Lname" data-bind="lastName" name="Lname" placeholder="Last Name" type="text"
+                            required />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <label for="telephone">*Telephone:</label>
+                        <input id="telephone" data-bind="phone" name="telephone" placeholder="289 123 4567" type="tel"
+                            required />
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <label for="email">*Email:</label>
+                        <input id="email" data-bind="email" name="email" placeholder="email@domain.com" type="email"
+                            required />
+                    </div>
+                </div>
+            </div>
+            <div class="two-col m-2">
+                <div>
+                    <label for="Street">*Street:</label>
+                    <input id="Street" data-bind="street" name="Street" placeholder="Street" type="text" required />
+                </div>
+                <div>
+                    <label for="City">City:</label><br>
+                    <input type="text" id="City" name="City" data-bind="city">
+                </div>
+                <div>
+                    <Label>ZIP Code</Label>
+                    <input type="text" pattern="[0-9]{6}" data-bind="postalCode" title="Six digit zip code" />
+                </div>
+                <div>
+                    <label for="ext">Person External Number</label>
+                    <input id="ext" name="ext" placeholder="#6754362" data-bind="ext" type="number" />
+                </div>
+            </div>
+            <br /><br />
+        </fieldset>
+        <fieldset>
+            <legend>*Personal Information:</legend>
+            <label for="listDept">Choose a Deparment:</label>
+            <select id="listDept" name="listDept" data-bind="department">
+                <option value="">Select Department</option>
+                <option value="Sales">Sales</option>
+                <option value="Ordering">Ordering and Purchasing</option>
+                <option value="Mantainance">Mantainance</option>
+                <option value="Admin">Admin</option>
+                <option value="Corporative">Corporative</option>
+            </select><br>
 
-<head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../appstyle.css">
-    <link rel="stylesheet" href="../Commons/css/Global.css">
-    <link rel="stylesheet" href="./person.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css"
-        integrity="sha512-CpIKUSyh9QX2+zSdfGP+eWLx23C8Dj9/XmHjZY2uDtfkdLGo0uY12jgcnkX9vXOgYajEKb/jiw67EYm+kBf+6g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <label for="Details">Details:</label>
+            <input type="text" id="Details" name="Details" data-bind="details">
 
-    <script src="../Commons/js/Global.js"></script>
-    <script src="./person.js"></script>
-
-    <title>Person List</title>
-</head>
-
-<body onload="globalData.initData(personTableF.initTable);">
-    <div class="box">
-        <header>
-            <div include-html="../Commons/views/Header.html"></div>
-        </header>
+            <label for="Type">Type:</label>
+            <select id="Type" name="Type" data-bind="type">
+                <option value="">Select Type</option>
+            </select>
+            <br /><br />
+        </fieldset>
         <div class="row align-items-center">
             <div class="col-2">
-                <h2>Persons</h2>
+                <button id="btnDelete" hidden="true" type="button" class="btn btn-danger col" onclick="viewPersonF.delete()"><i
+                        class="fa-solid fa-trash"></i> Delete </button>
+                <button id="btnCancel" type="button" class="btn btn-secondary col" onclick="viewPersonF.cancel()"><i
+                        class="fa-solid fa-cancel"></i> Cancel </button>
             </div>
-            <div class="col-8">
+            <div class="col">
             </div>
-            <div class="col-2">
-                <a href="./NewPerson.html">
-                    <input type="submit" value="New Person" />
-                </a>
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+                <button id="btnEdit" hidden="true" type="button" class="btn btn-primary col" onclick="viewPersonF.edit()"><i
+                        class="fa-solid fa-pencil"></i> Edit </button>
+                <button id="btnSave" hidden="true" type="button" class="btn btn-primary col" onclick="viewPersonF.save()"><i
+                        class="fa-solid fa-save"></i> Save </button>
             </div>
         </div>
-
-        <input type="text" id="myInput" onkeyup="personTableF.filerTable()" placeholder="Search person..."
-            title="Type in an Text" />
-
-        <table id="personTable">
-            <thead>
-                <tr class="header">
-                    <th>ID</th>
-                    <th>Type</th>
-                    <th>Department</th>
-                    <th>Full Name</th>
-                    <th>Details</th>
-                    <th>Address</th>
-                    <th>Phone</th>
-                    <th>Ext</th>
-                    <th>email</th>
-                    <th>Created</th>
-                    <th>Updated</th>
-                    <th style="width:150px;">Action</th>
-
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-        <div include-html="../Commons/views/Footer.html"></div>
-    </div>
-</body>
-
-<!-- ✅ load popper.js ✅ -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-    crossorigin="anonymous"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.min.js"
-    integrity="sha512-5BqtYqlWfJemW5+v+TZUs22uigI8tXeVah5S/1Z6qBLVO7gakAOtkOzUtgq6dsIo5c0NJdmGPs0H9I+2OHUHVQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"
-    integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-</html>
+    </form>
+    <br/>
+    <script>
+        try {
+            mainF.configs;
+        } catch (error) {
+            window.location.href = "../Main/Main.html?page=persons";
+        }
+    </script>
+</section>

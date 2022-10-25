@@ -1,4 +1,5 @@
-const basePath = "/InventoryManager/src/Commons/json-data/";
+const serverBasePath = "/InventoryManager/src/";
+const basePath = serverBasePath + "/Commons/json-data/";
 
 const globalData = {
     // Add new Crud for each table
@@ -41,6 +42,43 @@ globalData.initData = async (callBack) => {
     }
     return;
 };
+
+function fillFormData(item) {
+    var inputs = document.querySelectorAll("[data-bind]");
+    for (i = 0; i < inputs.length; i++) {
+        let input = inputs[i];
+        if (input.nodeName.toUpperCase() == "LABEL") {
+            input.textContent = item[input.getAttribute("data-bind")];
+        } else {
+            input.value = item[input.getAttribute("data-bind")];
+        }
+    }
+}
+
+function crudDelete(crucAction, confirmMessage, item, callBack) {
+    if (crucAction) {
+        const message = confirmMessage || "Are you sure you want to delete this item?";
+        if (confirm(message) == true) {
+            crucAction.delete(item);
+            if (callBack) {
+                callBack();
+            }
+        }
+    }
+}
+
+const editDataForm = () => {
+    let viewArr = document.querySelectorAll(".viewData");
+    let editArr = document.querySelectorAll(".editData");
+
+    if (viewArr && editArr) {
+        for (let i = 0; i < viewArr.length; i++) {
+            viewArr[i].hidden = true;
+            editArr[i].hidden = false;
+            editArr[i].value = viewArr[i].innerHTML;
+        }
+    }
+}
 
 function getDateFormat(d) {
     var curr_date = d.getDate() > 9 ? d.getDate() : "0" + d.getDate();
@@ -146,17 +184,29 @@ TableActions.prototype.addAction = function (myAction) {
 }
 
 TableActions.prototype.addActionEdit = function (redirectTo) {
+    if (redirectTo.includes("?")) {
+        redirectTo = redirectTo + "&mode=edit";
+    } else {
+        redirectTo = redirectTo + "?mode=edit";
+    }
+
     this.actions.push({
         css: "fa fa-pencil",
-        redirectTo: redirectTo + "?mode=edit",
+        redirectTo: redirectTo,
         title: "Edit"
     });
 }
 
 TableActions.prototype.addActionView = function (redirectTo) {
+    if (redirectTo.includes("?")) {
+        redirectTo = redirectTo + "&mode=view";
+    } else {
+        redirectTo = redirectTo + "?mode=view";
+    }
+
     this.actions.push({
-        css: "fa fa-bars",
-        redirectTo: redirectTo + "?mode=view",
+        css: "fa fa-solid fa-eye",
+        redirectTo: redirectTo,
         title: "Details"
     });
 }
@@ -167,15 +217,7 @@ TableActions.prototype.addActionDelete = function (crucAction, callBack, confirm
         redirectTo: "#",
         title: "Delete",
         action: (item) => {
-            if (crucAction) {
-                const message = confirmMessage || "Are you sure you want to delete this item?";
-                if (confirm(message) == true) {
-                    crucAction.delete(item);
-                    if (callBack) {
-                        callBack();
-                    }
-                }
-            }
+            crudDelete(crucAction, confirmMessage, item, callBack);
         }
     });
 }

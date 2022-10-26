@@ -69,6 +69,7 @@ viewPersonF.init = () => {
     // Check Mode
     if (viewPersonF.mode == "new") {
         editDataForm();
+        viewPersonF.loadTypesSelect();
         // Show Save Btn
         document.getElementById("btnSave").hidden = false;
     } else {

@@ -11,8 +11,8 @@ inventoryTableF.initTable = () => {
         "inventoryTable",
         ["Inventoryid", "inventoryQty", "inventoryPrice", "inventoryUpdateAt"]
     );
-    inventoryTableF.inventoryTable.addActionEdit("ListViewInventory.html");
-    inventoryTableF.inventoryTable.addActionView("ListViewInventory.html");
+    inventoryTableF.inventoryTable.addActionEdit("../Main/Main.html?page=newItem");
+    inventoryTableF.inventoryTable.addActionView("../Main/Main.html?page=inventoryListView");
     inventoryTableF.inventoryTable.addActionDelete(
         globalData.inventoryData,
         () => inventoryTableF.filerTable()

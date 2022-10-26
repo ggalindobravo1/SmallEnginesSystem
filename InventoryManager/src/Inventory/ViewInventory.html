@@ -10,7 +10,7 @@
                     </div>
                     <div>
                         <label class="viewData" data-bind="inventoryid"></label>
-                        <input id="Itemid" name="Itemid" placeholder="Itemid ID" type="number" data-bind="Inventoryid"
+                        <input id="Itemid" name="Itemid" placeholder="Item ID" type="number" data-bind="Inventoryid"
                             hidden="true" class="editData" required />
                     </div>
                 </div>
@@ -59,22 +59,28 @@
                 </div>
                 <div class="col">
                     <div>
+                        <label for="CreatedAt">*Created date:</label>
+                        <input id="CreatedAt" data-bind="inventoryCreatedAt" name="CreatedAt" placeholder="Item creation date" type="date" required />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div>
                         <label for="Minimum">*Minimum in warehouse:</label>
                         <input id="Minimum" data-bind="inventoryAlertStorage" name="Minimum" placeholder="Minimum in storage" type="number"
                             required />
                     </div>
                 </div>
+                <div class="col">
+                    <div>
+                        <label for="UpdateAt">*Updated date:</label>
+                        <input id="UpdateAt" data-bind="inventoryUpdateAt" name="UpdateAt" placeholder="Item update" type="date" required />
+                    </div>
+                </div>
             </div>
-            <div class="two-col m-2">
-                <div>
-                    <label for="CreatedAt">*Created date:</label>
-                    <input id="CreatedAt" data-bind="inventoryCreatedAt" name="CreatedAt" placeholder="Item creation date" type="date" required />
-                </div>
-                <div>
-                    <label for="UpdateAt">*Updated date:</label>
-                    <input id="UpdateAt" data-bind="inventoryUpdateAt" name="UpdateAt" placeholder="Item update" type="date" required />
-                </div>
-            </div>><br>
+
+            </div><br>
 
             </select>
             <br /><br />
@@ -109,7 +115,7 @@
         try {
             mainF.configs;
         } catch (error) {
-            window.location.href = "../Main/Main.html?page=newItem";
+            window.location.href = "../Main/Main.html?page=inventoryListView";
         }
     </script>
 </section>

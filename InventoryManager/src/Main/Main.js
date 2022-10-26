@@ -99,7 +99,9 @@ mainF.init = async () => {
     // Checking if page is loaded
     const elm = await mainF.waitForElm(page.mainElement);
     // Start Function Page
-    page.initFunction();
+    setTimeout(() => {
+        page.initFunction();
+    }, 300);
 }
 
 mainF.loadScript = (FILE_URL, async = true, type = "text/javascript") => {

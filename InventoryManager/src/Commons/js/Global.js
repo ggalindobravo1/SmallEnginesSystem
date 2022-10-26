@@ -40,13 +40,15 @@ globalData.initData = async (callBack) => {
     }
 
     if (callBack) {
-        callBack();
+        setTimeout(() => {
+            callBack();
+        }, 300);
     }
     return;
 };
 
 function fillFormData(item) {
-    var inputs = document.querySelectorAll("[data-bind]");
+    const inputs = document.querySelectorAll("[data-bind]");
     for (i = 0; i < inputs.length; i++) {
         let input = inputs[i];
         if (input.nodeName.toUpperCase() == "LABEL") {
@@ -55,6 +57,31 @@ function fillFormData(item) {
             input.value = item[input.getAttribute("data-bind")];
         }
     }
+}
+
+function mapFormToObject(item) {
+    const inputs = document.querySelectorAll("[data-bind]");
+    for (i = 0; i < inputs.length; i++) {
+        let input = inputs[i];
+        if (input.nodeName.toUpperCase() != "LABEL") {
+            item[input.getAttribute("data-bind")] = input.value;
+        }
+    }
+}
+
+function addValidationForm(form, callBack) {
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        if (!form.checkValidity()) {
+            return;
+        }
+
+        if (callBack) {
+            callBack();
+        }
+    }, false);
 }
 
 function loadDataSelected(crucAction, redirectTo) {
@@ -110,7 +137,51 @@ function getDateFormat(d) {
     var curr_month = d.getMonth() > 9 ? d.getMonth() : "0" + d.getMonth();
     var curr_year = d.getFullYear();
     return curr_year + "-" + curr_month + "-" + curr_date;
-};
+}
+
+function getDateTimeFormat(d) {
+    var timezone_offset_min = d.getTimezoneOffset(),
+        offset_hrs = parseInt(Math.abs(timezone_offset_min / 60)),
+        offset_min = Math.abs(timezone_offset_min % 60),
+        timezone_standard;
+
+    if (offset_hrs < 10)
+        offset_hrs = '0' + offset_hrs;
+
+    if (offset_min < 10)
+        offset_min = '0' + offset_min;
+
+// Add an opposite sign to the offset
+// If offset is 0, it means timezone is UTC
+    if (timezone_offset_min < 0)
+        timezone_standard = '+' + offset_hrs + ':' + offset_min;
+    else if (timezone_offset_min > 0)
+        timezone_standard = '-' + offset_hrs + ':' + offset_min;
+    else if (timezone_offset_min == 0)
+        timezone_standard = 'Z';
+
+    var dt = d,
+        current_date = dt.getDate(),
+        current_month = dt.getMonth() + 1,
+        current_year = dt.getFullYear(),
+        current_hrs = dt.getHours(),
+        current_mins = dt.getMinutes(),
+        current_secs = dt.getSeconds(),
+        current_datetime;
+
+// Add 0 before date, month, hrs, mins or secs if they are less than 0
+    current_date = current_date < 10 ? '0' + current_date : current_date;
+    current_month = current_month < 10 ? '0' + current_month : current_month;
+    current_hrs = current_hrs < 10 ? '0' + current_hrs : current_hrs;
+    current_mins = current_mins < 10 ? '0' + current_mins : current_mins;
+    current_secs = current_secs < 10 ? '0' + current_secs : current_secs;
+
+// Current datetime
+// String such as 2016-07-16T19:20:30
+    current_datetime = current_year + '-' + current_month + '-' + current_date + 'T' + current_hrs + ':' + current_mins + ':' + current_secs;
+
+    return current_datetime + timezone_standard;
+}
 
 function includeHTML() {
     var tags = document.querySelectorAll("[include-html]");
@@ -120,7 +191,7 @@ function includeHTML() {
             return;
         }
     }
-};
+}
 
 function processElementToIncludeHtml(elmnt) {
     // valid element
@@ -300,7 +371,8 @@ function CrudData(storageKey, jsonUrl, idField, processItem) {
     this.storageKey = storageKey || "N/A";
     this.jsonUrl = jsonUrl;
     this.idField = idField || "id";
-    this.processItem = processItem || ((item) => { });
+    this.processItem = processItem || ((item) => {
+    });
     this.data = [];
 }
 
@@ -309,8 +381,10 @@ CrudData.prototype.init = async function () {
     if (this.storageKey !== 'N/A') {
         var storageData = localStorage[this.storageKey];
         if (storageData && storageData.length > 0) {
-            this.data = JSON.parse(storageData);
             loadFetch = false;
+            this.data = await new Promise(resolve => {
+                return resolve(JSON.parse(storageData));
+            });
         }
     }
 
@@ -334,7 +408,9 @@ CrudData.prototype.restoreData = async function () {
     await this.init();
 };
 
-CrudData.prototype.get = function () { return this.data };
+CrudData.prototype.get = function () {
+    return this.data
+};
 
 CrudData.prototype.findById = function (id) {
     const _this = this;
@@ -344,6 +420,7 @@ CrudData.prototype.findById = function (id) {
 CrudData.prototype.insert = function (item) {
     this.processItem(item);
     this.data.push(item);
+    item[this.idField] = this.data.length;
     localStorage[this.storageKey] = JSON.stringify(this.data);
 }
 

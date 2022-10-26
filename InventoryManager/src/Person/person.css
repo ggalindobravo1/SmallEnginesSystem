@@ -5,3 +5,8 @@
 #myInput {
   margin-bottom: 12px;
 }
+
+#icon{
+  position: absolute;
+  display: block;
+}

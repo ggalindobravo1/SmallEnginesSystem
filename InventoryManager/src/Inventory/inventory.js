@@ -9,10 +9,11 @@ inventoryTableF.initTable = () => {
 
     inventoryTableF.inventoryTable = new TableActions(
         "inventoryTable",
-        ["Inventoryid", "inventoryQty", "inventoryPrice", "inventoryUpdateAt"]
+        ["Inventoryid", "inventoryQty", "inventoryPrice", "inventoryUpdateAt"],
+        "Inventoryid"
     );
     inventoryTableF.inventoryTable.addActionEdit("../Main/Main.html?page=newItem");
-    inventoryTableF.inventoryTable.addActionView("../Main/Main.html?page=inventoryListView");
+    inventoryTableF.inventoryTable.addActionView("../Main/Main.html?page=newItem");
     inventoryTableF.inventoryTable.addActionDelete(
         globalData.inventoryData,
         () => inventoryTableF.filerTable()

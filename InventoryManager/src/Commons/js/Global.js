@@ -20,7 +20,7 @@ const globalData = {
         person.createAtFormat = getDateFormat(new Date(person.createAt));
         person.updateAtFormat = getDateFormat(new Date(person.updateAt));
     }),
-    inventoryData: new CrudData("inventory",basePath + "inventory.json")
+    inventoryData: new CrudData("inventory",basePath + "inventory.json", "Inventoryid")
 
 };
 

@@ -1,6 +1,6 @@
 <section id="inventorySection">
-    <form action="https://webdevbasics.net/scripts/demo.php" method="post">
-        <h2>New Item</h2>
+    <form id = "formInventory">
+        <h2 id= "title">New Item</h2>
         <fieldset style="margin: 25px 5px;">
             <legend>General Information Item:</legend>
             <div class="row">
@@ -87,9 +87,9 @@
         </fieldset>
         <div class="row align-items-center">
             <div class="col-2">
-                <button id="btnDelete" hidden="true" type="button" class="btn btn-danger col" onclick="viewPersonF.delete()"><i
+                <button id="btnDelete" hidden="true" type="button" class="btn btn-danger col" onclick="viewInventoryF.delete()"><i
                         class="fa-solid fa-trash"></i> Delete </button>
-                <button id="btnCancel" type="button" class="btn btn-secondary col" onclick="viewPersonF.cancel()"><i
+                <button id="btnCancel" type="button" class="btn btn-secondary col" onclick="viewInventoryF.cancel()"><i
                         class="fa-solid fa-cancel"></i> Cancel </button>
             </div>
             <div class="col">

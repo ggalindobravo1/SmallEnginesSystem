@@ -4,7 +4,7 @@ const viewInventoryF = {
 };
 
 viewInventoryF.delete = () => {
-    crudDelete(globalData.InventoryData, null, viewInventoryF.inventory, () => {
+    crudDelete(globalData.inventoryData, null, viewInventoryF.inventory, () => {
         window.location.href = "../Main/Main.html?page=inventoryListView";
     });
 }
@@ -20,6 +20,20 @@ viewInventoryF.edit = () => {
 }
 
 viewInventoryF.save = () => {
+     // Add When was updated
+     viewInventoryF.inventory.updateAt = getDateTimeFormat(new Date());
+     // Read Field from form and mapping into object
+     mapFormToObject(viewInventoryF.inventory);
+     // Valid is a new Object or Update
+     if (viewInventoryF.mode == "new") {
+         globalData.inventoryData.insert(viewInventoryF.inventory);
+         alert("Inventory created successfully!!!");
+     } else {
+         globalData.inventoryData.update(viewInventoryF.inventory);
+         alert("Inventory updated successfully!!!");
+     }
+     // Send to list
+     window.location.href = "../Main/Main.html?page=inventoryListView";
     
 }
 
@@ -60,7 +74,7 @@ viewInventoryF.init = () => {
         }*/
 
         // Load Person from parameter
-        viewInventoryF.inventory = loadDataSelected(globalData.InventoryData,  "../Main/Main.html?page=inventoryListView");
+        viewInventoryF.inventory = loadDataSelected(globalData.inventoryData,  "../Main/Main.html?page=inventoryListView");
         if (!viewInventoryF.inventory) {
             return;
         }

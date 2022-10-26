@@ -38,7 +38,9 @@ globalData.initData = async (callBack) => {
     }
 
     if (callBack) {
-        callBack();
+        setTimeout(() => {
+            callBack();
+        }, 300);
     }
     return;
 };

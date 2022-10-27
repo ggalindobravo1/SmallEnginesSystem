@@ -4,7 +4,7 @@ const personTableF = {
 personTableF.initTable = () => {
     personTableF.personTable = new TableActions(
         "personTable",
-        ["id", "typeName", "department", "fullName", "details", "address", "phone", "ext", "email", "createAtFormat"]
+        ["id", "typeName", "department", "fullName"]
     );
     personTableF.personTable.addActionEdit("Main.html?page=newPerson");
     personTableF.personTable.addActionView("Main.html?page=newPerson");
@@ -26,11 +26,7 @@ personTableF.filterTable = () => {
         .filter(p => {
             return p.department.toUpperCase().includes(filter) ||
                 p.typeName.toUpperCase().includes(filter) ||
-                p.fullName.toUpperCase().includes(filter) ||
-                p.address.toUpperCase().includes(filter) ||
-                p.phone.toUpperCase().includes(filter) ||
-                p.email.toUpperCase().includes(filter) ||
-                p.details.toUpperCase().includes(filter);
+                p.fullName.toUpperCase().includes(filter);
                 ;
         });
 

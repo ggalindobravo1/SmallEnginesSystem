@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-4">
+            <h2>Inventory</h2> 
+        </div>
+        <div class="col-4">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i
+                            class="fas fa-search"></i></span>
+                </div>
+                <input type="text" id="myInput" onkeyup="inventoryTableF.filerTable()" class="form-control" placeholder="Search Item by..."
+                    aria-label="Search Item by..." aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="col-1">
+        </div> 
+        <div class="col">
+                <a href="../Main/Main.html?page=newItem"><button  type="submit" value="Submit"><i class="fa-solid fa-plus fa-lg" style="color:white" title="Add Item"></i> New item</button></a>
+        </div>       
+    </div>
+        <table id="inventoryTable">
+            <thead>
+                <tr class="header">
+                    <th>Id</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Update </th>
+                    <th style="width:150px;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <script>
+            try {
+                mainF.configs;
+            } catch (error) {
+                window.location.href = "../Main/Main.html?page=inventoryListView";
+            }
+        </script>
+</div>        

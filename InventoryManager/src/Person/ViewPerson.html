@@ -1,7 +1,7 @@
 <section id="personSection">
-    <form action="https://webdevbasics.net/scripts/demo.php" method="post">
-        <h2>New Person</h2>
-        <fieldset style="margin: 25px 5px;">
+    <form id="formPerson">
+        <h2 id="title">New Person</h2>
+        <fieldset>
             <legend>*Personal Information:</legend>
             <div class="row">
                 <div class="col">
@@ -16,73 +16,181 @@
                 </div>
                 <div class="col">
                     <div>
-                        <label for="Lname">*Last name:</label>
+                        <label for="Lname"><strong>*Last name:</strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="lastName"></label>
                         <input id="Lname" data-bind="lastName" name="Lname" placeholder="Last Name" type="text"
-                            required />
+                            hidden="true" class="editData" required />
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <label for="telephone"><strong>*Telephone:</strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="phone"></label>
+                        <input id="telephone" data-bind="phone" name="telephone" placeholder="905 735 2211" type="tel"
+                            hidden="true" class="editData" required />
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <label for="email"><strong>Email:</strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="email"></label>
+                        <input id="email" data-bind="email" name="email" placeholder="email@domain.com" type="email"
+                            hidden="true" class="editData" />
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <div>
-                        <label for="telephone">*Telephone:</label>
-                        <input id="telephone" data-bind="phone" name="telephone" placeholder="289 123 4567" type="tel"
-                            required />
+                        <label for="Street"><strong>Street:</strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="street"></label>
+                        <input id="Street" data-bind="street" name="Street" placeholder="Street No." type="text"
+                            hidden="true" class="editData" />
                     </div>
                 </div>
                 <div class="col">
                     <div>
-                        <label for="email">*Email:</label>
-                        <input id="email" data-bind="email" name="email" placeholder="email@domain.com" type="email"
-                            required />
+                        <label for="City"><strong>*City:</strong></label>
+                    </div>
+                    <label class="viewData" data-bind="city"></label>
+                    <input type="text" placeholder="Toronto" id="City" name="City" data-bind="city" hidden="true"
+                        class="editData" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <Label><strong>Province:</strong></Label>
+                    </div>
+                    <label class="viewData" data-bind="province"></label>
+                    <select id="province" name="province" data-bind="province" class="editData" hidden="true">
+                        <option value="">Province</option>
+                        <option value="Alberta">
+                            Alberta
+                        </option>
+                        <option value="BC">
+                            British Columbia
+                        </option>
+                        <option value="Manitoba">
+                            Manitoba
+                        </option>
+                        <option value="New Brunswick">
+                            New Brunswick
+                        </option>
+                        <option value="Newfoundland and Labrador">
+                            Newfoundland and Labrador
+                        </option>
+                        <option value="Northwest Territories">
+                            Northwest Territories
+                        </option>
+                        <option value="Nova Scotia">
+                            Nova Scotia
+                        </option>
+                        <option value="Nunavut">
+                            Nunavut
+                        </option>
+                        <option value="Ontario">
+                            Ontario
+                        </option>
+                        <option value=" Prince Edward Island">
+                            Prince Edward Island
+                        </option>
+                        <option value="Quebec">
+                            Quebec
+                        </option>
+                        <option value="Saskatchewan">
+                            Saskatchewan
+                        </option>
+                    </select>
+                </div>
+                <div class="col">
+                    <div>
+                        <Label><strong>Postal Code:</strong></Label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="postalCode"></label>
+                        <input type="text" placeholder="M9A 2R6" id="postalCode"
+                            pattern="[A-Za-z][0-9][A-Za-z][ ][0-9][A-Za-z][0-9]" data-bind="postalCode"
+                            title="Six digit zip code M9A 2R6" hidden="true" class="editData" />
                     </div>
                 </div>
             </div>
-            <div class="two-col m-2">
-                <div>
-                    <label for="Street">*Street:</label>
-                    <input id="Street" data-bind="street" name="Street" placeholder="Street" type="text" required />
-                </div>
-                <div>
-                    <label for="City">City:</label><br>
-                    <input type="text" id="City" name="City" data-bind="city">
-                </div>
-                <div>
-                    <Label>ZIP Code</Label>
-                    <input type="text" pattern="[0-9]{6}" data-bind="postalCode" title="Six digit zip code" />
-                </div>
-                <div>
-                    <label for="ext">Person External Number</label>
-                    <input id="ext" name="ext" placeholder="#6754362" data-bind="ext" type="number" />
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <label for="ext"><strong>Personal External Number:</strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="ext"></label>
+                        <input id="ext" name="ext" placeholder="#675" data-bind="ext" type="text" hidden="true"
+                            class="editData" />
+                    </div>
                 </div>
             </div>
-            <br /><br />
+            <br />
         </fieldset>
         <fieldset>
-            <legend>*Personal Information:</legend>
-            <label for="listDept">Choose a Deparment:</label>
-            <select id="listDept" name="listDept" data-bind="department">
-                <option value="">Select Department</option>
-                <option value="Sales">Sales</option>
-                <option value="Ordering">Ordering and Purchasing</option>
-                <option value="Mantainance">Mantainance</option>
-                <option value="Admin">Admin</option>
-                <option value="Corporative">Corporative</option>
-            </select><br>
+            <legend>*Detail Information:</legend>
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <label for="listDept"><strong>*Select a Deparment:</strong></label>
+                    </div>
+                    <label class="viewData" data-bind="department"></label>
+                    <select id="listDept" name="listDept" data-bind="department" class="editData" hidden="true">
+                        <option value="">Select Department</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Ordering">Ordering and Purchasing</option>
+                        <option value="Mantainance">Mantainance</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Corporative">Corporative</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <div>
+                        <label for="Details"><strong>Details: </strong></label>
+                    </div>
+                    <label class="viewData" data-bind="details"></label>
+                    <select id="listDetail" name="listDept" data-bind="details" class="editData" hidden="true">
+                        <option value="">Select Details Person</option>
+                        <option value="Cash Register 2">Cash Register 2</option>
+                        <option value="Purchasing and Ordering Executive">Purchasing and Ordering Executive</option>
+                        <option value="Administrative Assistant">Administrative Assistant</option>
+                        <option value="CEO">CEO</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <label for="Type"><strong>Type:</strong></label>
+                    </div>
+                    <label class="viewData" data-bind="typeName"></label>
+                    <select id="Type" name="Type" data-bind="type" class="editData" hidden="true">
+                        <option value="">Select Type</option>
+                    </select>
+                </div>
+            </div>
+            </div>
+            </div>
 
-            <label for="Details">Details:</label>
-            <input type="text" id="Details" name="Details" data-bind="details">
-
-            <label for="Type">Type:</label>
-            <select id="Type" name="Type" data-bind="type">
-                <option value="">Select Type</option>
-            </select>
-            <br /><br />
         </fieldset>
         <div class="row align-items-center">
             <div class="col-2">
-                <button id="btnDelete" hidden="true" type="button" class="btn btn-danger col" onclick="viewPersonF.delete()"><i
-                        class="fa-solid fa-trash"></i> Delete </button>
+                <button id="btnDelete" hidden="true" type="button" class="btn btn-danger col"
+                    onclick="viewPersonF.delete()"><i class="fa-solid fa-trash"></i> Delete </button>
                 <button id="btnCancel" type="button" class="btn btn-secondary col" onclick="viewPersonF.cancel()"><i
                         class="fa-solid fa-cancel"></i> Cancel </button>
             </div>
@@ -97,14 +205,14 @@
             <div class="col">
             </div>
             <div class="col">
-                <button id="btnEdit" hidden="true" type="button" class="btn btn-primary col" onclick="viewPersonF.edit()"><i
-                        class="fa-solid fa-pencil"></i> Edit </button>
-                <button id="btnSave" hidden="true" type="button" class="btn btn-primary col" onclick="viewPersonF.save()"><i
+                <button id="btnEdit" hidden="true" type="button" class="btn btn-primary col"
+                    onclick="viewPersonF.edit()"><i class="fa-solid fa-pencil"></i> Edit </button>
+                <button id="btnSave" hidden="true" type="submit" class="btn btn-primary col"><i
                         class="fa-solid fa-save"></i> Save </button>
             </div>
         </div>
     </form>
-    <br/>
+    <br />
     <script>
         try {
             mainF.configs;

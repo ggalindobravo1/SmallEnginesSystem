@@ -46,7 +46,29 @@ const mainF = {
             scripts: ["Product/product.js"],
             initFunction: () => {
                 productTableF.initTable();
-            }            
+            }      
+        },      
+
+        newItem: {
+            title: "New Item",
+            page: "Inventory/ViewInventory.html",
+            mainElement: "#inventorySection",
+            styles: ["Commons/css/formGeneral.css"],
+            scripts: ["Inventory/ViewInventory.js"],
+            initFunction: () => {
+                viewInventoryF.init();
+            }
+        },
+
+        inventoryListView: {
+            title: "Inventory",
+            page: "Inventory/ListViewInventory.html",
+            mainElement: "#inventoryTable",
+            styles: ["Commons/css/formGeneral.css"],
+            scripts: ["Inventory/inventory.js"],
+            initFunction: () => {
+                inventoryTableF.initTable();
+            }
         }
     }
 };
@@ -97,7 +119,9 @@ mainF.init = async () => {
     // Checking if page is loaded
     const elm = await mainF.waitForElm(page.mainElement);
     // Start Function Page
-    page.initFunction();
+    setTimeout(() => {
+        page.initFunction();
+    }, 300);
 }
 
 mainF.loadScript = (FILE_URL, async = true, type = "text/javascript") => {

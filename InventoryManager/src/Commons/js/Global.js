@@ -1,4 +1,5 @@
 const serverBasePath = "/InventoryManager/src/";
+//const serverBasePath = "/src/";
 const basePath = serverBasePath + "/Commons/json-data/";
 
 const globalData = {
@@ -21,8 +22,8 @@ const globalData = {
         person.updateAtFormat = getDateFormat(new Date(person.updateAt));
     }),
     productData: new CrudData("product", basePath + "products.json"),
-    inventoryData: new CrudData("inventory",basePath + "inventory.json", "Inventoryid")
-
+    inventoryData: new CrudData("inventory",basePath + "inventory.json", "Inventoryid"),
+    invoiceData: new CrudData("invoice", basePath+"invoice.json", "invoiceID" )
 };
 
 globalData.initData = async (callBack) => {

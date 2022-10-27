@@ -63,16 +63,6 @@ viewInventoryF.init = () => {
         // Show Delete Btn
         document.getElementById("btnDelete").hidden = false;
         
-       /* // Load Person Types
-        const listType = document.getElementById("Type");
-        const personTypes = globalData.personTypesData.get();
-        for (i = 0; i < personTypes.length; i++) {
-            const option = document.createElement("option");
-            option.text = personTypes[i].name;
-            option.value = personTypes[i].id;
-            listType.add(option);
-        }*/
-
         // Load Person from parameter
         viewInventoryF.inventory = loadDataSelected(globalData.inventoryData,  "../Main/Main.html?page=inventoryListView");
         if (!viewInventoryF.inventory) {
@@ -82,8 +72,6 @@ viewInventoryF.init = () => {
         if (viewInventoryF.mode == "edit") {
             viewInventoryF.edit();
             // SHow Save Btn and Hidden Edit
-            //document.getElementById("btnEdit").hidden = true;
-            //document.getElementById("btnSave").hidden = false;
         } else {
             // SHow Edit Btn and Hidden Save
             document.getElementById("btnEdit").hidden = false;

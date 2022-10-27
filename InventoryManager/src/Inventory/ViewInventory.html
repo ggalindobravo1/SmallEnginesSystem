@@ -6,8 +6,11 @@
             <div class="row">
                 <div class="col">
                     <div>
-                        <label for="prodID">*Product Id:</label>
-                        <input id="prodID" data-bind="productID" name="prodID" placeholder="Product Id" type="number"
+                        <label for="prodID"><strong>*prodID:</strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="productID"></label>
+                        <input class="editData" hidden="true" id="prodID" data-bind="productID" name="prodID" placeholder="Product Id" type="number"
                             required />
                     </div>
                 </div>
@@ -15,23 +18,32 @@
             <div class="row">
                 <div class="col">
                     <div>
-                        <label for="quantity">*Quantity:</label>
-                        <input id="quantity" data-bind="inventoryQty" name="quantity" placeholder="Quantity" type="number"
+                        <label for="quantity"><strong>*quantity:</strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="inventoryQty"></label>
+                        <input class="editData" hidden="true" id="quantity" data-bind="inventoryQty" name="quantity" placeholder="Quantity" type="number"
                             required />
                     </div>
                 </div>
                 <div class="col">
                     <div>
-                        <label for="Cost">*Cost:</label>
-                        <input id="cost" data-bind="inventoryCost" name="cost" placeholder="Item cost" type="number"
+                        <label for="cost"><strong>*cost:</strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="inventoryCost"></label>
+                        <input class="editData" hidden="true" id="cost" data-bind="inventoryCost" name="cost" placeholder="Item cost" type="number"
                             required />
                     </div>
                 </div>
             </div>
             <div class="two-col m-2">
                 <div>
-                    <label for="Price">*Price:</label>
-                    <input id="Price" data-bind="inventoryPrice" name="Price" placeholder="Item Price" type="number" required />
+                    <label for="Price"><strong>*Price:</strong></label>
+                </div>
+                <div>
+                    <label class="viewData" data-bind="inventoryPrice"></label>
+                    <input class="editData" hidden="true" id="Price" data-bind="inventoryPrice" name="Price" placeholder="Item Price" type="number" required />
                 </div>
                 
             </div>
@@ -42,30 +54,42 @@
             <div class="row">
                 <div class="col">
                     <div>
-                        <label for="Maximum">*Maximum in warehouse:</label>
-                        <input id="Maximum" data-bind="inventoryMaxStorage" name="Maximum" placeholder="Maximum in storage" type="number"
+                        <label for="CreatedAt"><strong>*CreatedAt:</strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="inventoryMaxStorage"></label>
+                        <input class="editData" hidden="true" id="Maximum" data-bind="inventoryMaxStorage" name="Maximum" placeholder="Maximum in storage" type="number"
                             required />
                     </div>
                 </div>
                 <div class="col">
                     <div>
-                        <label for="CreatedAt">*Created date:</label>
-                        <input id="CreatedAt" data-bind="inventoryCreatedAt" name="CreatedAt" placeholder="Item creation date" type="date" required />
+                        <label for="CreatedAt"><strong>*CreatedAt:</strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="inventoryCreatedAt"></label>
+                        <input class="editData" hidden="true" id="CreatedAt" data-bind="inventoryCreatedAt" name="CreatedAt" placeholder="Item creation date" type="date" required />
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <div>
-                        <label for="Minimum">*Minimum in warehouse:</label>
-                        <input id="Minimum" data-bind="inventoryAlertStorage" name="Minimum" placeholder="Minimum in storage" type="number"
+                        <label for="Minimum"><strong>*Minimum:</strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="inventoryAlertStorage"></label>
+                        <input class="editData" hidden="true" id="Minimum" data-bind="inventoryAlertStorage" name="Minimum" placeholder="Minimum in storage" type="number"
                             required />
                     </div>
                 </div>
                 <div class="col">
                     <div>
-                        <label for="UpdateAt">*Updated date:</label>
-                        <input id="UpdateAt" data-bind="inventoryUpdateAt" name="UpdateAt" placeholder="Item update" type="date" required />
+                        <label for="UpdateAt"><strong>*UpdateAt:</strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="inventoryUpdateAt"></label>
+                        <input class="editData" hidden="true" id="UpdateAt" data-bind="inventoryUpdateAt" name="UpdateAt" placeholder="Item update" type="date" required />
                     </div>
                 </div>
             </div>

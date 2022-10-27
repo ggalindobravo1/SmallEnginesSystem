@@ -27,6 +27,26 @@ const mainF = {
             initFunction: () => {
                 viewPersonF.init();
             }
+        },
+        newProduct: {
+            title: "New Product",
+            page: "Product/ViewProduct.html",
+            mainElement: "#productSection",
+            styles: ["Person/formPerson.css"],
+            scripts: ["Product/ViewProduct.js"],
+            initFunction: () => {
+                viewProductF.init();
+            }
+        },
+        products: {
+            title: "Product list",
+            page: "Product/ListViewProduct.html",
+            mainElement: "#productTable",
+            styles: ["Person/person.css"],
+            scripts: ["Product/product.js"],
+            initFunction: () => {
+                productTableF.initTable();
+            }            
         }
     }
 };

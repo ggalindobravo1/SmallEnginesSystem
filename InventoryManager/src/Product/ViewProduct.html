@@ -1,0 +1,155 @@
+<section id="productSection">
+    <form id="formProduct">
+        <h2 id="title">New Product</h2>
+        <fieldset style="margin: 25px 5px;">
+            <legend>*Product Information:</legend>
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <label for="UPC"><strong>*UPC:</strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="UPC"></label>
+                        <input id="UPC" name="UPC" placeholder="UPC number" type="number" data-bind="UPC" hidden="true"
+                            class="editData" required />
+                    </div>
+
+                </div>
+                <div class="col">
+                    <div>
+                        <label for="productName"><strong>*Product name:</strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="productName"></label>
+                        <input id="productName" name="productName" placeholder="Product Name" type="text"
+                            data-bind="productName" hidden="true" class="editData" required />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <label for="productDescription"><strong>*Description:</strong></label>
+                    </div>
+
+                    <div>
+                        <label class="viewData" data-bind="productDescription"></label>
+                        <input id="productDescription" data-bind="productDescription" class="editData"
+                            name="productDescription" hidden="true" placeholder="Description of the product" type="text"
+                            required />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <label for="productBrand"><strong>*Brand:</strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="productBrand"></label>
+                        <input id="productBrand" data-bind="productBrand" hidden="true" name="productBrand"
+                            placeholder="Brand of the product" class="editData" type="text" required />
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <label for="productDetails"><strong>*Details:</strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="productDetails"></label>
+                        <input id="productDetails" data-bind="productDetails" class="editData" hidden="true"
+                            name="productDetails" placeholder="Details of the product" type="text" required />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col">
+                <div>
+                    <label for="productType"><strong>*Type:</strong></label>
+                </div>
+                <div>
+                    <label class="viewData" data-bind="productType"></label>
+                    <input id="productType" data-bind="productType" name="productType" hidden="true"
+                        placeholder="Type of the product" class="editData" type="text" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <label for="productAVGCost"><strong>*Average Cost:</strong></label><br>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="productAVGCost"></label>
+                        <input type="number" id="productAVGCost" name="productAVGCost" hidden="true"
+                            placeholder="Average cost of the product" class="editData" data-bind="productAVGCost" required/>
+                    </div>
+                </div>
+                <div class="col">
+
+                    <div>
+                        <Label for="productPrice"><strong>*Price</strong></Label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="productPrice"></label>
+                        <input type="number" id="productPrice" data-bind="productPrice"
+                            placeholder="Price of the product" hidden="true" class="editData"
+                            name="productPrice" />
+                    </div>
+                </div>
+            </div>
+            <br /><br />
+        </fieldset>
+        <fieldset>
+            <legend>Audit</legend>
+            <div>
+                <Label for="productCreatedAt"><strong>Created At:</strong></Label>
+            </div>
+            <div>
+                <label class="viewData" data-bind="productCreatedAt"></label>
+                <input type="text" id="productCreatedAt" data-bind="productCreatedAt" hidden="true" 
+                    placeholder="Date of the product creation" class="editData" name="productCreatedAt" />
+            </div>
+            <div>
+                <Label for="productUpdateAt"><strong>Updated At:</strong></Label>
+            </div>
+            <div>
+                <label class="viewData" data-bind="productUpdateAt"></label>
+                <input type="text" id="productUpdateAt"  class="editData" data-bind="productUpdateAt" hidden="true" 
+                    placeholder="Date of the product creation" name="productUpdateAt" />
+            </div>
+            <br /><br />
+        </fieldset>
+        <div class="row align-items-center">
+            <div class="col-2">
+                <button id="btnDelete" hidden="true" type="button" class="btn btn-danger col"
+                    onclick="viewProductF.delete()"><i class="fa-solid fa-trash"></i> Delete </button>
+                <button id="btnCancel" type="button" class="btn btn-secondary col" onclick="viewProductF.cancel()"><i
+                        class="fa-solid fa-cancel"></i> Cancel </button>
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+                <button id="btnEdit" hidden="true" type="button" class="btn btn-primary col"
+                    onclick="viewProductF.edit()"><i class="fa-solid fa-pencil"></i> Edit </button>
+                <button id="btnSave" hidden="true" type="button" class="btn btn-primary col"
+                    onclick="viewProductF.save()"><i class="fa-solid fa-save"></i> Save </button>
+            </div>
+        </div>
+    </form>
+    <br />
+    <script>
+        try {
+            mainF.configs;
+        } catch (error) {
+            window.location.href = "../Main/Main.html?page=products";
+        }
+    </script>
+</section>

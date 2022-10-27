@@ -19,7 +19,9 @@ const globalData = {
 
         person.createAtFormat = getDateFormat(new Date(person.createAt));
         person.updateAtFormat = getDateFormat(new Date(person.updateAt));
-    })
+    }),
+    productData: new CrudData("product", basePath + "products.json")
+
 };
 
 globalData.initData = async (callBack) => {

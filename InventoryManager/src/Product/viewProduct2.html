@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../appstyle.css">
+    <link rel="stylesheet" href="../Commons/css/Global.css">
+    <!--<link rel="stylesheet" href="./person.css">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css"
+        integrity="sha512-CpIKUSyh9QX2+zSdfGP+eWLx23C8Dj9/XmHjZY2uDtfkdLGo0uY12jgcnkX9vXOgYajEKb/jiw67EYm+kBf+6g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="../Commons/js/Global.js"></script>
+    <script src="./product.js"></script>
+
+    <title>Product Index</title>
+</head>
+
+<body onload="globalData.initData(productTableF.initTable);">
+    <div class="box">
+        <header>
+            <div include-html="../Commons/views/Header.html"></div>
+        </header>
+<section >
+    <form action="https://webdevbasics.net/scripts/demo.php" method="post">
+        <h2>New Product</h2>
+        <fieldset style="margin: 25px 5px;">
+            <legend>*Product Information:</legend>
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <label for="UPC"><strong>*UPC:</strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="UPC"></label>
+                        <input id="UPCid" name="UPC" placeholder="UPC number" type="number" data-bind="UPC"
+                            hidden="true" class="editData" required />
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <label for="productName">*Product name:</label>
+                        <input id="productName" data-bind="productName" name="productName" placeholder="Product Name" type="text" hidden="true"
+                            required />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <label for="productDescription">*Description:</label>
+                        <input id="productDescription" data-bind="productDescription" name="productDescription" hidden="true" placeholder="Description of the product" type="text"
+                            required />
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <label for="productDetails">*Details:</label>
+                        <input id="productDetails" data-bind="productDetails" hidden="true" name="productDetails" placeholder="Details of the product" type="text"
+                            required />
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <label for="productBrand">*Brand:</label>
+                        <input id="productBrand" data-bind="productBrand" hidden="true" name="productBrand" placeholder="Brand of the product" type="text"
+                            required />
+                    </div>
+                </div>
+            </div>
+            <div class="two-col m-2">
+                <div>
+                    <label for="productType">*Type:</label>
+                    <input id="productType" data-bind="productType" name="productType" hidden="true" placeholder="Type of the product" type="text" required />
+                </div>
+                <div>
+                    <label for="productAVGCost">*Average Cost:</label><br>
+                    <input type="number" id="productAVGCost" name="productAVGCost" hidden="true" placeholder="Average cost of the product" data-bind="productAVGCost">
+                </div>
+                <div>
+                    <Label for="productPrice">*Price</Label>
+                    <input type="number" id="productPrice" data-bind="productPrice"  placeholder="Price of the product" name="Price of the product" />
+                </div>
+            </div>
+            <br /><br />
+        </fieldset>
+        <fieldset>
+            <legend>Audit</legend>
+            <div>
+                <Label for="productCreatedAt">Created At:</Label>
+                <input type="text" id="productCreatedAt" data-bind="productCreatedAt"  placeholder="Date of the product creation" name="productCreatedAt" />
+            </div>
+            <div>
+                <Label for="productUpdateAt">Updated At:</Label>
+                <input type="text" id="productUpdateAt" data-bind="productUpdateAt"  placeholder="Date of the product creation" name="productUpdateAt" />
+            </div>
+
+
+
+        </fieldset>
+        <div class="row align-items-center">
+            <div class="col-2">
+                <button id="btnDelete" hidden="true" type="button" class="btn btn-danger col" onclick="viewProductF.delete()"><i
+                        class="fa-solid fa-trash"></i> Delete </button>
+                <button id="btnCancel" type="button" class="btn btn-secondary col" onclick="viewProductF.cancel()"><i
+                        class="fa-solid fa-cancel"></i> Cancel </button>
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+                <button id="btnEdit" hidden="true" type="button" class="btn btn-primary col" onclick="viewProductF.edit()"><i
+                        class="fa-solid fa-pencil"></i> Edit </button>
+                <button id="btnSave" hidden="true" type="button" class="btn btn-primary col" onclick="viewProductF.save()"><i
+                        class="fa-solid fa-save"></i> Save </button>
+            </div>
+        </div>
+    </form>
+    <br/>
+    <script>
+        try {
+            mainF.configs;
+        } catch (error) {
+            window.location.href = "../Main/Main.html?page=newproduct";
+        }
+    </script>
+</section></body>
+
+<!-- ✅ load popper.js ✅ -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.min.js"
+    integrity="sha512-5BqtYqlWfJemW5+v+TZUs22uigI8tXeVah5S/1Z6qBLVO7gakAOtkOzUtgq6dsIo5c0NJdmGPs0H9I+2OHUHVQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"
+    integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</html>

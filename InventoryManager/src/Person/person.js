@@ -16,6 +16,8 @@ personTableF.initTable = () => {
     // personTableF.personTable.addAction({ css: "fa fa-search", redirectTo: "IndexPerson.html", title: "View" });
 
     personTableF.personTable.refresh(globalData.personData.get());
+
+    console.log(globalData.personData.data[0])
 }
 
 personTableF.filterTable = () => {

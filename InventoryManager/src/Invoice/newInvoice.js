@@ -1,3 +1,19 @@
+const newInvoiceF = {
+  mode: 'new',
+  invoice: {}
+};
+
+newInvoiceF.init = () => {
+  if (globalData.searchParams.has("mode")) {
+    let tmp = globalData.searchParams.get("mode");
+    if (tmp) {
+      newInvoiceF.mode = tmp;
+    }
+  }
+  let today = new Date().toISOString().slice(0, 10);
+  document.getElementById("date").value = today;
+}
+
 const addNewItem = () =>{
     
     var table = document.getElementById("itemsTable");
@@ -45,10 +61,17 @@ const addNewItem = () =>{
     document.getElementById("itemsTable").deleteRow(i);
   }
 
-  const onLoadNewOrder = () => {
-    console.log("load new order")
+
+
+  const confirmSave = () => {
+    let invTotal = document.getElementById("subTotal").value;
+    console.log(invTotal)
+    if(!invTotal || invTotal == 0)
+    {
+      document.getElementById("errorSubtotal").hidden = false;
+      return;
+    }
+    alert("Invoice Succesfully Saved !");
+    window.location.href = "../Main/Main.html?page=invoiceListView";
   }
 
-  
-
-  

@@ -63,7 +63,7 @@ select, textarea, input[type=text], input[type=email], input[type=tel], input[ty
 select {
 	height: 25px;
 }*/
-input[type=submit], button[type=submit]{
+input[type=submit], button[type=submit], #btnSaveInv{
 	background: #e9a442;
 	color: whitesmoke;
 	border: 2px solid whitesmoke;

@@ -16,7 +16,7 @@ invoiceTableF.initTable = () => {
     invoiceTableF.invoiceTable.addActionView("../Main/Main.html?page=viewInvoice");
     invoiceTableF.invoiceTable.addActionDelete(
         globalData.invoiceData,
-        () => invoiceTableF.filerTable()
+        () => invoiceTableF.filerTable(), "Are you sure you want to delete this Invoice?"
     );
     // inventoryTableF.inventoryTable.addAction({ css: "fa fa-trash red", redirectTo: "IndexPerson.html", title: "Delete" });
     // inventoryTableF.inventoryTable.addAction({ css: "fa fa-search", redirectTo: "IndexPerson.html", title: "View" });

@@ -87,15 +87,15 @@ const mainF = {
             styles: ["Commons/css/formGeneral.css"],
             scripts: ["Invoice/newInvoice.js"],
             initFunction: () => {
-                viewInvoiceTableF.init();
+                newInvoiceF.init();
             }
         }, 
         viewInvoice: {
             title: "View Invoice",
-            page: "Invoice/viewInvoice2.html",
+            page: "Invoice/viewInvoice.html",
             mainElement: "#invoiceSection",
             styles: ["Commons/css/formGeneral.css"],
-            scripts: ["Invoice/viewInvoice2.js"],
+            scripts: ["Invoice/viewInvoice.js"],
             initFunction: () => {
                 viewInvoiceF.init();
             }

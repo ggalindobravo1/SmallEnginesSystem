@@ -1,109 +1,163 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Inventory Manager Home</title>
-		<link rel="stylesheet" href="../appstyle.css" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css"
-			integrity="sha512-CpIKUSyh9QX2+zSdfGP+eWLx23C8Dj9/XmHjZY2uDtfkdLGo0uY12jgcnkX9vXOgYajEKb/jiw67EYm+kBf+6g=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-		/>
-	</head>
+<section id="supplierSection">
+    <form id="formSupplier">
+        <h2 id="title">New Supplier</h2>
+        <fieldset style="margin: 25px 5px;">
+            <legend>*Business Information</legend>
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <label for="supplierName"><strong>*Supplier Name: </strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="supplierName"></label>
+                        <input id="supplierName" name="supplierName" placeholder="Supplier Name" type="text" data-bind="supplierName" hidden="true"
+                            class="editData" required />
+                    </div>
 
-	<body>
-		<div class="box">
-			<header>
-				<main-header></main-header>
-			</header>
+                </div>
+                <div class="col">
+                    <div>
+                        <label for="supplierDetail"><strong>Supplier Additional Details: </strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="supplierDetail"></label>
+                        <input id="supplierDetail" name="supplierDetail" placeholder="Additional Details" type="text"
+                            data-bind="supplierDetail" hidden="true" class="editData" required />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <label for="supplierPhone"><strong>*Telephone: </strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="supplierPhone"></label>
+                        <input id="supplierPhone" data-bind="supplierPhone" hidden="true" name="supplierPhone"
+                        placeholder="289 123 4567" class="editData" type="tel" required />
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <label for="supplierExt"><strong>Extension: </strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="supplierExt"></label>
+                        <input id="supplierExt" data-bind="supplierExt" class="editData" hidden="true"
+                            name="supplierExt" placeholder="12345" type="supplierExt" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <label for="supplierEmail"><strong>*Email: </strong></label>
+                    </div>
 
-			<section>
-
-                <form action="https://webdevbasics.net/scripts/demo.php" method="post">
-                    <h2>View Supplier</h2>
-					<fieldset style="margin: 25px 5px;">
-						<legend>Business Information</legend>
-						<div class="two-col">
-							<div>
-								<label><strong>Name: </strong></label>
-								<label>OE Sypply</label>
-							</div>
-							<div>
-								<label><strong>Details: </strong></label>
-								<label>Battery and oil</label>
-							</div>
-                            <div>
-                                <label><strong>Email: </strong></label>
-								<label>supplier@oesupply.ca</label>
-							</div>
-							<div>
-								<label><strong>Telephone: </strong></label>
-                                <label>222-000-1555</label>
-							</div>
-                            <div>
-                                <label><strong>Extension: </strong></label>
-								<label>456</label>
-							</div>
-						</div>
-                        <br>
-					</fieldset>
-					<fieldset>
-						<legend>Address</legend>
-						<div class="two-col">
-							<div>
-								<label><strong>Street: </strong></label>
-                                <label>25 Glendale Ave.</label>
-							</div>
-                            <div>
-								<label><strong>City: </strong></label>
-                                <label>St. Catherines</label>
-							</div>
-                            <div>
-								<label><strong>City: </strong></label>
-                                <label>Ontario</label>
-							</div>
-                            <div>
-								<label><strong>Postal Code: </strong></label>
-                                <label>L1S1J2</label>
-							</div>
-						</div>
-                        <br>
-					</fieldset>
-					<div>
-                        <br/>
-                        <button type="button" class="btn btn-danger"> Delete </button>
-					</div>
-				</form>
-
-			</section>
-
-			<footer>
-				<main-footer></main-footer>
-			</footer>
-		</div>
-	</body>
-
-	<script src="./index.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.min.js"
-		integrity="sha512-5BqtYqlWfJemW5+v+TZUs22uigI8tXeVah5S/1Z6qBLVO7gakAOtkOzUtgq6dsIo5c0NJdmGPs0H9I+2OHUHVQ=="
-		crossorigin="anonymous"
-		referrerpolicy="no-referrer"
-	></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"
-		integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA=="
-		crossorigin="anonymous"
-		referrerpolicy="no-referrer"
-	></script>
-	<script src="../Shared/Header/header.js"></script>
-	<script src="../Shared/Footer/footer.js"></script>
-	<script src="../Shared/sharedFunctions.js"></script>
-</html>
+                    <div>
+                        <label class="viewData" data-bind="supplierEmail"></label>
+                        <input id="supplierEmail" data-bind="supplierEmail" class="editData"
+                            name="supplierEmail" hidden="true" placeholder="email@domain.com" type="email"
+                            required />
+                    </div>
+                </div>
+            </div>
+            <br /><br />
+        </fieldset>
+        <fieldset>
+            <legend>Address</legend>
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <Label for="supplierStreet"><strong>*Street: </strong></Label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="supplierStreet"></label>
+                        <input type="text" id="supplierStreet" data-bind="supplierStreet" hidden="true" 
+                        placeholder="# Street St" class="editData" name="supplierStreet" required/>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <Label for="supplierPostalCode"><strong>*Postal Code: </strong></Label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="supplierPostalCode"></label>
+                        <input type="text" id="supplierPostalCode" data-bind="supplierPostalCode" hidden="true" 
+                        placeholder="A1B 2C3" class="editData" name="supplierPostalCode" required/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <Label for="supplierProvince"><strong>*Province: </strong></Label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="supplierProvince"></label>
+                        <select id="supplierProvince" name="supplierProvince" data-bind="supplierProvince" class="editData" hidden="true" required>
+                            <option value="">None</option>
+                            <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                            <option value="Prince Edward Island">Prince Edward Island</option>
+                            <option value="Nova Scotia">Nova Scotia</option>
+                            <option value="New Brunswick">New Brunswick</option>
+                            <option value="Quebec">Quebec</option>
+                            <option value="Ontario">Ontario</option>
+                            <option value="Manitoba">Manitoba</option>
+                            <option value="Prince Edward Island">Prince Edward Island</option>
+                            <option value="Saskatchewan">Saskatchewan</option>
+                            <option value="Alberta">Alberta</option>
+                            <option value="British Columbia">British Columbia</option>
+                            <option value="Yukon">Yukon</option>
+                            <option value="Northwest Territories">Northwest Territories</option>
+                            <option value="Nunavut">Nunavut</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <Label for="supplierCity"><strong>*City: </strong></Label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="supplierCity"></label>
+                        <input type="text" id="supplierCity" data-bind="supplierCity" hidden="true" 
+                        placeholder="City" class="editData" name="supplierCity" required/>
+                    </div>
+                </div>
+            </div>
+            <br /><br />
+        </fieldset>
+        <div class="row align-items-center">
+            <div class="col-2">
+                <button id="btnDelete" hidden="true" type="button" class="btn btn-danger col"
+                    onclick="supplierTableF.delete()"><i class="fa-solid fa-trash"></i> Delete </button>
+                <button id="btnCancel" type="button" class="btn btn-secondary col" onclick="supplierTableF.cancel()"><i
+                        class="fa-solid fa-cancel"></i> Cancel </button>
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+                <button id="btnEdit" hidden="true" type="button" class="btn btn-primary col"
+                    onclick="supplierTableF.edit()"><i class="fa-solid fa-pencil"></i> Edit </button>
+                <button id="btnSave" hidden="true" type="button" class="btn btn-primary col"
+                    onclick="supplierTableF.save()"><i class="fa-solid fa-save"></i> Save </button>
+            </div>
+        </div>
+    </form>
+    <br />
+    <script>
+        try {
+            mainF.configs;
+        } catch (error) {
+            window.location.href = "../Main/Main.html?page=suppliers";
+        }
+    </script>
+</section>

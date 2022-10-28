@@ -23,7 +23,7 @@ const globalData = {
     }),
     productData: new CrudData("product", basePath + "products.json"),
     inventoryData: new CrudData("inventory",basePath + "inventory.json", "Inventoryid"),
-    supplierData: new CrudData("supplier", basePath + 'suppliers.json'),
+    supplierData: new CrudData("supplier",basePath + "supplier.json", "supplierID"),
     invoiceDetailData: new CrudData("invoiceDetail", basePath + 'invoiceDetail.json'),
     invoiceData: new CrudData("invoice", basePath+"invoice.json", "invoiceID", (invoice) => {
         const invSupplier = globalData.supplierData.findByFK(invoice.supplierID, 'supplierID');

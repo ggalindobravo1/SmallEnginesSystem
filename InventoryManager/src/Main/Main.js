@@ -1,8 +1,8 @@
 const mainF = {
     configs: {
         mainPage: {
-            title: "No Page",
-            page: "",
+            title: "Home",
+            page: "Dashboard/Dashboard.html",
             mainElement: "#principalContent",
             styles: [],
             scripts: [],
@@ -99,6 +99,26 @@ const mainF = {
             initFunction: () => {
                 viewInvoiceF.init();
             }
+        },
+        newSupplier: {
+            title: "New Supplier",
+            page: "Supplier/ViewSupplier.html",
+            mainElement: "#supplierSection",
+            styles: ["appstyle.css"],
+            scripts: ["Supplier/ViewSupplier.js"],
+            initFunction: () => {
+                supplierTableF.init();
+            }
+        },
+        suppliers: {
+            title: "Supplier List",
+            page: "Supplier/ListViewSupplier.html",
+            mainElement: "#supplierTable",
+            styles: ["Supplier/supplier.css"],
+            scripts: ["Supplier/supplier.js"],
+            initFunction: () => {
+                supplierTableF.initTable();
+            }      
         }
     }
 };

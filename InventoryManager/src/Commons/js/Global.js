@@ -1,4 +1,5 @@
 const serverBasePath = "/InventoryManager/src/";
+//const serverBasePath = "/src/";
 const basePath = serverBasePath + "/Commons/json-data/";
 
 const globalData = {
@@ -21,8 +22,15 @@ const globalData = {
         person.updateAtFormat = getDateFormat(new Date(person.updateAt));
     }),
     productData: new CrudData("product", basePath + "products.json"),
-    inventoryData: new CrudData("inventory",basePath + "inventory.json", "Inventoryid")
-
+    inventoryData: new CrudData("inventory",basePath + "inventory.json", "Inventoryid"),
+    supplierData: new CrudData("supplier", basePath + 'suppliers.json'),
+    invoiceDetailData: new CrudData("invoiceDetail", basePath + 'invoiceDetail.json'),
+    invoiceData: new CrudData("invoice", basePath+"invoice.json", "invoiceID", (invoice) => {
+        const invSupplier = globalData.supplierData.findByFK(invoice.supplierID, 'supplierID');
+        const invDetails = globalData.invoiceDetailData.findByFK(invoice.invoiceID, 'invoiceID');
+        invoice.details = invDetails? invDetails : [] ;
+        invoice.supplier = invSupplier? invSupplier : globalData.supplierData.data[0];
+    } )
 };
 
 globalData.initData = async (callBack) => {
@@ -416,6 +424,11 @@ CrudData.prototype.get = function () {
 CrudData.prototype.findById = function (id) {
     const _this = this;
     return this.data.find(d => d[_this.idField] == id);
+}
+
+CrudData.prototype.findByFK = function (id, columnName) {
+    const _this = this;
+    return this.data.filter(d => d[columnName] == id)
 }
 
 CrudData.prototype.insert = function (item) {

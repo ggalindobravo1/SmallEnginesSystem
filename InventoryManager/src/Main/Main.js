@@ -69,6 +69,36 @@ const mainF = {
             initFunction: () => {
                 inventoryTableF.initTable();
             }
+        }, 
+        invoiceListView: {
+            title: "Invoice", 
+            page: "Invoice/Invoice.html", 
+            mainElement: "#invoiceTable", 
+            styles: ["Commons/css/formGeneral.css"],
+            scripts: ["Invoice/Invoice.js"], 
+            initFunction: () => {
+                invoiceTableF.initTable();
+            }
+        }, 
+        newInvoice: {
+            title: "New Invoice",
+            page: "Invoice/newInvoice.html",
+            mainElement: "#invoiceSection",
+            styles: ["Commons/css/formGeneral.css"],
+            scripts: ["Invoice/newInvoice.js"],
+            initFunction: () => {
+                newInvoiceF.init();
+            }
+        }, 
+        viewInvoice: {
+            title: "View Invoice",
+            page: "Invoice/viewInvoice.html",
+            mainElement: "#invoiceSection",
+            styles: ["Commons/css/formGeneral.css"],
+            scripts: ["Invoice/viewInvoice.js"],
+            initFunction: () => {
+                viewInvoiceF.init();
+            }
         }
     }
 };

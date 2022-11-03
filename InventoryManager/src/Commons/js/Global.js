@@ -23,6 +23,17 @@ const globalData = {
     }),
     productData: new CrudData("product", basePath + "products.json"),
     inventoryData: new CrudData("inventory",basePath + "inventory.json", "Inventoryid"),
+    CustomerData: new CrudData("Customer", basePath + "Customer.json", "id", (customer) => {
+        customer.type = 2;
+
+        customer.fullName = customer.lastName + " " + customer.firstName;
+
+        customer.address = customer.street + ". - " + customer.city + " "
+            + customer.province + " - PC  " + customer.postalCode;
+
+        customer.createAtFormat = getDateFormat(new Date(customer.createAt));
+        customer.updateAtFormat = getDateFormat(new Date(customer.updateAt));
+    }),
     supplierData: new CrudData("supplier",basePath + "supplier.json", "supplierID"),
     invoiceDetailData: new CrudData("invoiceDetail", basePath + 'invoiceDetail.json'),
     invoiceData: new CrudData("invoice", basePath+"invoice.json", "invoiceID", (invoice) => {

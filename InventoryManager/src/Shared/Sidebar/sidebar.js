@@ -39,8 +39,12 @@ class SideMenu extends HTMLElement {
                 
           </li>
           <li>
-              <a href="#" class="nav-link px-0 align-middle" onclick="relocateFnc(8)" id="customers">
-                  <i class="fa fa-group"></i> <span class="ms-1 d-none d-sm-inline">Customers</span> </a>
+              <a href="#" class="nav-link px-0 align-middle" onclick="relocateFnc(8)" id="persons">
+                  <i class="fa fa-group"></i> <span class="ms-1 d-none d-sm-inline">Persons</span> </a>
+          </li>
+          <li>
+              <a href="#" class="nav-link px-0 align-middle" onclick="relocateFnc(9)" id="Customers">
+          <i class="fa fa-group"></i> <span class="ms-1 d-none d-sm-inline">Customers</span> </a>
           </li>
       </ul>
       <hr>

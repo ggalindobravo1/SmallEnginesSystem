@@ -56,7 +56,12 @@ class Header extends HTMLElement {
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" onclick="relocateFnc(8)" id="customers"
+            <a class="nav-link" href="#" onclick="relocateFnc(8)" id="person"
+              >Customers</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="relocateFnc(9)" id="Customers"
               >Customers</a
             >
           </li>

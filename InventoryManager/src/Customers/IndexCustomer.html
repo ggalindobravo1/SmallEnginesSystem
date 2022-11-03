@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col">
+            <h2>Customer</h2>
+        </div>
+        <div class="col">
+        </div>
+        <div class="col">
+        </div>
+        <div class="col">
+        </div>
+        <div class="col">
+        </div>
+        <div class="col">
+        </div>
+        <div class="col">
+            <a href="./Main.html?page=newCustomer">
+                <button title="New Customer" type="submit" value="Submit"><i class="fa-solid fa-plus fa-lg"></i> New
+                    Customer</button>
+            </a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-4">
+            </div>
+            <div class="col-4">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-search"></i></span>
+                    </div>
+                    <input type="text" id="myInput" onkeyup="CustomerTableF.filterTable()" class="form-control"
+                        placeholder="Search Customer by..." aria-label="Search Customer by..."
+                        aria-describedby="basic-addon1">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+    </div>
+    <table id="CustomerTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th style="width:150px;">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+<script>
+    try {
+        mainF.configs;
+    } catch (error) {
+        window.location.href = "../Main/Main.html?page=Customers";
+    }
+</script>
+</div>

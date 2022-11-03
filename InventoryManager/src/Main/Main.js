@@ -28,6 +28,26 @@ const mainF = {
                 viewPersonF.init();
             }
         },
+        Customers: {
+            title: "Customer List",
+            page: "Customers/IndexCustomer.html",
+            mainElement: "#CustomerTable",
+            styles: ["Customers/Customer.css"],
+            scripts: ["Customers/Customer.js"],
+            initFunction: () => {
+                CustomerTableF.initTable();
+            }
+        },
+        newCustomer: {
+            title: "New Customer",
+            page: "Customers/ViewCustomer.html",
+            mainElement: "#CustomerSection",
+            styles: ["Customers/FormCustomer.css"],
+            scripts: ["Customers/ViewCustomer.js"],
+            initFunction: () => {
+                viewCustomerF.init();
+            }
+        },
         newProduct: {
             title: "New Product",
             page: "Product/ViewProduct.html",

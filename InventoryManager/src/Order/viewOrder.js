@@ -25,10 +25,21 @@ viewOrderF.init = () => {
     fillFormData(viewOrderF.order);
 
     //Manual fill data of nested objects
-    document.getElementById("supNameView").textContent =
-      viewOrderF.order.supplier[0].supplierName;
-    document.getElementById("supNameEdit").textContent =
-      viewOrderF.order.supplier[0].supplierName;
+    document.getElementById("custFirstNameView").textContent =
+      viewOrderF.order.customer[0].firstName;
+      document.getElementById("custLastNameView").textContent =
+      viewOrderF.order.customer[0].lastName;
+    document.getElementById("custFirstNameEdit").textContent =
+      viewOrderF.order.customer[0].firstName;
+    document.getElementById("custLastNameEdit").textContent =
+      viewOrderF.order.customer[0].lastName;
+    document.getElementById("custEmailView").textContent =
+      viewOrderF.order.customer[0].email;
+    document.getElementById("custEmailEdit").textContent =
+      viewOrderF.order.customer[0].email;
+
+
+
 
     //insert details to table
     let tableRef = document

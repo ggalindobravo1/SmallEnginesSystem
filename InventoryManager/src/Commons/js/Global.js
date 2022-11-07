@@ -43,10 +43,10 @@ const globalData = {
         invoice.supplier = invSupplier? invSupplier : globalData.supplierData.data[0];
     } ),
     orderData: new CrudData("order", basePath+"order.json", "order", (order) => {
-        const ordSupplier = globalData.supplierData.findByFK(order.supplierID, 'supplierID');
-        const ordDetails = globalData.invoiceDetailData.findByFK(order.orderID, 'orderID');
-        order.details = ordDetails? ordDetails : [] ;
-        order.supplier = ordSupplier? ordSupplier : globalData.supplierData.data[0];})
+        const ordCustomer = globalData.CustomerData.findByFK(order.customerID, 'id');
+        ///const ordDetails = globalData.invoiceDetailData.findByFK(order.orderID, 'orderID');
+        ///order.details = ordDetails? ordDetails : [] ;
+        order.customer = ordCustomer? ordCustomer : globalData.CustomerData.data[0];})
     
 };
 

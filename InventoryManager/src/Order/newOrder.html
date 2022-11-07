@@ -1,0 +1,121 @@
+<style>
+	th, td {
+	  border-style: none;
+	}
+</style>
+<section id="orderSection">
+	<form>
+		<h2>New Purchase Order</h2>
+		<fieldset style="margin: 25px 5px;">
+			<legend>*Request to</legend>
+			<div class="row p-1">
+				<div class="col">
+					<label for="sName">*Supplier Name</label>
+					<input id="sName" name="sName" placeholder="Supplier Name" type="text" required />
+				
+					<label for="detail">Supplier Address</label>
+					<input id="address" name="address" placeholder="Supplier Address" type="text" />
+				</div>
+				<div class="col">
+					<label for="email">*Email</label>
+					<input id="email" name="email" placeholder="email@domain.com" type="email" required />
+				
+					<label for="telephone">*Telephone</label>
+					<input id="telephone" name="telephone" placeholder="289 123 4567" type="tel" required/>
+				</div>
+				<div class="col">
+					<label for="ext">Supplier External Number</label>
+					<input id="ext" name="ext" placeholder="#6754362" type="number" />
+				
+					<label for="date">Creation Date</label>
+					<input id="date" name="date" type="date" readonly/>
+				</div>
+			</div>
+			<br>
+		</fieldset>
+		<fieldset>
+			<legend>*Order Details</legend>
+			<div class="row p-1">
+				<div class="col">
+					<label for="street">Description</label>
+					<input id="machineDescription" name="machinemachineDescription" placeholder="Lawn Mower, Kohler spare parts" type="text" />
+				</div>
+			</div>
+			<div class="row p-1">
+				<div class="col">
+					<table id="itemsTable" class="m-2" style="width:95%;">
+						<tr>
+							<th style="width:5%;">#</th>
+							<th style="width:25%;">Item Name</th>
+							<th style="width:40%;">Item Description</th>
+							<th style="width:15%;">Qty</th>
+							<th style="width:10%;">Unit Price</th>
+							<th style="width:5%;"></th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td><input type="text" required name='itemName' placeholder="spark plugs" /></td>
+							<td><input type="text" required name='itemDescription' placeholder="Korn platinum spark plugs 1plg 5Amp"  /></td>
+							<td><input type="number" class="Qty" min="0" required name='itemQuantity' placeholder="3" /></td>
+							<td><input type="number" class="unitPrice" min="0" required name='unitPrice' placeholder="15.99" /></td>
+							<td><a href="#" class="text-danger" onclick="deleteRow(this)" title="Delete this record"
+									name='delete'>
+									<i class="fa-solid fa-delete-left"></i></a>
+							</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td><input type="text" name='itemName' /></td>
+							<td><input type="text" name='itemDescription' /></td>
+							<td><input type="number" class="Qty" min="0" name='itemQuantity' /></td>
+							<td><input type="number" class="unitPrice" min="0" name='unitPrice' /></td>
+							<td><a href="#" class="text-danger" onclick="deleteRow(this)" title="Delete this record"
+									name='delete'>
+									<i class="fa-solid fa-delete-left"></i></a></td>
+						</tr>
+					</table>
+
+				</div>
+			</div>
+			
+			<div class="row p-3">
+				<div class="col-6">
+			
+					<button type="button" id="btnAddRow" class="btn btn-light" onclick="addNewItem()"><i
+							class="fa-solid fa-cart-plus"></i> Add new item</button>
+				</div>
+				<div class="col-3">
+					
+						<button type="button" id="btnCalcTotal" class="btn btn-light" onclick="calcSubTotal()"><i
+								class="fa-solid fa-calculator"></i> Calculate SubTotal</button>
+				</div>
+				<div class="col-3">
+						<label for="subTotal"><strong>*Sub Total $ + HST</strong></label>
+						<label id="errorSubtotal" hidden="true" class="text-danger"><strong>Error Processing the Qty
+								or Price</strong></label>
+						<input type="number" readonly id="subTotal" name="subTotal" />
+				</div>	
+			</div>
+
+			<br>
+		</fieldset>
+		<div class="row">
+			<div class="col-10">
+				<button id="btnCancel" type="button" class="btn btn-secondary col mt-3" onclick="history.back()"><i
+					class="fa-solid fa-cancel"></i> Cancel </button>
+			</div>
+			<div class="col-2">
+				<button type="button" value="Submit" onclick="confirmSave()" id="btnSaveInv"><i class="fa-solid fa-paper-plane"></i> Submit</button>
+			</div>
+			<!-- <input type="submit" value="Submit" /> -->
+		</div>
+	</form>
+	<br />
+	<script>
+		try {
+			mainF.configs;
+		} catch (error) {
+			window.location.href = "../Main/Main.html?page=orderListView";
+		}
+	</script>
+</section>

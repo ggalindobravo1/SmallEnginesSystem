@@ -139,8 +139,41 @@ const mainF = {
             initFunction: () => {
                 supplierTableF.initTable();
             }      
+        },
+        orderListView: {
+            title: "Order", 
+            page: "Order/Order.html", 
+            mainElement: "#orderTable", 
+            styles: ["Commons/css/formGeneral.css"],
+            scripts: ["Order/Order.js"], 
+            initFunction: () => {
+                orderTableF.initTable();
+            }
+        }, 
+        newOrder: {
+            title: "New Order",
+            page: "Order/newOrder.html",
+            mainElement: "#orderSection",
+            styles: ["Commons/css/formGeneral.css"],
+            scripts: ["Order/newOrder.js"],
+            initFunction: () => {
+                newOrderF.init();
+            }
+        }, 
+        viewOrder: {
+            title: "View Order",
+            page: "Order/viewOrder.html",
+            mainElement: "#orderSection",
+            styles: ["Commons/css/formGeneral.css"],
+            scripts: ["Order/viewOrder.js"],
+            initFunction: () => {
+                viewOrderF.init();
+            }
         }
+
+
     }
+
 };
 
 mainF.init = async () => {

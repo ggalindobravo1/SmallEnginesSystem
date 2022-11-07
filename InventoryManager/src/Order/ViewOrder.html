@@ -1,0 +1,145 @@
+<section id="orderSection">
+
+    <form id="formOrder">
+        <h2>View Order</h2>
+        <fieldset style="margin: 25px 5px;">
+            <legend>Order Information</legend>
+            <div class="row p-1">
+                <div class="col">
+                    
+                        <label><strong>Id: </strong></label>
+                        <label class="viewData" data-bind="orderID"></label>
+                        <label class="editData" hidden data-bind="orderID"></label>
+                </div>
+                <div class="col">
+                    <label><strong>Type: </strong></label>
+                    <label>Purchase Order</label>   
+                </div>
+            </div>
+            <div class="row p-1">
+                <div class="col">
+                    <label><strong>Supplier: </strong></label>
+                    <label class="viewData" data-bind="supplier" id="supNameView"></label>
+                    <label class="editData" data-bind="supplier" hidden id="supNameEdit"></label>
+                </div>
+                <div class="col">
+                    <label><strong>Status: </strong></label>
+                    <label class="viewData" data-bind="orderStatus">Bought</label>
+                    <select name="status" id="status" hidden class="editData" data-bind="orderStatus" tabindex="0" >
+                        <option value="Bought">Bought</option>
+                        <option value="Generated">Generated</option>
+                        <option value="Cancelled">Cancelled</option>
+                        <option value="Pending">Pending</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row p-1">
+                <div class="col">
+                    <label><strong>External Number ID: </strong></label>
+                    <label class="viewData" data-bind="orderExternalNumber"></label>
+                    <input type="number" hidden class="editData" data-bind="orderExternalNumber" />
+                </div>
+                <div class="col">
+                    <label><strong>Sub Status: </strong></label>
+                    <label class="viewData" data-bind="orderSubStatus">Complete</label>
+                    <select name="subStatus" id="subStatus" hidden class="editData" data-bind="orderSubStatus">
+                        <option value="Complete">Complete</option>
+                        <option value="Incomplete">Incomplete</option>
+                        <option value="Cancelled">Cancelled</option>
+                        <option value="Pending">Pending</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+        </fieldset>
+
+        <fieldset style="margin: 25px 5px;">
+            <legend>Order Details</legend>
+
+            <div class="row p-1 mb-3">
+                <div class="col">
+                    <table style="width:95%;" class="m-2" id="tableItems">
+                        <thead>
+                            <tr>
+                                <th style="width:10%;">Qty</th>
+                                <th style="width:45%;">Detail</th>
+                                <th style="width:10%;">Unit Price</th>
+                                <th style="width:25%;">Item Status</th>
+                                <th style="width:10%;">Last Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+            <div class="row p-1">
+                <div class="col"> 
+                    <label><strong>Subtotal: </strong></label>
+                    <label  data-bind="orderSubtotal"></label>
+                </div>
+                <div class="col">
+                    <label><strong>Tax: </strong></label>
+                    <label  data-bind="orderTax"></label>
+                </div>
+                <div class="col">
+                    <label><strong>Discount % : </strong></label>
+                    <label class="viewData" data-bind="orderDiscount">0</label>
+                    <input type="number" hidden class="editData" data-bind="orderDiscount" />
+                </div>
+                <div class="col">
+                    <label><strong>Order Completion Date: </strong></label>
+                    <label class="viewData" data-bind="orderArriveDate">2022-07-22</label>
+                    <input type="date" hidden class="editData" data-bind="orderArriveDate"/>
+                </div>
+
+            </div>
+        </fieldset>
+        <fieldset style="margin: 25px 5px;">
+            <legend>Audit</legend>
+            <div class="row p-1 mb-5">
+                <div class="col">
+                    <label><strong>Created by: </strong></label>
+                    <label>Sam</label>
+                </div>
+                <div class="col">
+                    <label><strong>Created at: </strong></label>
+                    <label data-bind="orderCreatedAt"></label>
+                </div>
+                <div class="col">
+                    <label><strong>Updated at: </strong></label>
+                    <label id="lastUpdate" data-bind="orderUpdateAt"></label>
+                </div>
+
+            </div>
+        </fieldset>
+
+        <div class="row my-3">
+            <div class="col-10">
+                <button id="btnDelete" type="button" class="btn btn-danger col" onclick="viewOrderF.delete()"><i
+                    class="fa-solid fa-trash"></i> Delete </button>
+                <button id="btnCancel" type="button" class="btn btn-secondary col" onclick="viewOrderF.cancel()"><i
+                        class="fa-solid fa-cancel"></i> Cancel </button> 
+            </div>
+            <div class="col-2">
+                <button id="btnEdit"  type="button" class="btn btn-primary col" onclick="viewOrderF.editorder()"><i
+                    class="fa-solid fa-pencil"></i> Edit </button>
+            <button id="btnSave" hidden="true" type="button" class="btn btn-primary col" onclick="viewOrderF.saveChanges()"><i
+                    class="fa-solid fa-save"></i> Save </button>
+            </div>
+            <br />          
+        </div>
+    </form>
+
+    <br />
+	<script>
+		try {
+			mainF.configs;
+		} catch (error) {
+			window.location.href = "../Main/Main.html?page=orderListView";
+		}
+	</script>
+
+</section>

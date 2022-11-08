@@ -64,14 +64,31 @@ const addNewItem = () =>{
 
 
   const confirmSave = () => {
+    document.getElementById("errorSubmit").hidden = true;
     let invTotal = document.getElementById("subTotal").value;
     console.log(invTotal)
+    var reqFields = document.getElementById("newInvoiceForm").querySelectorAll("[required]")
+    console.log(reqFields);
+    
+    for(i = 0; i<reqFields.length; i++){
+      if(reqFields[i].value.length == 0){
+        document.getElementById("errorSubmit").hidden = false;
+        return;
+      }
+    }
     if(!invTotal || invTotal == 0)
     {
       document.getElementById("errorSubtotal").hidden = false;
       return;
     }
-    alert("Invoice Succesfully Saved !");
-    window.location.href = "../Main/Main.html?page=invoiceListView";
+   
+    document.getElementById("submitCheck").hidden = false;
+
+    setTimeout(() => {
+      alert("Invoice Succesfully Saved !");
+      window.location.href = "../Main/Main.html?page=invoiceListView";
+    }, 1000)
+    
+   
   }
 

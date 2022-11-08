@@ -6,7 +6,9 @@ const mainF = {
             mainElement: "#principalContent",
             styles: [],
             scripts: [],
-            initFunction: () => { }
+            initFunction: () => {
+                
+             }
         },
         persons: {
             title: "Person List",
@@ -176,11 +178,42 @@ const mainF = {
 
 };
 
+const showMenuByRole = () => {
+  //get user from shared functions
+  var links = document.querySelectorAll(".nav-link");
+  var currentUser = getCurrentUser();
+  //console.log(currentUser)
+  switch(currentUser){
+    case "Sales":
+        links[4].hidden = false;
+        links[7].hidden = false;
+        break;
+    case "Warehouse":
+        links[3].hidden = false;
+        links[5].hidden = false;
+        break;
+    case "Admin":
+        for(let i = 1; i<links.length; i++){
+            links[i].hidden = false;
+        }
+        break;
+    default: //Manager
+        links.forEach((link)=>{
+            link.hidden = false;
+        })
+        document.getElementById("logs").hidden = false;
+        break;
+
+  }
+};
+
 mainF.init = async () => {
     if (!globalData) {
         alert('Invalid Configuration');
         return;
     }
+    
+    showMenuByRole();
 
     const principalContent = document.getElementById("principalContent");
     if (!principalContent) {
@@ -215,7 +248,7 @@ mainF.init = async () => {
     for (i = 0; i < page.scripts.length; i++) {
         await mainF.loadScript(serverBasePath + page.scripts[i]);
     }
-    
+
     // Loading Page
     includeHTML();
 

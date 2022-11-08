@@ -12,28 +12,28 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#" onclick="relocateFnc(1)" id="home">Home</a>
+                    <a class="nav-link active" aria-current="page" href="#" onclick="relocateFnc(0)" id="home" hidden>Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="relocateFnc(2)" id="Inventory">Inventory</a>
+                    <a class="nav-link" href="#" onclick="relocateFnc(1)" id="Inventory" >Inventory</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="relocateFnc(3)" id="Invoice">Invoice</a>
+                    <a class="nav-link" href="#" onclick="relocateFnc(2)" id="Invoice" hidden>Invoice</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="relocateFnc(5)" id="products">Products</a>
+                    <a class="nav-link" href="#" onclick="relocateFnc(3)" id="products" hidden>Products</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="relocateFnc(6)" id="POS">POS</a>
+                    <a class="nav-link" href="#" onclick="relocateFnc(4)" id="POS" hidden>POS</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="relocateFnc(7)" id="suppliers">Suppliers</a>
+                    <a class="nav-link" href="#" onclick="relocateFnc(5)" id="suppliers" hidden>Suppliers</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="relocateFnc(8)" id="Persons">Persons</a>
+                    <a class="nav-link" href="#" onclick="relocateFnc(6)" id="Persons" hidden>Employees</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="relocateFnc(9)" id="customers">Customers</a>
+                    <a class="nav-link" href="#" onclick="relocateFnc(7)" id="customers" hidden>Customers</a>
                 </li>
             </ul>
         </div>
@@ -50,6 +50,7 @@
                 <li><a class="dropdown-item" href="#">New project...</a></li>
                 <li><a class="dropdown-item" href="#">Settings</a></li>
                 <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="#" onclick="downloadLogs()" id="logs" hidden>Download Logs</a></li>
                 <li>
                     <hr class="dropdown-divider" />
                 </li>

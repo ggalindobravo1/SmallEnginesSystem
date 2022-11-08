@@ -75,3 +75,10 @@ const addNewItem = () =>{
     window.location.href = "../Main/Main.html?page=orderListView";
   }
 
+  let prod = JSON.parse(localStorage.getItem("product"))
+
+  const function22 = () => {
+    let name = document.getElementById("itemName2").value;
+    let filt = prod.filter(p => p.productName.includes(name));
+    console.log(filt);
+  }

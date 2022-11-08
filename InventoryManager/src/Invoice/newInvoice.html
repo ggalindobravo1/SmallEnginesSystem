@@ -4,7 +4,7 @@
 	}
 </style>
 <section id="invoiceSection">
-	<form>
+	<form id="newInvoiceForm">
 		<h2>New Purchase Order</h2>
 		<fieldset style="margin: 25px 5px;">
 			<legend>*Request to</legend>
@@ -24,7 +24,14 @@
 					<input id="telephone" name="telephone" placeholder="289 123 4567" type="tel" required/>
 				</div>
 				<div class="col">
-					<label for="ext">Supplier External Number</label>
+					<label for="ext">Supplier External Number &nbsp; &nbsp; 
+						<a href="#collapseHelp" data-bs-toggle="collapse" href="#collapseHelp" role="button" aria-expanded="false" aria-controls="collapseHelp">
+							<i class="fa-solid fa-circle-info" title="ID number assigned by the supplier ordering system"></i>
+						</a>
+					</label>
+					<div class="collapse bg-primary text-white" id="collapseHelp">
+						<span>ID number assigned by the supplier ordering system</span>
+					</div>
 					<input id="ext" name="ext" placeholder="#6754362" type="number" />
 				
 					<label for="date">Creation Date</label>
@@ -46,10 +53,10 @@
 					<table id="itemsTable" class="m-2" style="width:95%;">
 						<tr>
 							<th style="width:5%;">#</th>
-							<th style="width:25%;">Item Name</th>
-							<th style="width:40%;">Item Description</th>
-							<th style="width:15%;">Qty</th>
-							<th style="width:10%;">Unit Price</th>
+							<th style="width:25%;">*Item Name</th>
+							<th style="width:40%;">*Item Description</th>
+							<th style="width:15%;">*Qty</th>
+							<th style="width:10%;">*Unit Price</th>
 							<th style="width:5%;"></th>
 						</tr>
 						<tr>
@@ -63,7 +70,7 @@
 									<i class="fa-solid fa-delete-left"></i></a>
 							</td>
 						</tr>
-						<tr>
+						<!-- <tr>
 							<td>2</td>
 							<td><input type="text" name='itemName' /></td>
 							<td><input type="text" name='itemDescription' /></td>
@@ -72,7 +79,7 @@
 							<td><a href="#" class="text-danger" onclick="deleteRow(this)" title="Delete this record"
 									name='delete'>
 									<i class="fa-solid fa-delete-left"></i></a></td>
-						</tr>
+						</tr> -->
 					</table>
 
 				</div>
@@ -81,31 +88,50 @@
 			<div class="row p-3">
 				<div class="col-6">
 			
-					<button type="button" id="btnAddRow" class="btn btn-light" onclick="addNewItem()"><i
-							class="fa-solid fa-cart-plus"></i> Add new item</button>
+					<button type="button" id="btnAddRow" class="btn btn-light" onclick="addNewItem()" title="Add a new row to invoice">
+						<i class="fa-solid fa-cart-plus"></i> Add new item</button>
 				</div>
 				<div class="col-3">
 					
-						<button type="button" id="btnCalcTotal" class="btn btn-light" onclick="calcSubTotal()"><i
-								class="fa-solid fa-calculator"></i> Calculate SubTotal</button>
+						<button type="button" id="btnCalcTotal" class="btn btn-light" onclick="calcSubTotal()" title="Multiply Qty by Unit Price ">
+							<i class="fa-solid fa-calculator"></i> Calculate SubTotal</button>
 				</div>
 				<div class="col-3">
 						<label for="subTotal"><strong>*Sub Total $ + HST</strong></label>
-						<label id="errorSubtotal" hidden="true" class="text-danger"><strong>Error Processing the Qty
-								or Price</strong></label>
-						<input type="number" readonly id="subTotal" name="subTotal" />
+						<label id="errorSubtotal" hidden="true" class="text-danger">
+							<strong>
+							<i class="fa-solid fa-triangle-exclamation" title="Empty Price or Qty not allowed. Eliminate empty rows."></i>
+							Error Processing the Qty or Price. 
+							</strong>
+						</label>
+						<input type="number" readonly id="subTotal" name="subTotal" required/>
 				</div>	
 			</div>
 
 			<br>
 		</fieldset>
 		<div class="row">
-			<div class="col-10">
-				<button id="btnCancel" type="button" class="btn btn-secondary col mt-3" onclick="history.back()"><i
+			<div class="col-5">
+				<button id="btnCancel" type="button" class="btn btn-secondary col mt-3" onclick="history.back()" title="Cancel and Return"><i
 					class="fa-solid fa-cancel"></i> Cancel </button>
 			</div>
+			<div class="col-5">
+				<code>* Mandatory Fields</code>
+				<div id="errorSubmit" hidden>
+					<div class="alert alert-danger d-flex align-items-center" role="alert">
+						<i class="fa-solid fa-triangle-exclamation" title="Mandatory fields empty"></i>
+						<strong>
+							&nbsp; &nbsp; Please fill out all mandatory fields and try again.
+						</strong>
+					</div>
+				</div>
+			</div>
 			<div class="col-2">
-				<button type="button" value="Submit" onclick="confirmSave()" id="btnSaveInv"><i class="fa-solid fa-paper-plane"></i> Submit</button>
+				<span id="submitCheck" class="text-success" hidden>
+					<i class="fa-solid fa-circle-check"></i>
+				</span>
+				
+				<button type="button" value="Submit" onclick="confirmSave()" id="btnSaveInv" title="Submit Invoice"><i class="fa-solid fa-paper-plane"></i> Submit</button>
 			</div>
 			<!-- <input type="submit" value="Submit" /> -->
 		</div>

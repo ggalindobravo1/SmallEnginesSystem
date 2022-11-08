@@ -6,17 +6,18 @@
       <div class="col-4">
           <div class="input-group mt-3">
               <div class="input-group-prepend">
-                  <span class="input-group-text"><i
-                          class="fas fa-search"></i></span>
+                  <span class="input-group-text">
+                    <i class="fa fa-search" title="Search Invoice by... ID, External ID, Description or Subtotal">
+                        </i></span>
               </div>
-              <input type="text" id="myInput" onkeyup="invoiceTableF.filerTable()" class="form-control" placeholder="Search Invoice by..."
-                  aria-label="Search Invoice by..." aria-describedby="basic-addon1">
-          </div>
+              <input type="text" id="myInput" onkeyup="invoiceTableF.filerTable()" class="form-control" placeholder="Filter by ID, External ID, Description or Subtotal"
+                  aria-label="Search Invoice by... ID, External Number, Description or Subtotal" aria-describedby="basic-addon1">
+            </div>
       </div>
       <div class="col-1">
       </div> 
       <div class="col">
-              <a href="../Main/Main.html?page=newInvoice"><button  type="submit" value="Submit"><i class="fa-solid fa-plus fa-lg" style="color:white" title="Add Item"></i> New Invoice</button></a>
+              <a href="../Main/Main.html?page=newInvoice"><button  type="submit" value="Submit"  title="Create Invoice"><i class="fa-solid fa-plus fa-lg" style="color:white"></i> New Invoice</button></a>
       </div>       
   </div>
       <table id="invoiceTable">

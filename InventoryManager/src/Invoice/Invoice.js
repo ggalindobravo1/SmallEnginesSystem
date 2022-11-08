@@ -40,9 +40,6 @@ invoiceTableF.filerTable = () => {
 };
 
 
-
-
-
 // function searchByExtId() {
 //     var input, filter, table, tr, td, i, txtValue;
 //     input = document.getElementById("myInput");

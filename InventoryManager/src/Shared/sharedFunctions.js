@@ -9,41 +9,40 @@ const relocateFnc = (num) => {
   console.log(num);
   let finalPage = "";
   switch (num) {
-    case 1:
+    case 0:
       //Home
       finalPage = "/Main/Main.html";
       break;
-    case 2:
+    case 1:
       //Inventory
       finalPage = "/Main/Main.html?page=inventoryListView";
       break;
-    case 3:
+    case 2:
       //Invoice
       finalPage = "/Main/Main.html?page=invoiceListView";
       break;
-    case 4:
-      //
-      finalPage = "/Main/Main.html";
-      break;
-    case 5:
+    case 3:
       //Products
       finalPage = "/Main/Main.html?page=products";
       break;
-    case 6:
+    case 4:
       //POS
-      finalPage = "/Main/Main.html";
+      finalPage = "/Main/Main.html?page=orderListView";
       break;
-    case 7:
+    case 5:
       //Suppliers
       finalPage = "/Main/Main.html?page=suppliers";
       break;
-    case 8:
+    case 6:
       //Persons
       finalPage = "/Main/Main.html?page=persons";
       break;
-    case 9:
+    case 7:
       //Customers
       finalPage = "/Main/Main.html?page=Customers";
+      break;
+    case 8:
+      //logs table
       break;
     default:
       finalPage = "/Main/Main.html";
@@ -75,11 +74,22 @@ const getCurrentUser = () => {
         else{
             content.hidden = true;
             document.getElementById('userName').textContent = JSON.parse(userLocalStg).name;
-            return JSON.parse(userLocalStg).name;
+            return JSON.parse(userLocalStg).role;
         }
     }
     catch(e){
         console.log(e)
     }
+}
+
+const downloadLogs = () => {
+  console.log("clicked"); 
+  var logs = JSON.parse(localStorage.getItem("logSession"));
+  console.log(logs);
+  var myCsv = "LoginDate,LoginTime,userName,userEmail,userRole\n";
+  logs.forEach(element => {
+      myCsv += `${element.dateIn},${element.timeIn},${element.userName},${element.userEmail},${element.userRole}\n`;
+  });
+  window.open('data:text/csv;charset=utf-8,' + escape(myCsv));
 }
 

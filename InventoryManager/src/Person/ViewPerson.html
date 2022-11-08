@@ -34,18 +34,52 @@
                     </div>
                     <div>
                         <label class="viewData" data-bind="phone"></label>
-                        <input id="telephone" data-bind="phone" name="telephone" placeholder="905 735 2211" type="tel"
-                            hidden="true" class="editData" required />
+                        <div class="form-floating editData" hidden="true">
+                            <input id="telephone" data-bind="phone" class="form-control form-control-sm" placeholder="905 735 2211" type="tel"
+                            class="editData form-control" required>
+                            <label for="telephone">EG: 905 735 2211</label>
+                        </div>
                     </div>
                 </div>
+                <div class="col">
+                    <div>
+                        <label for="ext"><strong>Personal External Number:</strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="ext"></label>
+                        <div class="form-floating editData" hidden="true">
+                            <input id="ext" name="ext" placeholder="#675"  class="form-control form-control-sm" data-bind="ext" type="text"
+                                class="editData">
+                            <label for="ext">EG: 675</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col">
                     <div>
                         <label for="email"><strong>Email:</strong></label>
                     </div>
                     <div>
                         <label class="viewData" data-bind="email"></label>
-                        <input id="email" data-bind="email" name="email" placeholder="email@domain.com" type="email"
-                            hidden="true" class="editData" />
+                        <div class="form-floating editData" hidden="true">
+                            <input type="email" data-bind="email" class="form-control form-control-sm" id="email" placeholder="email@domain.com">
+                            <label for="email">EG: email@domain.com</label>
+                          </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <Label><strong>Postal Code:</strong></Label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="postalCode"></label>
+                        <div class="form-floating editData" hidden="true">
+                            <input type="text" placeholder="M9A 2R6" id="postalCode" class="form-control form-control-sm"
+                                pattern="[A-Za-z][0-9][A-Za-z][ ][0-9][A-Za-z][0-9]" data-bind="postalCode"
+                                title="Six digit zip code M9A 2R6" class="editData">
+                            <label for="postalCode">EG: M9A 2R6</label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -68,8 +102,6 @@
                     <input type="text" placeholder="Toronto" id="City" name="City" data-bind="city" hidden="true"
                         class="editData" required />
                 </div>
-            </div>
-            <div class="row">
                 <div class="col">
                     <div>
                         <Label><strong>Province:</strong></Label>
@@ -115,29 +147,6 @@
                         </option>
                     </select>
                 </div>
-                <div class="col">
-                    <div>
-                        <Label><strong>Postal Code:</strong></Label>
-                    </div>
-                    <div>
-                        <label class="viewData" data-bind="postalCode"></label>
-                        <input type="text" placeholder="M9A 2R6" id="postalCode"
-                            pattern="[A-Za-z][0-9][A-Za-z][ ][0-9][A-Za-z][0-9]" data-bind="postalCode"
-                            title="Six digit zip code M9A 2R6" hidden="true" class="editData" />
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div>
-                        <label for="ext"><strong>Personal External Number:</strong></label>
-                    </div>
-                    <div>
-                        <label class="viewData" data-bind="ext"></label>
-                        <input id="ext" name="ext" placeholder="#675" data-bind="ext" type="text" hidden="true"
-                            class="editData" />
-                    </div>
-                </div>
             </div>
             <br />
         </fieldset>
@@ -171,8 +180,6 @@
                         <option value="CEO">CEO</option>
                     </select>
                 </div>
-            </div>
-            <div class="row">
                 <div class="col">
                     <div>
                         <label for="Type"><strong>Type:</strong></label>
@@ -217,4 +224,9 @@
             window.location.href = "../Main/Main.html?page=persons";
         }
     </script>
+    <div class="row g-2">
+        <div class="col-md">
+          
+        </div>
+      </div>
 </section>

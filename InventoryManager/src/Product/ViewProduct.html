@@ -76,48 +76,69 @@
             <div class="row">
                 <div class="col">
                     <div>
-                        <label for="productAVGCost"><strong>*Average Cost:</strong></label><br>
+                        <label for="productAVGCost"><strong>*Average Cost:</strong></label>
                     </div>
                     <div>
                         <label class="viewData" data-bind="productAVGCost"></label>
-                        <input type="number" id="productAVGCost" name="productAVGCost" hidden="true"
-                            placeholder="Average cost of the product" class="editData" data-bind="productAVGCost" required/>
+                        <div class="form-floating editData" hidden="true">
+                            <input id="productAVGCost" data-bind="productAVGCost" class="form-control form-control-sm"
+                                placeholder="CA$ 200.00" type="number" class="editData form-control" required>
+                            <label for="productAVGCost">EG: CA$ 100.00</label>
+                        </div>
                     </div>
+
                 </div>
                 <div class="col">
-
                     <div>
-                        <Label for="productPrice"><strong>*Price</strong></Label>
+                        <label for="productPrice"><strong>*Price:</strong></label>
                     </div>
                     <div>
                         <label class="viewData" data-bind="productPrice"></label>
-                        <input type="number" id="productPrice" data-bind="productPrice"
-                            placeholder="Price of the product" hidden="true" class="editData"
-                            name="productPrice" />
+                        <div class="form-floating editData" hidden="true">
+                            <input id="productPrice" data-bind="productPrice" class="form-control form-control-sm"
+                                placeholder="CA$ 200.00" type="number" class="editData form-control" required>
+                            <label for="productPrice">EG: CA$ 1000.00</label>
+                        </div>
                     </div>
+
                 </div>
+
             </div>
             <br /><br />
         </fieldset>
         <fieldset>
             <legend>Audit</legend>
-            <div>
-                <Label for="productCreatedAt"><strong>Created At:</strong></Label>
-            </div>
-            <div>
-                <label class="viewData" data-bind="productCreatedAt"></label>
-                <input type="text" id="productCreatedAt" data-bind="productCreatedAt" hidden="true" 
-                    placeholder="Date of the product creation" class="editData" name="productCreatedAt" />
-            </div>
-            <div>
-                <Label for="productUpdateAt"><strong>Updated At:</strong></Label>
-            </div>
-            <div>
-                <label class="viewData" data-bind="productUpdateAt"></label>
-                <input type="text" id="productUpdateAt"  class="editData" data-bind="productUpdateAt" hidden="true" 
-                    placeholder="Date of the product creation" name="productUpdateAt" />
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <label for="productCreatedAt"><strong>Created At:</strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="productCreatedAt"></label>
+                        <div class="form-floating editData">
+                            <input type="date" data-bind="productCreatedAt" class="form-control form-control-sm"
+                                id="productCreatedAt" placeholder="yyyy/mm/dd">
+                            <label for="productCreatedAt">Product creation date. EG: yyyy/mm/dd</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <label for="productUpdateAt"><strong>Updated At:</strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="productUpdateAt"></label>
+                        <div class="form-floating editData">
+                            <input type="date" data-bind="productUpdateAt" class="form-control form-control-sm"
+                                id="productUpdateAt" placeholder="yyyy/mm/dd">
+                            <label for="productUpdateAt">Updated product date. EG: yyyy/mm/dd</label>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <br /><br />
+
         </fieldset>
         <div class="row align-items-center">
             <div class="col-2">

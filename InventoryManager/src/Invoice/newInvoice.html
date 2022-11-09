@@ -1,42 +1,76 @@
 <style>
-	th, td {
-	  border-style: none;
+	th,
+	td {
+		border-style: none;
 	}
+	label{
+		display: block;
+	}
+
 </style>
 <section id="invoiceSection">
 	<form id="newInvoiceForm">
 		<h2>New Purchase Order</h2>
 		<fieldset style="margin: 25px 5px;">
 			<legend>*Request to</legend>
-			<div class="row p-1">
+			<div class="row">
 				<div class="col">
 					<label for="sName">*Supplier Name</label>
 					<input id="sName" name="sName" placeholder="Supplier Name" type="text" required />
-				
+				</div>
+				<div class="col">
 					<label for="detail">Supplier Address</label>
 					<input id="address" name="address" placeholder="Supplier Address" type="text" />
 				</div>
+			</div>
+			<div class="row">
 				<div class="col">
-					<label for="email">*Email</label>
-					<input id="email" name="email" placeholder="email@domain.com" type="email" required />
-				
-					<label for="telephone">*Telephone</label>
-					<input id="telephone" name="telephone" placeholder="289 123 4567" type="tel" required/>
+					<div>
+						<label for="email">*Email</label>
+					</div>
+					<div>
+						<label class="viewData" data-bind="email"></label>
+						<div class="form-floating editData">
+							<input id="email" type="email" class="form-control form-control-sm"
+								placeholder="email@domain.com" required>
+							<label for="email">EG: email@domain.com</label>
+						</div>
+					</div>
 				</div>
+				<div class="col"> 
+					<div>
+						<label for="telephone">*Telephone</label>
+					</div>
+					<div>
+						<label class="viewData" data-bind="telephone"></label>
+						<div class="form-floating editData">
+							<input id="telephone" class="form-control form-control-sm" placeholder="905 735 2211" 
+								class="editData form-control"  type="tel" required>
+							<label for="telephone">EG: 905 735 2211</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
 				<div class="col">
-					<label for="ext">Supplier External Number &nbsp; &nbsp; 
-						<a href="#collapseHelp" data-bs-toggle="collapse" href="#collapseHelp" role="button" aria-expanded="false" aria-controls="collapseHelp">
-							<i class="fa-solid fa-circle-info" title="ID number assigned by the supplier ordering system"></i>
+					<label for="ext">Supplier External Number &nbsp; &nbsp;
+						<a href="#collapseHelp" data-bs-toggle="collapse" href="#collapseHelp" role="button"
+							aria-expanded="false" aria-controls="collapseHelp">
+							<i class="fa-solid fa-circle-info"
+								title="ID number assigned by the supplier ordering system"></i>
 						</a>
 					</label>
 					<div class="collapse bg-primary text-white" id="collapseHelp">
 						<span>ID number assigned by the supplier ordering system</span>
 					</div>
 					<input id="ext" name="ext" placeholder="#6754362" type="number" />
-				
-					<label for="date">Creation Date</label>
-					<input id="date" name="date" type="date" readonly/>
 				</div>
+				<div class="col">
+					<label for="date">Creation Date</label>
+					<input id="date" name="date" type="date" readonly />
+				</div>
+
+			</div>
 			</div>
 			<br>
 		</fieldset>
@@ -45,7 +79,8 @@
 			<div class="row p-1">
 				<div class="col">
 					<label for="street">Description</label>
-					<input id="machineDescription" name="machinemachineDescription" placeholder="Lawn Mower, Kohler spare parts" type="text" />
+					<input id="machineDescription" name="machinemachineDescription"
+						placeholder="Lawn Mower, Kohler spare parts" type="text" />
 				</div>
 			</div>
 			<div class="row p-1">
@@ -62,9 +97,12 @@
 						<tr>
 							<td>1</td>
 							<td><input type="text" required name='itemName' placeholder="spark plugs" /></td>
-							<td><input type="text" required name='itemDescription' placeholder="Korn platinum spark plugs 1plg 5Amp"  /></td>
-							<td><input type="number" class="Qty" min="0" required name='itemQuantity' placeholder="3" /></td>
-							<td><input type="number" class="unitPrice" min="0" required name='unitPrice' placeholder="15.99" /></td>
+							<td><input type="text" required name='itemDescription'
+									placeholder="Korn platinum spark plugs 1plg 5Amp" /></td>
+							<td><input type="number" class="Qty" min="0" required name='itemQuantity' placeholder="3" />
+							</td>
+							<td><input type="number" class="unitPrice" min="0" required name='unitPrice'
+									placeholder="15.99" /></td>
 							<td><a href="#" class="text-danger" onclick="deleteRow(this)" title="Delete this record"
 									name='delete'>
 									<i class="fa-solid fa-delete-left"></i></a>
@@ -84,36 +122,39 @@
 
 				</div>
 			</div>
-			
+
 			<div class="row p-3">
 				<div class="col-6">
-			
-					<button type="button" id="btnAddRow" class="btn btn-light" onclick="addNewItem()" title="Add a new row to invoice">
+
+					<button type="button" id="btnAddRow" class="btn btn-light" onclick="addNewItem()"
+						title="Add a new row to invoice">
 						<i class="fa-solid fa-cart-plus"></i> Add new item</button>
 				</div>
 				<div class="col-3">
-					
-						<button type="button" id="btnCalcTotal" class="btn btn-light" onclick="calcSubTotal()" title="Multiply Qty by Unit Price ">
-							<i class="fa-solid fa-calculator"></i> Calculate SubTotal</button>
+
+					<button type="button" id="btnCalcTotal" class="btn btn-light" onclick="calcSubTotal()"
+						title="Multiply Qty by Unit Price ">
+						<i class="fa-solid fa-calculator"></i> Calculate SubTotal</button>
 				</div>
 				<div class="col-3">
-						<label for="subTotal"><strong>*Sub Total $ + HST</strong></label>
-						<label id="errorSubtotal" hidden="true" class="text-danger">
-							<strong>
-							<i class="fa-solid fa-triangle-exclamation" title="Empty Price or Qty not allowed. Eliminate empty rows."></i>
-							Error Processing the Qty or Price. 
-							</strong>
-						</label>
-						<input type="number" readonly id="subTotal" name="subTotal" required/>
-				</div>	
+					<label for="subTotal"><strong>*Sub Total $ + HST</strong></label>
+					<label id="errorSubtotal" hidden="true" class="text-danger">
+						<strong>
+							<i class="fa-solid fa-triangle-exclamation"
+								title="Empty Price or Qty not allowed. Eliminate empty rows."></i>
+							Error Processing the Qty or Price.
+						</strong>
+					</label>
+					<input type="number" readonly id="subTotal" name="subTotal" required />
+				</div>
 			</div>
 
 			<br>
 		</fieldset>
 		<div class="row">
 			<div class="col-5">
-				<button id="btnCancel" type="button" class="btn btn-secondary col mt-3" onclick="history.back()" title="Cancel and Return"><i
-					class="fa-solid fa-cancel"></i> Cancel </button>
+				<button id="btnCancel" type="button" class="btn btn-secondary col mt-3" onclick="history.back()"
+					title="Cancel and Return"><i class="fa-solid fa-cancel"></i> Cancel </button>
 			</div>
 			<div class="col-5">
 				<code>* Mandatory Fields</code>
@@ -130,8 +171,9 @@
 				<span id="submitCheck" class="text-success" hidden>
 					<i class="fa-solid fa-circle-check"></i>
 				</span>
-				
-				<button type="button" value="Submit" onclick="confirmSave()" id="btnSaveInv" title="Submit Invoice"><i class="fa-solid fa-paper-plane"></i> Submit</button>
+
+				<button type="button" value="Submit" onclick="confirmSave()" id="btnSaveInv" title="Submit Invoice"><i
+						class="fa-solid fa-paper-plane"></i> Submit</button>
 			</div>
 			<!-- <input type="submit" value="Submit" /> -->
 		</div>

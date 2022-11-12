@@ -9,8 +9,9 @@
                     <span class="input-group-text"><i
                             class="fas fa-search"></i></span>
                 </div>
-                <input type="text" id="myInput" onkeyup="inventoryTableF.filerTable()" class="form-control" placeholder="Search Item by..."
-                    aria-label="Search Item by..." aria-describedby="basic-addon1">
+                <input type="text" id="myInput" onkeyup="inventoryTableF.filerTable()" class="form-control"
+                     placeholder="Filter by product, type or description"
+                    aria-label="Filter by product, brand, type or description" aria-describedby="basic-addon1">
             </div>
         </div>
         <div class="col-1">
@@ -22,10 +23,10 @@
         <table id="inventoryTable">
             <thead>
                 <tr class="header">
-                    <th>Id</th>
-                    <th>Quantity</th>
+                    <th>UPC</th>
+                    <th>Product Name</th>
+                    <th>Qty in Stock</th>
                     <th>Price</th>
-                    <th>Update </th>
                     <th style="width:150px;">Action</th>
                 </tr>
             </thead>

@@ -1,17 +1,78 @@
 <section id="inventorySection">
     <form id="formInventory">
-        <h2 id="title">New Item</h2>
+        <div class="row">
+            <div class="col-8">
+                <h2 id="title">New Item</h2>
+            </div>
+            <div class="col-4">
+                <button id="viewCart" type="button" class="btn btn-light mt-3"
+                onclick="showCart()" hidden data-bs-toggle="modal" data-bs-target="#cart">
+                    <i class="fa-solid fa-cart-plus"></i>&nbsp;&nbsp;View Cart 
+                </button>
+                <button id="btnAddtoCart" type="button" class="btn btn-success mt-3"
+                    onclick="addToCart()">
+                    <i class="fa-solid fa-cart-plus"></i>&nbsp;&nbsp;Add To Cart 
+                </button>
+            </div>
+
+        </div>
         <fieldset style="margin: 25px 5px;">
             <legend>General Information Item:</legend>
             <div class="row">
                 <div class="col">
                     <div>
-                        <label for="prodID"><strong>*ProdID:</strong></label>
+                        <label for="productName"><strong>*Product Name:</strong></label>
                     </div>
                     <div>
-                        <label class="viewData" data-bind="productID"></label>
-                        <input class="editData" hidden="true" id="prodID" data-bind="productID" name="prodID"
-                            placeholder="Product Id" type="number" required />
+                        <label class="viewData" data-bind="productName"></label>
+                        <input class="editData" hidden="true" id="productName" data-bind="productName" name="productName"
+                            placeholder="Product Name" type="text" required />
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <label for="productDescription"><strong>*Product Description:</strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="productDescription"></label>
+                        <input class="editData" hidden="true" id="productDescription" data-bind="productDescription" name="productDescription"
+                            placeholder="Product Description" type="text" required />
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <label for="productDetails"><strong>*Product Detail:</strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="productDetails"></label>
+                        <input class="editData" hidden="true" id="productDetails" data-bind="productDetails" name="productDetails"
+                            placeholder="Product Details" type="text" required />
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <label for="productBrand"><strong>*Product Brand:</strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="productBrand"></label>
+                        <input class="editData" hidden="true" id="productBrand" data-bind="productBrand" name="productBrand"
+                            placeholder="Product Brand" type="text" required />
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <label for="UPC"><strong>*UPC:</strong></label>
+                    </div>
+                    <div>
+                        <label class="viewData" data-bind="UPC"></label>
+                        <input class="editData" hidden="true" id="UPC" data-bind="UPC" name="UPC"
+                            placeholder="Product UPC" type="number" required />
                     </div>
                 </div>
                 <div class="col">
@@ -51,9 +112,11 @@
                             <label for="Price">EG: CA$ 1000.00</label>
                         </div>
                     </div>
-
                 </div>
+                
             </div>
+            
+
         </fieldset>
         </div>
         <br /><br />
@@ -76,9 +139,8 @@
                         <label for="CreatedAt"><strong>*CreatedAt:</strong></label>
                     </div>
                     <div>
-                        <label class="viewData" data-bind="inventoryCreatedAt"></label>
-                        <input class="editData" hidden="true" id="CreatedAt" data-bind="inventoryCreatedAt"
-                            name="CreatedAt" placeholder="Item creation date" type="date" required />
+                        <label data-bind="inventoryCreatedAt"></label>
+                        
                     </div>
                 </div>
             </div>
@@ -98,9 +160,8 @@
                         <label for="UpdateAt"><strong>*UpdateAt:</strong></label>
                     </div>
                     <div>
-                        <label class="viewData" data-bind="inventoryUpdateAt"></label>
-                        <input class="editData" hidden="true" id="UpdateAt" data-bind="inventoryUpdateAt"
-                            name="UpdateAt" placeholder="Item update" type="date" required />
+                        <label  data-bind="inventoryUpdateAt"></label>
+                        
                     </div>
                 </div>
             </div>
@@ -135,7 +196,33 @@
             </div>
         </div>
     </form>
+    <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Shopping Cart <i class="fa-solid fa-cart-shopping"></i></h5>
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <table class="show-cart table" id="cart-table">
+                
+              </table>
+              <div>Total price: $<span class="total-cart"></span></div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Order now</button>
+            </div>
+          </div>
+        </div>
+      </div>
     <br />
+
+     <!-- Modal -->
+
+
     <script>
         try {
             mainF.configs;

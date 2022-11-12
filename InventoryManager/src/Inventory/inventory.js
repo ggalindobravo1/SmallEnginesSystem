@@ -9,7 +9,7 @@ inventoryTableF.initTable = () => {
 
     inventoryTableF.inventoryTable = new TableActions(
         "inventoryTable",
-        ["Inventoryid", "inventoryQty", "inventoryPrice", "inventoryUpdateAt"],
+        ["UPC", "productName","inventoryQty", "inventoryPrice"],
         "Inventoryid"
     );
     inventoryTableF.inventoryTable.addActionEdit("../Main/Main.html?page=newItem");
@@ -31,10 +31,11 @@ inventoryTableF.filerTable = () => {
 
     let jsonFiler = globalData.inventoryData.get()
         .filter(i => {
-            return i.Inventoryid.toString().includes(filter) ||
-                i.inventoryQty.toString().includes(filter) ||
-                i.inventoryPrice.toString().includes(filter) ||
-               i.inventoryUpdateAt.toString().includes(filter) ;
+            return i.UPC.toString().includes(filter) ||
+                i.productName.toString().toUpperCase().includes(filter) ||
+                i.productBrand.toString().toUpperCase().includes(filter) ||
+               i.productDescription.toString().toUpperCase().includes(filter) ||
+               i.productType.toString().toUpperCase().includes(filter);
         });
     inventoryTableF.inventoryTable.refresh(jsonFiler);
 };

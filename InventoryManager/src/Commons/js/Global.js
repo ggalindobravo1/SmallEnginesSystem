@@ -22,7 +22,11 @@ const globalData = {
         person.updateAtFormat = getDateFormat(new Date(person.updateAt));
     }),
     productData: new CrudData("product", basePath + "products.json"),
-    inventoryData: new CrudData("inventory",basePath + "inventory.json", "Inventoryid"),
+    inventoryData: new CrudData("inventory",basePath + "inventory.json", "Inventoryid", (inventory)=>{
+        // const invProd = globalData.productData.findById(inventory.productID);
+        // if(invProd != null)
+        //     inventory.product = invProd;
+    }),
     CustomerData: new CrudData("Customer", basePath + "Customer.json", "id", (customer) => {
         customer.type = 2;
 

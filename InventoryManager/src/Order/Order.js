@@ -9,7 +9,7 @@ orderTableF.initTable = () => {
 
     orderTableF.orderTable = new TableActions(
         "orderTable",
-        ["orderID", "orderExternalNumber", "orderDescription",  "orderSubtotal", "orderDate"],
+        ["orderNumber", "orderDescription",  "orderSubtotal", "orderDate"],
         "orderID"
     );
     orderTableF.orderTable.addActionEdit("../Main/Main.html?page=viewOrder");
@@ -20,8 +20,9 @@ orderTableF.initTable = () => {
     );
     // inventoryTableF.inventoryTable.addAction({ css: "fa fa-trash red", redirectTo: "IndexPerson.html", title: "Delete" });
     // inventoryTableF.inventoryTable.addAction({ css: "fa fa-search", redirectTo: "IndexPerson.html", title: "View" });
-
+  
     orderTableF.orderTable.refresh(globalData.orderData.get());
+
 }
 
 orderTableF.filerTable = () => {

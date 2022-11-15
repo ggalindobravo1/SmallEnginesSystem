@@ -18,7 +18,8 @@ invoiceTableF.initTable = () => {
         globalData.invoiceData,
         () => invoiceTableF.filerTable(), "Are you sure you want to delete this Invoice?"
     );
-    // inventoryTableF.inventoryTable.addAction({ css: "fa fa-trash red", redirectTo: "IndexPerson.html", title: "Delete" });
+    //invoiceTableF.invoiceTable.addPrintView("../Main/Main.html?page=printInvoice&invoiceId=");
+    invoiceTableF.invoiceTable.addAction({ css: "fa-solid fa-print", redirectTo: "../Reports/printInvoice.html", title: "Print", target: "_blank" });
     // inventoryTableF.inventoryTable.addAction({ css: "fa fa-search", redirectTo: "IndexPerson.html", title: "View" });
 
     invoiceTableF.invoiceTable.refresh(globalData.invoiceData.get());

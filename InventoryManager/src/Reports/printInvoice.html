@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zxx">
+	<head>
+		<title>Invoice</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta charset="UTF-8" />
+
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css"
+			integrity="sha512-CpIKUSyh9QX2+zSdfGP+eWLx23C8Dj9/XmHjZY2uDtfkdLGo0uY12jgcnkX9vXOgYajEKb/jiw67EYm+kBf+6g=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<link rel="stylesheet" href="../appstyle.css" />
+		<link rel="stylesheet" href="../Commons/css/Global.css" />
+		<!-- PDF -->
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+			integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+
+		<script src="../Commons/js/Global.js"></script>
+		<script src="../Shared/sharedFunctions.js"></script>
+		<script src="../Main/Main.js"></script>
+	</head>
+	<body>
+		<div class="download">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="invoice-inner">
+							<div class="invoice-info" id="invoice_wrapper">
+								<div class="invoice-headar">
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="invoice-name">
+												<!-- logo started -->
+												<div class="logo">
+													<img src="../Commons/images/EmmasLogo.png" alt="logo" width="30%" height="30%" />
+												</div>
+												<!-- logo ended -->
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<div class="invoice">
+												<h1 class="text-end inv-header-1 mb-0">
+													Invoice No: #1111
+												</h1>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="invoice-top">
+									<div class="row">
+										<div class="col-sm-6 mb-30">
+											<div class="invoice-number">
+												<h4 class="inv-title-1">Invoice To</h4>
+												<p class="invo-addr-1 mb-0">
+													123 Grand Falcon Ave <br />
+													Fonthill, ON W3E 4R5 <br />
+													Phone: (206) 555-1163 <br />
+													Fax: (206) 555-1164 <br />
+													
+												</p>
+											</div>
+										</div>
+										<div class="col-sm-6 mb-30">
+											<div class="invoice-number text-end">
+												<h4 class="inv-title-1">Bill To</h4>
+												<p class="invo-addr-1 mb-0">
+													Angela Devin <br />
+													400 Excalibur St. <br />
+													St. Catherines, ON Y6R 6Y5 <br />
+													Phone: (206) 555-1163 <br />
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-6 mb-30">
+											<h4 class="inv-title-1">Date</h4>
+											<p class="inv-from-1 mb-0">Due Date: 25/06/2018</p>
+										</div>
+										<div class="col-sm-6 text-end mb-30">
+											<h4 class="inv-title-1">Payment Method</h4>
+											<p class="inv-from-1 mb-0">Credit Card</p>
+										</div>
+									</div>
+								</div>
+								<div class="invoice-center">
+									<div class="order-summary">
+										<h4>Order summary</h4>
+										<div class="table-outer">
+											<table class="default-table invoice-table">
+												<thead>
+													<tr>
+														<th>Quantity</th>
+														<th>Description</th>
+														<th>Item #</th>
+														<th>Unit Price</th>
+														<th>Amount</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>1</td>
+														<td>Timing Key</td>
+														<td>45021</td>
+														<td>$ 0.15</td>
+														<td>$ 0.15</td>
+													</tr>
+													<tr>
+														<td>1</td>
+														<td>Blade</td>
+														<td>76556</td>
+														<td>$ 35.00</td>
+														<td>$ 35.00</td>
+													</tr>
+													<tr>
+														<td>2</td>
+														<td>Shop</td>
+														<td>0000</td>
+														<td>$ 30</td>
+														<td>$ 60</td>
+													</tr>
+												</tbody>
+												<tfoot>
+													<tr>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td><strong>Subtotal</strong></td>
+														<td><strong>$ 95.15</strong></td>
+													</tr>
+													<tr>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td><strong>Tax</strong></td>
+														<td><strong>$ 12.37</strong></td>
+													</tr>
+													<tr>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td><strong>Additional Discount</strong></td>
+														<td><strong>0%</strong></td>
+													</tr>
+													<tr>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td><strong>Total</strong></td>
+														<td><strong>$ 107.52</strong></td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+									</div>
+								</div>
+								<div class="invoice-bottom">
+									<div class="row">
+										<div class="col-sm-8">
+											<div class="important-note mb-30">
+												<h4 class="inv-title-1">Thank you for your business!</h4>
+												<ul class="important-notes-list-1">
+												
+												</ul>
+											</div>
+										</div>
+										<div class="col-sm-4 col-offsite">
+											<div class="text-end payment-info mb-30">
+												<h3 class="inv-title-1">Payment Info</h3>
+												<p class="mb-0 text-13">
+													This payment made by BANK master card without any
+													problem
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="invoice-btn-section clearfix d-print-none">
+			<a
+				id="invoice_download_btn"
+				class="btn btn-lg btn-download btn-theme"
+				href="javascript:printContainer()"
+			>
+				<i class="fa fa-download"></i> Download Invoice
+			</a>
+		</div>
+		<!-- ✅ load popper.js ✅ -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+			integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+			crossorigin="anonymous"
+		></script>
+
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.min.js"
+			integrity="sha512-5BqtYqlWfJemW5+v+TZUs22uigI8tXeVah5S/1Z6qBLVO7gakAOtkOzUtgq6dsIo5c0NJdmGPs0H9I+2OHUHVQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"
+			integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+	</body>
+</html>

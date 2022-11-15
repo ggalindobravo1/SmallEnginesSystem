@@ -253,9 +253,10 @@ function processElementToIncludeHtml(elmnt) {
     return false;
 };
 
-function createActionTable(cssAction, redirectTo, actionClick, title) {
+function createActionTable(cssAction, redirectTo, actionClick, title, target= "_self") {
     const action = document.createElement("a");
     action.href = redirectTo;
+    action.target = target;
     if (actionClick) {
         action.onclick = () => {
             actionClick();
@@ -390,7 +391,8 @@ TableActions.prototype.addRow = function (item, tableBody) {
                             myAction.action(item);
                         }
                     },
-                    myAction.title || "")
+                    myAction.title || "",
+                    myAction.target,)
             );
         }
     }
@@ -423,6 +425,8 @@ CrudData.prototype.init = async function () {
             .then((response) => response.json())
             .then((json) => json);
     }
+
+    localStorage.setItem(this.storageKey, JSON.stringify(this.data));
 
     // prepare data
     for (let i = 0; i < this.data.length; i++) {

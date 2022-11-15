@@ -72,6 +72,7 @@ const cancelOrder = () => {
 
     setTimeout(() => {
       alert("Sales Order Succesfully Saved !");
+      window.open("../Reports/printInvoice.html", "_blank");
       window.location.href = "../Main/Main.html?page=orderListView";
     }, 1000)
   }

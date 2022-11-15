@@ -93,3 +93,14 @@ const downloadLogs = () => {
   window.open('data:text/csv;charset=utf-8,' + escape(myCsv));
 }
 
+printContainer = () => {
+  console.log("print")
+  let div = document.querySelector(".download");
+  console.log(div)
+  html2pdf().set({
+    filename:'download.pdf',
+    html2canvas:  { scale: 2 },
+    margin:       1
+  }).from(div).save()
+}
+

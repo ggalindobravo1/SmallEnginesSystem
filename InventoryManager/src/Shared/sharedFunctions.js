@@ -42,7 +42,8 @@ const relocateFnc = (num) => {
       finalPage = "/Main/Main.html?page=Customers";
       break;
     case 8:
-      //logs table
+      //users manager
+      finalPage = "/Main/Main.html?page=UsersManager";
       break;
     default:
       finalPage = "/Main/Main.html";

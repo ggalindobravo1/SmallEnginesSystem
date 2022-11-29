@@ -181,6 +181,16 @@ const mainF = {
             initFunction: () => {
                 viewOrderF.init();
             }
+        }, 
+        UsersManager: {
+            title: "Manage Users Accounts",
+            page: "UsersManager/UserMngr.html",
+            mainElement: "#usersTable",
+            styles: ["Commons/css/formGeneral.css"],
+            scripts: ["UsersManager/UserMngr.js"],
+            initFunction: () => {
+                userMngrF.initTable();
+            }
         }
 
 
@@ -191,6 +201,7 @@ const mainF = {
 const showMenuByRole = () => {
   //get user from shared functions
   var links = document.querySelectorAll(".nav-link");
+  console.log(links)
   var currentUser = getCurrentUser();
   //console.log(currentUser)
   switch(currentUser){
@@ -212,6 +223,7 @@ const showMenuByRole = () => {
             link.hidden = false;
         })
         document.getElementById("logs").hidden = false;
+        document.getElementById("user-roles").hidden = false;
         break;
 
   }

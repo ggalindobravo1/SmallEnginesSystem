@@ -12,90 +12,105 @@
 <section id="orderSection">
 	<form id="newSalesOrderForm">
 		<h2>New Sales Order</h2>
-		<fieldset style="margin: 25px 5px;">
+		<fieldset style="margin: 25px 5px" id="custInfo">
 			<legend>*Bill to</legend>
-			<div class="row p-1">
+			<div class="row px-3">
+				<div class="col-10 d-flex justify-content-end">
+					<button type="button" class="btn btn-success mt-3 w-75" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="searchCustomerModal(this)">
+						<i class="fa-solid fa-magnifying-glass"></i> Search Customer
+					</button>
+				</div>
+				<div class="col-2 d-flex justify-content-center">
+					<button type="button" class="btn btn-danger mt-3 w-75" title="Clear client data" onclick="clearCustData()">
+						<i class="fa-solid fa-user-slash"></i> Clear
+					</button>
+				</div>
+				
 				<div class="col-4">
 					<label for="sName">*Customer FirstName</label>
-					<input id="sName" list="custFirst" name="sName" placeholder="Customer FirstName"
+					<input id="sName" name="sName" placeholder="Customer FirstName"
 					 type="text" class="form-control form-control-sm" title="First Name" required />
-					<datalist id="custFirst">
-					</datalist>
+					
 				</div>
 				<div class="col-4">
-					<label for="sName">*Customer LastName</label>
-					<input id="sName" name="sName" list="custLast" placeholder="Customer LastName"
+					<label for="sLast">*Customer LastName</label>
+					<input id="sLast" name="sName" placeholder="Customer LastName"
 					 type="text" class="form-control form-control-sm" title="Last Name" required />
-					<datalist id="custLast">
-					</datalist>
+					
 				</div>
-				<div class="col-4">
-					<label for="ordNum"><strong>Customer Order Number</strong></label>
-					<input id="ordNum" name="ordNum" placeholder="#6754362" 
-					type="text" class="form-control form-control-sm" title="Unique ID Order Number" disabled/>
-				</div>
+				
 				<div class="col-4">
 					<div>
 						<label for="email">Email:</label>
 					</div>
 					<div>
-						<label class="viewData" data-bind="email"></label>
 						<div class="form-floating editData">
-							<input type="email" data-bind="email" list="custEmail" class="form-control form-control-sm" id="email"
-								placeholder="email@domain.com" title="Customer Email">
+							<input type="email" data-bind="email" class="form-control form-control-sm" id="email"
+								placeholder="email@domain.com" title="Customer Email" onkeyup="validateEntry(this)">
 							<label for="email">EG: email@domain.com</label>
 						</div>
+						<strong id="emailError" style="color:red" hidden>Invalid Email</strong>
 					</div>
-					<datalist id="custEmail">
-					</datalist>
+					
 				</div>
 				<div class="col-4">
 					<div>
-						<label for="telephone">*Telephone:</label>
+						<label for="telephone">*Telephone: <i class="fa-solid fa-circle-info btn btn-link" onclick="phoneHelp()"></i></label>
 					</div>
 					<div>
-						<label class="viewData" data-bind="phone"></label>
 						<div class="form-floating editData">
 							<input id="telephone" data-bind="phone" class="form-control form-control-sm" title="Contact Phone"
-								placeholder="905 735 2211" type="tel" list="custTel" class="editData form-control" required>
-							<label for="telephone">EG: 905 735 2211</label>
+								placeholder="905 735 2211" type="tel" class="editData form-control" onkeyup="validateEntry(this)" required >
+							<label for="telephone">EG: 905 735 2211 (10-12 digit)</label>
+							<strong id="telephoneError" style="color:red" hidden>Invalid phone number</strong>
 						</div>
 					</div>
-					<datalist id="custTel">
-					</datalist>
-				</div>
-				<div class="col-4">
-						<label for="date"><strong>Creation Date:</strong></label>
-						<input type="date" data-bind="date" class="form-control form-control-sm" id="date"
-								placeholder="dd/mm/yyyy" disabled>
+					
 				</div>
 				
-				<div class="col-4">
-					<label for="detail">Customer Address</label>
-					<input id="address" name="address" placeholder="121 Ontario St. Welland, Ontario" list="custAddr"
-					 class="form-control form-control-sm" type="text" title="Street and Province" />
-					<datalist id="custAddr">
-					</datalist>
-				</div>
-				<div class="col-4">
-					<label for="postal">Customer Postal Code</label>
-					<input id="postal" name="postal" placeholder="EG: M9A 2R6" 
-					pattern="[A-Za-z][0-9][A-Za-z][ ][0-9][A-Za-z][0-9]" title="Six digit zip code M9A 2R6"
-					list="custPostal" class="form-control form-control-sm" type="text" />
-					<datalist id="custPostal">
-					</datalist>
-				</div>
-
 				
+				<div class="col-4">
+					<label for="detail">Address</label>
+					<div class="form-floating">
+						<input id="address" name="address" placeholder="121 Ontario St. Welland, Ontario"
+						class="form-control form-control-sm" type="text" title="Street and Province" />
+						<label for="address">EG: 121 Ontario St. Welland, Ontario</label>
+					</div>
+					
+				</div>
+				<div class="col-4">
+					<label for="postal">*Postal Code</label>
+					<div class="form-floating">
+						<input id="postal" name="postal" placeholder="EG: M9A2R6" 
+						pattern="[A-Za-z][0-9][A-Za-z][ ]?[0-9][A-Za-z][0-9]" title="Six digit zip code M9A 2R6"
+						class="form-control form-control-sm" type="text" maxlength="7" onkeyup="validateEntry(this)" required/>
+						<label for="postal">EG: M9A 2R6</label>
+					</div>
+					<strong id="postalError" style="color:red" hidden>Invalid Postal Code</strong>
+				</div>
+				
+				<div class="col-6">
+					<label for="ordNum"><strong>Sales Order Number</strong></label>
+					<input id="ordNum" name="ordNum" placeholder="#6754362" 
+					type="text" class="form-control form-control-sm" title="Unique ID Order Number" disabled/>
+				</div>
+				<div class="col-6">
+					<label for="date"><strong>Creation Date:</strong></label>
+					<input type="date" data-bind="date" class="form-control form-control-sm" id="date"
+							placeholder="dd/mm/yyyy" disabled>
+				</div>
 
 			</div>
 			<br>
 		</fieldset>
+
+		<!-------------------------------------------- Order Details -------------------------------------->
+
 		<fieldset>
 			<legend>*Order Details</legend>
 			<div class="row p-1">
-				<div class="col px-4">
-					<button id="btnStock" type="button" class="btn btn-success mt-3 w-100"
+				<div class="col-10 d-flex justify-content-end">
+					<button id="btnStock" type="button" class="btn btn-success mt-3 w-75"
                     onclick="browseInventory(this)" data-bs-toggle="modal" data-bs-target="#inventory">
                     <i class="fa-solid fa-cart-shopping"></i>&nbsp;&nbsp;Browse Inventory
                 </button>
@@ -127,7 +142,8 @@
 					<div class="fw-bolder">Total items: <span class="total-count"></span></div>
 				</div>
 				<div class="col-4">
-					<label for="subTotal"><strong>*Sub Total $ </strong><span id="subTotal"></span> + HST </label>				
+					<label for="subTotal"><strong>*Sub Total $ </strong><span id="subTotal"></span></label>	
+					<label for="tax"><strong>*HST $ </strong><span id="tax"></span></label>				
 					<label for="Total"><strong>*Grand Total $ </strong><span id="Total"></span></label>
 				</div>
 			</div>
@@ -163,19 +179,21 @@
 	<div class="modal fade" id="inventory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
           <div class="modal-content">
-            <div class="modal-header row">
-				<div class="col">
+			<div class="modal-header row">
+				<div class="col-6">
 					<h5 class="modal-title" id="exampleModalLabel">Browse Inventory <i class="fa-solid fa-cart-shopping"></i></h5>
 				</div>
-				<div class="col">
+			
+				<div class="col-3">
 					<div class="fw-bolder">Total items: <span class="total-countMod"></span></div>
 				</div>
-				<div class="col">
+				<div class="col-3">
 					<div class="fw-bolder">Total price: $<span class="total-cart"></span></div>
 				</div>
-            </div>
+			
+			</div>
             <div class="modal-body"><i class="fas fa-search"></i>
-				<input type="text" id="myInput" onkeyup="filterStock()" class="form-control mb-2" placeholder="Filter by product, type or brand"
+				<input type="text" id="inputStock" onkeyup="filterTable(this)" class="form-control mb-2" placeholder="Filter by product, type or brand"
                   aria-label="Filter by product, type or brand" aria-describedby="basic-addon1">
               <table class="show-stock table" id="stock-table">
 				                
@@ -205,6 +223,45 @@
         </div>
     </div>
 	  
+	<!----------------------------------------  Modal 2 customer search  ------------------------------>
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="exampleModalLabel">Search Customer    <i class="fa-solid fa-user"></i></h5>
+			  
+			</div>
+			<div class="modal-body">
+				<i class="fas fa-search"></i>
+					<input type="text" id="inputCust" onkeyup="filterTable(this)" class="form-control mb-2" placeholder="Filter by Name, email or phone"
+                  	aria-label="Filter by Name, email or phone" aria-describedby="basic-addon1">
+				  	
+              <table class="show-customer table" id="customer-table">
+				                
+              </table>
+			  <nav aria-label="...">
+				<ul class="pagination">
+				  <li class="page-item disabled">
+					<a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+				  </li>
+				  <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+				  <li class="page-item">
+					<a class="page-link" href="#">2</a>
+				  </li>
+				  <li class="page-item"><a class="page-link" href="#">3</a></li>
+				  <li class="page-item">
+					<a class="page-link" href="#">Next</a>
+				  </li>
+				</ul>
+			  </nav>
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Continue</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
 
 	<br />
 	<script>

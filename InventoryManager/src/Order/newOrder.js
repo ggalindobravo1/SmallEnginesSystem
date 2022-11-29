@@ -11,25 +11,13 @@ newOrderF.init = () => {
     }
   }
  genSerialNum();
- getCustomers();
 
   if (sessionStorage.getItem("shoppingCart") != null) {
     displayCart();
   }
 }
 
-const getCustomers = () => {
 
-  JSON.parse(localStorage.getItem("Customer")).forEach(c => {
-    document.getElementById("custFirst").innerHTML += `<option value='${c.firstName}'>` ;
-    document.getElementById("custLast").innerHTML += `<option value='${c.lastName}'>`;
-    document.getElementById("custEmail").innerHTML += `<option value='${c.email}'>`;
-    document.getElementById("custTel").innerHTML += `<option value='${c.phone}'>`;
-    document.getElementById("custAddr").innerHTML += `<option value='${c.street + c.province}'>`;
-    document.getElementById("custPostal").innerHTML += `<option value='${c.postalCode}'>`;
-  })
- 
-}
 
 const genSerialNum = () => {
   //generate unique serial number for customer order = todayDate + random number
@@ -49,19 +37,23 @@ const cancelOrder = () => {
   history.back();
 }
 
-
   const confirmSave = () => {
     document.getElementById("errorSubmit").hidden = true  ;
     let invTotal = shoppingCart.totalCart();
     let reqFields = document.getElementById("newSalesOrderForm").querySelectorAll("[required]")
-    console.log(reqFields);
+    let validOrder = true;
     
     for(i = 0; i<reqFields.length; i++){
+      reqFields[i].style.border = "";
       if(reqFields[i].value.length == 0){
+        reqFields[i].style.border = "2px solid red";
         document.getElementById("errorSubmit").hidden = false;
-        return;
+        validOrder = false;
       }
     }
+    if(!validOrder)
+      return;
+    
     if(!invTotal || invTotal == 0)
     {
       document.getElementById("errorSubmit").hidden = false;
@@ -71,18 +63,108 @@ const cancelOrder = () => {
     document.getElementById("submitCheck").hidden = false;
 
     setTimeout(() => {
-      alert("Sales Order Succesfully Saved !");
+      alert("Sales Order Succesfully Saved !\n"
+       + `Total: $ ${new Intl.NumberFormat().format((shoppingCart.totalCart() * 1.13).toFixed(2))}\n`
+       + `Items in Cart: ${shoppingCart.totalCount()} `);
+       shoppingCart.clearCart();
       window.open("../Reports/printInvoice.html", "_blank");
       window.location.href = "../Main/Main.html?page=orderListView";
     }, 1000)
   }
+
+  // ******* validate postal code, email and phone number*****
+
+  const validateEntry = (elem) => {
+    document.getElementById("btnSaveInv").disabled = false;
+
+    let pattern = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/i
+    document.getElementById(`${elem.id}Error`).hidden = true;
+    console.log(`${elem.id}Error`)
+    if(elem.id === "postal")
+      pattern = /[A-Za-z][0-9][A-Za-z][ ]?[0-9][A-Za-z][0-9]/;
+    if(elem.id === "email")
+      pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/i
+
+    if(!pattern.test(elem.value) && elem.value.length>0){
+      document.getElementById(`${elem.id}Error`).hidden = false;
+      document.getElementById("btnSaveInv").disabled = true;
+    }
+    
+  }
+  const phoneHelp = () => {
+    alert("Valid phone formats:\n(123) 456-7890\n"
+    +"(123)456-7890\n"
+    +"123-456-7890\n"
+    +"123.456.7890\n"
+    +"1234567890\n"
+    + "+31636363634\n"
+    +"075-63546725\n");
+  }
+  //************************************ Functions for Search or Add Customer ***************************/
+
+  const searchCustomerModal = (elem) => {
+    createCustTable();
+  }
+
+  const createCustTable = (listFiltered = null) => {
+    document.getElementById("customer-table").innerHTML = "<thead> <tr> <th>Name</th>"
+    +" <th>Email</th> <th>Phone</th> <th></th> <th></th> </tr> </thead>";
+
+    let clients = listFiltered? listFiltered : JSON.parse(localStorage.getItem("Customer"));
+    var output = "";
+
+    clients.forEach(c => {
+      output += "<tr>"
+      + "<td>" + c.fullName + "</td>"
+      + "<td>" + c.email + "</td>"
+      + "<td>" + c.phone + "</td>"
+      + "<td>" + `<button type='button' class='btn btn-primary' onclick='viewCust(${c.id})' title='Preview Client Data'>`
+      + " <i class='fa-solid fa-eye'></i></button>" +  "</td>"
+      + "<td>" + `<button type='button' class='btn btn-success' data-id='${c.id}' onclick='selectCust(this)'>`
+      + " <i class='fa-solid fa-check'></i> Select </button>" +  "</td>"
+      + "</tr>";
+    });
+    document.getElementById("customer-table").innerHTML += output;
+
+  }
+
+  const selectCust = (elem) => {
+    let btns = document.getElementById("customer-table").getElementsByTagName("button");
+    btns.forEach(btn => btn.style.backgroundColor = "");
+    elem.style.backgroundColor = 'red';
+
+    let custID = Number(elem.getAttribute('data-id'));
+    let selected = JSON.parse(localStorage.getItem("Customer")).find(c => Number(c.id) === custID);
+
+    let fields = document.getElementById("custInfo").getElementsByTagName("input");
+    fields[0].value = selected.firstName;
+    fields[1].value = selected.lastName;
+    fields[2].value = selected.email;
+    fields[3].value = selected.phone;
+    fields[4].value = selected.street + " " + selected.province;
+    fields[5].value = selected.postalCode;
+  }
+
+  const viewCust = (id) => {
+    let output = "";
+    let selected = JSON.parse(localStorage.getItem("Customer")).find(c => Number(c.id) === id);
+    output = "Name: " + selected.fullName + "\nEmail: " + selected.email + "\nPhone: " + selected.phone 
+    + "\nAddress: " + selected.street + " " + selected.province + " " + selected.postalCode;
+    alert(output);
+  }
+
+  const clearCustData = () => {
+    let fields = document.getElementById("custInfo").getElementsByTagName("input");
+    for(i =0; i<fields.length-2; i++)
+      fields[i].value = "";
+  }
 //************************************ Functions for Shopping Cart ***************************/
 
   const browseInventory = (elem) =>{
-    createTable();
+    createInvTable();
   }
 
-  const createTable = (stockFiltered = null) => {
+  const createInvTable = (stockFiltered = null) => {
     //create searchable Inventory table in Modal 
     document.getElementById("stock-table").innerHTML = "<thead> <tr> <th>Product</th>"
     +" <th>Qty in Stock</th> <th>Price</th> <th></th> </tr> </thead>";
@@ -123,6 +205,8 @@ const cancelOrder = () => {
   }
 
   const addToCart = (elem) => {
+    
+    elem.style.backgroundColor = "blue";
     //get product name and price
     var UPC = Number(elem.getAttribute('data-UPC'));
     var name = elem.getAttribute('data-name');
@@ -135,9 +219,12 @@ const cancelOrder = () => {
      
   }
 
-  const filterStock = () =>{
+  const filterTable = (elem) =>{
+    console.log(elem.id)
     //filter inventory table 
-    let filter = document.getElementById("myInput").value.toUpperCase();
+    let filter = document.getElementById(elem.id).value.toUpperCase();
+
+    if(elem.id == "inputStock"){
     let stock = JSON.parse(localStorage.getItem("inventory"));
     //get inventory from local Storage and create a new filtered inventory copy to display
     let stockFiltered = stock.filter(i => {
@@ -147,7 +234,18 @@ const cancelOrder = () => {
           i.productType.toString().toUpperCase().includes(filter);
         });
     
-    createTable(stockFiltered);
+    createInvTable(stockFiltered);
+      }
+      //filter customer list table
+    else if(elem.id == "inputCust"){ 
+      let clients = JSON.parse(localStorage.getItem("Customer"));
+      let clientsFiltered = clients.filter(i => {
+        return i.fullName.toString().toUpperCase().includes(filter) || 
+        i.email.toString().toUpperCase().includes(filter) || 
+        i.phone.toString().toUpperCase().includes(filter)
+      });
+      createCustTable(clientsFiltered);
+    }
   }
 
   const displayCart = () =>{
@@ -176,6 +274,7 @@ const cancelOrder = () => {
 
     //show the totals in the grid Details
     document.getElementById("subTotal").innerHTML = new Intl.NumberFormat().format(shoppingCart.totalCart());
+    document.getElementById("tax").innerHTML = new Intl.NumberFormat().format((shoppingCart.totalCart() * 0.13).toFixed(2));
     document.getElementById("Total").innerHTML = new Intl.NumberFormat().format((shoppingCart.totalCart() * 1.13).toFixed(2));
     document.querySelector(".total-count").innerHTML = shoppingCart.totalCount();
   }

@@ -1,0 +1,135 @@
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-8">
+            <h2>User Accounts & Roles Manager</h2>
+        </div>
+           <div class="col-4">
+            
+                <button title="New User" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="userMngrF.editUser('add')"> 
+                    <i class="fa-solid fa-plus fa-lg"></i>  New User</button>
+            
+        </div>
+    </div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-2">
+            </div>
+            <div class="col-8">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-search"></i></span>
+                    </div>
+                    <input type="text" id="myInput" onkeyup="userMngrF.filterTable(this)" class="form-control"
+                        placeholder="Search users by name, email or role" aria-label="Search users by name or email"
+                        aria-describedby="basic-addon1">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-2">
+    </div>
+    <table id="usersTable">
+       
+    </table>
+
+    <!--  View Edit USer -->
+    <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+		  <div class="modal-content">
+			<div class="modal-header row">
+                <div class="col-9">
+			  <h5 class="modal-title" id="exampleModalLabel">View User Data   <i class="fa-solid fa-user"></i></h5>
+            </div>
+              <div class="col-3">
+                <label for="userID"><strong>ID:</strong></label>
+                <label><strong id="userID"></strong></label>
+            </div>
+			</div>
+			<div class="modal-body">
+								  	
+                <div class="row">
+                    
+                    <div class="col-6">
+                        <div>
+                            <label for="Fname"><strong>*First name:</strong></label>
+                        </div>
+                        <div>
+                            <!-- <label class="viewData"></label> -->
+                            <input id="Fname" name="Fname" placeholder="First name" type="text"
+                                 class="editData" required disabled />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div>
+                            <label for="lastName"><strong>*Last name:</strong></label>
+                        </div>
+                        <div>
+                            <!-- <label class="viewData"></label> -->
+                            <input id="lastName" name="lastName" placeholder="Last name" type="text"
+                                 class="editData" required disabled />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div>
+                            <label for="email"><strong>*Email:</strong></label>
+                        </div>
+                        <div>
+                            <!-- <label class="viewData"></label> -->
+                            <input id="email" name="email" placeholder="EG: something@domain.com" type="text"
+                                 class="editData" required disabled />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div>
+                            <label for="pass"><strong>*Password:</strong></label>
+                        </div>
+                        <div>
+                            <!-- <label class="viewData"></label> -->
+                            <input id="pass" name="pass" placeholder="Password" type="text"
+                             class="editData" required disabled />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div>
+                            <label for="role"><strong>*Role:</strong></label>
+                        </div>
+                        <div>
+                            <!-- <label class="viewData"></label> -->
+                            <select id="role" name="role" placeholder="Role"
+                              class="editData" required disabled >
+                                <option value="Admin">Admin</option>
+                                <option value="Manager">Manager</option>
+                                <option value="Sales">Sales</option>
+                                <option value="Warehouse">Warehouse</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col d-flex justify-content-center">
+                        <span id="modal-msg" class="text-danger"></span>
+                    </div>
+                </div>
+			  
+			</div>
+            <div class="modal-footer">
+                <strong id='success' class="text-success" hidden><i class="fa-solid fa-check-double"></i>  Successfully Saved</strong>
+                <button type="button" id='btnClose' class="btn btn-secondary" data-bs-dismiss="modal"
+                    onclick="userMngrF.clean()">Close</button>
+                <button type="button" id='btnEdit' class="btn btn-primary" onclick="userMngrF.editUser('edit')">Edit</button>
+                
+                <button type="button" id='btnSave' class="btn btn-success" onclick="userMngrF.saveUser()">Save</button>
+            
+            </div>
+		  </div>
+		</div>
+	  </div>
+</div>
+<script>
+    try {
+        mainF.configs;
+    } catch (error) {
+        window.location.href = "../Main/Main.html?page=inventoryListView";
+    }
+</script>
+</div>

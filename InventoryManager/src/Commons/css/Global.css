@@ -9,6 +9,15 @@
   text-decoration: none;
 }
 
+.block-action-red {
+  background-color: red;
+  border-radius: 50px;
+  color: #fff;
+  margin-right: 5px;
+  text-align: center;
+  text-decoration: none;
+}
+
 .block-action:hover {
   background-color: #e9a442;
 }

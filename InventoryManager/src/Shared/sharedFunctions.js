@@ -44,6 +44,9 @@ const relocateFnc = (num) => {
     case 8:
       //users manager
       finalPage = "/Main/Main.html?page=UsersManager";
+    case 9:
+      //Reports
+      finalPage = "/Main/Main.html?page=reports";
       break;
     default:
       finalPage = "/Main/Main.html";

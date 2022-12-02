@@ -122,6 +122,16 @@ const mainF = {
                 viewInvoiceF.init();
             }
         },
+        reports: {
+            title: "Reports",
+            page: "Reports/reports.html",
+            mainElement: "#reportSection",
+            styles: ["Commons/css/formGeneral.css"],
+            scripts: ["Reports/reports.js"],
+            initFunction: () => {
+                //viewInvoiceF.init();
+            }
+        },
         printInvoice: {
             title: "Print Invoice",
             page: "Invoice/printInvoice.html",

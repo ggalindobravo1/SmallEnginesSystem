@@ -30,6 +30,9 @@
                 </div>
                 <div class="col">
                     <label><strong>Status: </strong></label>
+                    <a href="#collapseHelp" data-bs-toggle="collapse" href="#collapseHelp" role="button" aria-expanded="false" aria-controls="collapseHelp">
+                        <i class="fa-solid fa-circle-info" title="General Delivery Status of the order"></i>
+                    </a>
                     <label class="viewData" data-bind="orderStatus">Bought</label>
                     <select name="status" id="status" hidden class="editData" data-bind="orderStatus" tabindex="0" >
                         <option value="Bought">Bought</option>
@@ -37,16 +40,28 @@
                         <option value="Cancelled">Cancelled</option>
                         <option value="Pending">Pending</option>
                     </select>
+                    <div class="collapse bg-primary text-white p-1" id="collapseHelp">
+						<span>General Delivery Status of the order</span>
+					</div>
                 </div>
             </div>
             <div class="row p-1">
                 <div class="col">
                     <label><strong>External Number ID: </strong></label>
-                    <label class="viewData" data-bind="orderExternalNumber"></label>
-                    <input type="number" hidden class="editData" data-bind="orderExternalNumber" />
+                    <a href="#collapseHelp2" data-bs-toggle="collapse" href="#collapseHelp2" role="button" aria-expanded="false" aria-controls="collapseHelp2">
+                        <i class="fa-solid fa-circle-info" title="ID number assigned by the supplier ordering system"></i>
+                    </a>
+                    <label class="viewData" data-bind="orderNumber"></label>
+                    <input type="number" hidden class="editData" data-bind="orderNumber" />
+                    <div class="collapse bg-primary text-white p-1" id="collapseHelp2">
+						<span>ID number assigned by the supplier ordering system. Used for tracking purposes</span>
+					</div>
                 </div>
                 <div class="col">
                     <label><strong>Sub Status: </strong></label>
+                    <a href="#collapseHelp3" data-bs-toggle="collapse" href="#collapseHelp3" role="button" aria-expanded="false" aria-controls="collapseHelp3">
+                        <i class="fa-solid fa-circle-info" title="Specific Delivery Status of the order"></i>
+                    </a>
                     <label class="viewData" data-bind="orderSubStatus">Complete</label>
                     <select name="subStatus" id="subStatus" hidden class="editData" data-bind="orderSubStatus">
                         <option value="Complete">Complete</option>
@@ -54,6 +69,9 @@
                         <option value="Cancelled">Cancelled</option>
                         <option value="Pending">Pending</option>
                     </select>
+                    <div class="collapse bg-primary text-white p-1" id="collapseHelp3">
+						<span>Specific Delivery Status of the order</span>
+					</div>
                 </div>
             </div>
             <br>
@@ -97,8 +115,14 @@
                 </div>
                 <div class="col">
                     <label><strong>Order Completion Date: </strong></label>
+                    <a href="#collapseHelp4" data-bs-toggle="collapse" href="#collapseHelp4" role="button" aria-expanded="false" aria-controls="collapseHelp4">
+                        <i class="fa-solid fa-circle-info" title="Date when all items in order were delivered in full"></i>
+                    </a>
                     <label class="viewData" data-bind="orderArriveDate">2022-07-22</label>
                     <input type="date" hidden class="editData" data-bind="orderArriveDate"/>
+                    <div class="collapse bg-primary text-white p-1" id="collapseHelp4">
+						<span>Date when all items in order were "Complete Delivered"</span>
+					</div>
                 </div>
 
             </div>

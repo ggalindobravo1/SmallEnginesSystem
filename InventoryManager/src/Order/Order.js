@@ -34,7 +34,7 @@ orderTableF.filerTable = () => {
     let jsonFiler = globalData.orderData.get()
         .filter(i => {
             return i.orderID.toString().includes(filter) ||
-                i.orderExternalNumber.toString().includes(filter) ||
+                i.orderNumber.toString().includes(filter) ||
                 i.orderDescription.toString().toUpperCase().includes(filter) ||
                i.orderSubtotal.toString().includes(filter) ;
         });

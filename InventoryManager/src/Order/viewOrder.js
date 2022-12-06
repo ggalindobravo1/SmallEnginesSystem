@@ -45,32 +45,33 @@ viewOrderF.init = () => {
     let tableRef = document
       .getElementById("tableItems")
       .getElementsByTagName("tbody")[0];
-    for (let x = 0; x < viewOrderF.order.details.length; x++) {
+
       var row = tableRef.insertRow(-1);
       for (let i = 0; i < 6; i++) {
         let cell = row.insertCell(i);
         if (i == 0)
-          cell.innerHTML = `${viewOrderF.order.details[x].iDetailQty}`;
+          cell.innerHTML = `${viewOrderF.order.orderQty}`;
         else if (i == 1)
-          cell.innerHTML = `${viewOrderF.order.details[x].iDetailDescription}`;
+          cell.innerHTML = `${viewOrderF.order.orderDescription}`;
         else if (i == 2)
-          cell.innerHTML = `${viewOrderF.order.details[x].iDetailUnitPrice}`;
+          cell.innerHTML = `${viewOrderF.order.orderSubtotal/viewOrderF.order.orderQty}`;
         else if (i == 3) {
-          cell.innerHTML = `<label class="viewData">${viewOrderF.order.details[x].iDetailStatus}</label>
+          cell.innerHTML = `<label class="viewData">${viewOrderF.order.orderSubStatus}</label>
           <select name="subStatus" id="itemStatus" hidden class="editData">
-                                    <option value="Complete Delivered">Complete Delivered</option>
-                                    <option value="Incomplete">Incomplete Delivered</option>
+                                    <option value="Complete">Complete</option>
+                                    <option value="Incomplete">Incomplete</option>
                                     <option value="Delivered">Delivered</option>
                                     <option value="Cancelled">Cancelled</option>
                                     <option value="Pending">Pending</option>
                                 </select>
           `;
-        } else if (i == 4)
-          cell.innerHTML = `<label class="viewData">${viewOrderF.order.details[x].iDetailUpdatedAt}</label>
-          <input type="date" name="itemLastStatus" is="itemLastStatus" hidden class="editData" required />
+        } else if (i == 4){
+          cell.innerHTML = `<label class="viewData">${viewOrderF.order.orderUpdateAt}</label>
+          <input type="date" name="itemLastStatus" id="itemLastStatus" hidden class="editData" required />
           `;
+        }
       }
-    }
+    
 
     if (!viewOrderF.order) {
       return;

@@ -15,18 +15,24 @@
 			<legend>*Request to</legend>
 			<div class="row">
 				<div class="col">
-					<label for="sName">*Supplier Name</label>
-					<input id="sName" name="sName" placeholder="Supplier Name" type="text" required />
+					<label for="sName"><strong>*Supplier Name</strong></label>
+					<div class="form-floating">
+						<input id="sName" name="sName" placeholder="Supplier Name" type="text" class="form-control form-control-sm" required  />
+						<label for="sName">Supplier Name</label>
+					</div>
 				</div>
 				<div class="col">
-					<label for="detail">Supplier Address</label>
-					<input id="address" name="address" placeholder="Supplier Address" type="text" />
+					<label for="detail"><strong>Supplier Address</strong></label>
+					<div class="form-floating">
+						<input id="address" name="address" placeholder="Supplier Address" type="text" class="form-control form-control-sm" />
+						<label for="address">Supplier Address</label>
+					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col">
 					<div>
-						<label for="email">*Email</label>
+						<label for="email"><strong>*Email</strong></label>
 					</div>
 					<div>
 						<label class="viewData" data-bind="email"></label>
@@ -39,13 +45,13 @@
 				</div>
 				<div class="col"> 
 					<div>
-						<label for="telephone">*Telephone</label>
+						<label for="telephone"><strong>*Telephone</strong></label>
 					</div>
 					<div>
 						<label class="viewData" data-bind="telephone"></label>
 						<div class="form-floating editData">
 							<input id="telephone" class="form-control form-control-sm" placeholder="905 735 2211" 
-								class="editData form-control"  type="tel" required>
+							class="form-control form-control-sm"  type="tel" required>
 							<label for="telephone">EG: 905 735 2211</label>
 						</div>
 					</div>
@@ -53,7 +59,7 @@
 			</div>
 			<div class="row">
 				<div class="col">
-					<label for="ext">Supplier External Number &nbsp; &nbsp;
+					<label for="ext"><strong>Supplier External Number</strong> &nbsp; &nbsp;
 						<a href="#collapseHelp" data-bs-toggle="collapse" href="#collapseHelp" role="button"
 							aria-expanded="false" aria-controls="collapseHelp">
 							<i class="fa-solid fa-circle-info"
@@ -63,11 +69,11 @@
 					<div class="collapse bg-primary text-white" id="collapseHelp">
 						<span>ID number assigned by the supplier ordering system</span>
 					</div>
-					<input id="ext" name="ext" placeholder="#6754362" type="number" />
+					<input id="ext" name="ext" placeholder="#6754362" type="number" class="form-control form-control-sm" />
 				</div>
 				<div class="col">
-					<label for="date">Creation Date</label>
-					<input id="date" name="date" type="date" readonly />
+					<label for="date"><strong>Creation Date</strong></label>
+					<input id="date" name="date" type="date" class="form-control form-control-sm" disabled />
 				</div>
 
 			</div>
@@ -78,9 +84,11 @@
 			<legend>*Order Details</legend>
 			<div class="row p-1">
 				<div class="col">
-					<label for="street">Description</label>
-					<input id="machineDescription" name="machinemachineDescription"
-						placeholder="Lawn Mower, Kohler spare parts" type="text" />
+					<label for="street"><strong>Description</strong></label>
+					<!-- <input id="machineDescription" name="machinemachineDescription"
+						placeholder="Lawn Mower, Kohler spare parts" type="text" /> -->
+					<textarea class="form-control" id="machineDescription" name="machinemachineDescription"
+					placeholder="Lawn Mower, Kohler spare parts" ></textarea>
 				</div>
 			</div>
 			<div class="row p-1">
@@ -134,10 +142,13 @@
 
 					<button type="button" id="btnCalcTotal" class="btn btn-light" onclick="calcSubTotal()"
 						title="Multiply Qty by Unit Price ">
-						<i class="fa-solid fa-calculator"></i> Calculate SubTotal</button>
+						<i class="fa-solid fa-calculator"></i> Calculate Totals</button>
 				</div>
 				<div class="col-3">
-					<label for="subTotal"><strong>*Sub Total $ + HST</strong></label>
+					<!-- <label for="subTotal"><strong>*Sub Total $ + HST</strong></label> -->
+					<label for="subTotal"><strong>*Sub Total $ </strong><span id="subTotal"></span></label>	
+					<label for="tax"><strong>*HST $ </strong><span id="tax"></span></label>				
+					<label for="Total"><strong>*Grand Total $ </strong><span id="Total"></span></label>
 					<label id="errorSubtotal" hidden="true" class="text-danger">
 						<strong>
 							<i class="fa-solid fa-triangle-exclamation"
@@ -145,7 +156,7 @@
 							Error Processing the Qty or Price.
 						</strong>
 					</label>
-					<input type="number" readonly id="subTotal" name="subTotal" required />
+					<!-- <input type="number" readonly id="subTotal" name="subTotal" class="form-control form-control-sm" required /> -->
 				</div>
 			</div>
 

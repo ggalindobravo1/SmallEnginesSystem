@@ -153,11 +153,24 @@ const editDataForm = () => {
     let viewArr = document.querySelectorAll(".viewData");
     let editArr = document.querySelectorAll(".editData");
 
-    if (viewArr && editArr) {
+
+    if (viewArr && editArr && viewArr.length == editArr.length) {
         for (let i = 0; i < viewArr.length; i++) {
             viewArr[i].hidden = true;
             editArr[i].hidden = false;
             editArr[i].value = viewArr[i].innerHTML;
+        }
+    } else {
+        if (viewArr) {
+            for (let i = 0; i < viewArr.length; i++) {
+                viewArr[i].hidden = true;
+            }
+        }
+
+        if (editArr) {
+            for (let i = 0; i < editArr.length; i++) {
+                editArr[i].hidden = false;
+            }
         }
     }
 }

@@ -1,142 +1,182 @@
 <section id="CustomerSection">
     <form id="FormCustomer">
-        <h2 id="title">New Customer</h2>
-        <fieldset>
-            <legend>*Personal Information:</legend>
-            <div class="row">
-                <div class="col">
-                    <div>
-                        <label for="Fname"><strong>*First name:</strong></label>
-                    </div>
-                    <div>
-                        <label class="viewData" data-bind="firstName"></label>
-                        <input id="Fname" name="Fname" placeholder="First name" type="text" data-bind="firstName"
-                            hidden="true" class="editData" autocomplete="on" required />
-                    </div>
-                </div>
-                <div class="col">
-                    <div>
-                        <label for="Lname"><strong>*Last name:</strong></label>
-                    </div>
-                    <div>
-                        <label class="viewData" data-bind="lastName"></label>
-                        <input id="Lname" data-bind="lastName" name="Lname" placeholder="Last Name" type="text"
-                            hidden="true" class="editData" autocomplete="on" required />
-                    </div>
-
-
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div>
-                        <label for="telephone"><strong>*Telephone:</strong></label>
-                    </div>
-                    <div>
-                        <label class="viewData" data-bind="phone"></label>
-                        <div class="form-floating editData" hidden="true">
-                            <input id="telephone" data-bind="phone" class="form-control form-control-sm" placeholder="905 735 2211" type="tel"
-                            class="editData form-control" required>
-                            <label for="telephone">EG: 905 735 2211</label>
+        <div id="viewCustomerDiv" class="viewData" hidden="true">
+            <h2 id="title">View Customer</h2>
+            <fieldset>
+                <legend>*Personal Information:</legend>
+                <div class="row">
+                    <div class="col">
+                        <div>
+                            <label class="viewData" data-bind="fullName"></label>
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div>
-                        <label for="email"><strong>Email:</strong></label>
+                <div class="row">
+                    <div class="">
+                        <div>
+                            <label class="viewData" data-bind="phone"></label>
+                        </div>
                     </div>
-                    <div>
-                        <label class="viewData" data-bind="email"></label>
-                        <div class="form-floating editData" hidden="true">
-                            <input type="email" data-bind="email" class="form-control form-control-sm" id="email" placeholder="email@domain.com">
-                            <label for="email">EG: email@domain.com</label>
-                          </div>
+                    <div class="">
+                        <div>
+                            <label class="viewData" data-bind="email"></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="">
+                            <div>
+                                <label class="viewData" data-bind="postalCode"></label>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div>
+                                <label class="viewData" data-bind="street"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="">
+                        <label class="viewData" data-bind="city"></label>
+                    </div>
+                    <div class="">
+                        <label class="viewData" data-bind="province"></label>
+                    </div>
+                </div>
+                <br />
+            </fieldset>
+        </div>
+        <div id="editCustomerDiv" class="editData" hidden="true">
+            <h2 id="title">New Customer</h2>
+            <fieldset>
+                <legend>*Personal Information:</legend>
+                <div class="row">
+                    <div class="col">
+                        <div>
+                            <label for="Fname"><strong>*First name:</strong></label>
+                        </div>
+                        <div>
+                            <input id="Fname" name="Fname" placeholder="First name" type="text" data-bind="firstName"
+                                hidden="true" class="editData" autocomplete="on" required />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <label for="Lname"><strong>*Last name:</strong></label>
+                        </div>
+                        <div>
+                            <input id="Lname" data-bind="lastName" name="Lname" placeholder="Last Name" type="text"
+                                hidden="true" class="editData" autocomplete="on" required />
+                        </div>
+    
+    
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         <div>
-                            <Label><strong>Postal Code:</strong></Label>
+                            <label for="telephone"><strong>*Telephone:</strong></label>
                         </div>
                         <div>
-                            <label class="viewData" data-bind="postalCode"></label>
                             <div class="form-floating editData" hidden="true">
-                                <input type="text" placeholder="M9A 2R6" id="postalCode" class="form-control form-control-sm"
-                                    pattern="[A-Za-z][0-9][A-Za-z][ ][0-9][A-Za-z][0-9]" data-bind="postalCode"
-                                    title="Six digit zip code M9A 2R6" class="editData">
-                                <label for="postalCode">EG: M9A 2R6</label>
+                                <input id="telephone" data-bind="phone" class="form-control form-control-sm" placeholder="905 735 2211" type="tel"
+                                class="editData form-control" required>
+                                <label for="telephone">EG: 905 735 2211</label>
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <div>
-                            <label for="Street"><strong>Street:</strong></label>
+                            <label for="email"><strong>Email:</strong></label>
                         </div>
                         <div>
-                            <label class="viewData" data-bind="street"></label>
-                            <input id="Street" data-bind="street" name="Street" placeholder="Street No." type="text"
-                                hidden="true" class="editData" />
+                            <div class="form-floating editData" hidden="true">
+                                <input type="email" data-bind="email" class="form-control form-control-sm" id="email" placeholder="email@domain.com">
+                                <label for="email">EG: email@domain.com</label>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div>
+                                <Label><strong>Postal Code:</strong></Label>
+                            </div>
+                            <div>
+                                <div class="form-floating editData" hidden="true">
+                                    <input type="text" placeholder="M9A 2R6" id="postalCode" class="form-control form-control-sm"
+                                        pattern="[A-Za-z][0-9][A-Za-z][ ][0-9][A-Za-z][0-9]" data-bind="postalCode"
+                                        title="Six digit zip code M9A 2R6" class="editData">
+                                    <label for="postalCode">EG: M9A 2R6</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div>
+                                <label for="Street"><strong>Street:</strong></label>
+                            </div>
+                            <div>
+                                <input id="Street" data-bind="street" name="Street" placeholder="Street No." type="text"
+                                    hidden="true" class="editData" />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div>
-                        <label for="City"><strong>*City:</strong></label>
+                <div class="row">
+                    <div class="col">
+                        <div>
+                            <label for="City"><strong>*City:</strong></label>
+                        </div>
+                        <input type="text" placeholder="Toronto" id="City" name="City" data-bind="city" hidden="true"
+                            class="editData" autocomplete="on" required />
                     </div>
-                    <label class="viewData" data-bind="city"></label>
-                    <input type="text" placeholder="Toronto" id="City" name="City" data-bind="city" hidden="true"
-                        class="editData" autocomplete="on" required />
-                </div>
-                <div class="col">
-                    <div>
-                        <Label><strong>Province:</strong></Label>
+                    <div class="col">
+                        <div>
+                            <Label><strong>Province:</strong></Label>
+                        </div>
+                        <select id="province" name="province" data-bind="province" class="editData" hidden="true">
+                            <option value="">Province</option>
+                            <option value="Alberta">
+                                Alberta
+                            </option>
+                            <option value="BC">
+                                British Columbia
+                            </option>
+                            <option value="Manitoba">
+                                Manitoba
+                            </option>
+                            <option value="New Brunswick">
+                                New Brunswick
+                            </option>
+                            <option value="Newfoundland and Labrador">
+                                Newfoundland and Labrador
+                            </option>
+                            <option value="Northwest Territories">
+                                Northwest Territories
+                            </option>
+                            <option value="Nova Scotia">
+                                Nova Scotia
+                            </option>
+                            <option value="Nunavut">
+                                Nunavut
+                            </option>
+                            <option value="Ontario">
+                                Ontario
+                            </option>
+                            <option value=" Prince Edward Island">
+                                Prince Edward Island
+                            </option>
+                            <option value="Quebec">
+                                Quebec
+                            </option>
+                            <option value="Saskatchewan">
+                                Saskatchewan
+                            </option>
+                        </select>
                     </div>
-                    <label class="viewData" data-bind="province"></label>
-                    <select id="province" name="province" data-bind="province" class="editData" hidden="true">
-                        <option value="">Province</option>
-                        <option value="Alberta">
-                            Alberta
-                        </option>
-                        <option value="BC">
-                            British Columbia
-                        </option>
-                        <option value="Manitoba">
-                            Manitoba
-                        </option>
-                        <option value="New Brunswick">
-                            New Brunswick
-                        </option>
-                        <option value="Newfoundland and Labrador">
-                            Newfoundland and Labrador
-                        </option>
-                        <option value="Northwest Territories">
-                            Northwest Territories
-                        </option>
-                        <option value="Nova Scotia">
-                            Nova Scotia
-                        </option>
-                        <option value="Nunavut">
-                            Nunavut
-                        </option>
-                        <option value="Ontario">
-                            Ontario
-                        </option>
-                        <option value=" Prince Edward Island">
-                            Prince Edward Island
-                        </option>
-                        <option value="Quebec">
-                            Quebec
-                        </option>
-                        <option value="Saskatchewan">
-                            Saskatchewan
-                        </option>
-                    </select>
                 </div>
-            </div>
-            <br />
-        </fieldset>
+                <br />
+            </fieldset>
+        </div>
         <div class="row align-items-center">
             <div class="col-2">
                 <button id="btnDelete" hidden="true" type="button" class="btn btn-danger col"

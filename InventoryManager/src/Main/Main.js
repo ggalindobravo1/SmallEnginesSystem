@@ -11,7 +11,7 @@ const mainF = {
              }
         },
         persons: {
-            title: "Person List",
+            title: "Employee List",
             page: "Person/IndexPerson.html",
             mainElement: "#personTable",
             styles: ["Person/person.css"],
@@ -21,7 +21,7 @@ const mainF = {
             }
         },
         newPerson: {
-            title: "New Person",
+            title: "New Employee",
             page: "Person/ViewPerson.html",
             mainElement: "#personSection",
             styles: ["Person/formPerson.css"],
@@ -278,7 +278,11 @@ mainF.init = async () => {
 
     // Adding JS
     for (i = 0; i < page.scripts.length; i++) {
-        await mainF.loadScript(serverBasePath + page.scripts[i]);
+        if (page.scripts[i].startsWith("http://") || page.scripts[i].startsWith("https://")) {
+            await mainF.loadScript(page.scripts[i]);
+        } else {
+            await mainF.loadScript(serverBasePath + page.scripts[i]);
+        }
     }
 
     // Loading Page
@@ -289,6 +293,10 @@ mainF.init = async () => {
     // Start Function Page
     setTimeout(() => {
         page.initFunction();
+        $("input[type=tel]").each(function (ev) {
+            $(this).attr("placeholder", "(999) 999-9999");
+            $(this).inputmask({"mask": "(999) 999-9999"});
+        });
     }, 300);
 }
 

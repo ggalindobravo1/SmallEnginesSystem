@@ -75,6 +75,8 @@ viewCustomerF.init = () => {
             // SHow Edit Btn and Hidden Save
             document.getElementById("btnEdit").hidden = false;
             document.getElementById("btnSave").hidden = true;
+            document.getElementById("viewCustomerDiv").hidden = false;
+            document.getElementById("editCustomerDiv").hidden = true;
         }
 
         // Fill all data

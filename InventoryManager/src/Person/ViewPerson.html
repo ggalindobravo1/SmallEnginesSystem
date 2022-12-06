@@ -1,196 +1,270 @@
 <section id="personSection">
     <form id="formPerson">
-        <h2 id="title">New Person</h2>
-        <fieldset>
-            <legend>*Personal Information:</legend>
-            <div class="row">
-                <div class="col">
-                    <div>
-                        <label for="Fname"><strong>*First name:</strong></label>
-                    </div>
-                    <div>
-                        <label class="viewData" data-bind="firstName"></label>
-                        <input id="Fname" name="Fname" placeholder="First name" type="text" data-bind="firstName"
-                            hidden="true" class="editData" required />
-                    </div>
-                </div>
-                <div class="col">
-                    <div>
-                        <label for="Lname"><strong>*Last name:</strong></label>
-                    </div>
-                    <div>
-                        <label class="viewData" data-bind="lastName"></label>
-                        <input id="Lname" data-bind="lastName" name="Lname" placeholder="Last Name" type="text"
-                            hidden="true" class="editData" required />
-                    </div>
-
-
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div>
-                        <label for="telephone"><strong>*Telephone:</strong></label>
-                    </div>
-                    <div>
-                        <label class="viewData" data-bind="phone"></label>
-                        <div class="form-floating editData" hidden="true">
-                            <input id="telephone" data-bind="phone" class="form-control form-control-sm" placeholder="905 735 2211" type="tel"
-                            class="editData form-control" required>
-                            <label for="telephone">EG: 905 735 2211</label>
+        <div id="viewPersonDiv" class="viewData" hidden="true">
+            <h2>Employee detail</h2>
+            <fieldset>
+                <legend>*Personal Information:</legend>
+                <div class="row">
+                    <div class="col">
+                        <div>
+                            <label class="viewData" data-bind="fullName"></label>
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div>
-                        <label for="ext"><strong>Personal External Number:</strong></label>
+                <div class="">
+                    <div class="col">
+                        <div>
+                            <label class="viewData" data-bind="phone"></label>
+                        </div>
                     </div>
-                    <div>
-                        <label class="viewData" data-bind="ext"></label>
-                        <div class="form-floating editData" hidden="true">
-                            <input id="ext" name="ext" placeholder="#675"  class="form-control form-control-sm" data-bind="ext" type="text"
-                                class="editData">
-                            <label for="ext">EG: 675</label>
+                    <div class="col">
+                        <div>
+                            <label class="viewData" data-bind="ext"></label>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div>
-                        <label for="email"><strong>Email:</strong></label>
+                <div class="row">
+                    <div class="col">
+                        <div>
+                            <label class="viewData" data-bind="email"></label>
+                        </div>
                     </div>
-                    <div>
-                        <label class="viewData" data-bind="email"></label>
-                        <div class="form-floating editData" hidden="true">
-                            <input type="email" data-bind="email" class="form-control form-control-sm" id="email" placeholder="email@domain.com">
-                            <label for="email">EG: email@domain.com</label>
-                          </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div>
-                        <Label><strong>Postal Code:</strong></Label>
-                    </div>
-                    <div>
-                        <label class="viewData" data-bind="postalCode"></label>
-                        <div class="form-floating editData" hidden="true">
-                            <input type="text" placeholder="M9A 2R6" id="postalCode" class="form-control form-control-sm"
-                                pattern="[A-Za-z][0-9][A-Za-z][ ][0-9][A-Za-z][0-9]" data-bind="postalCode"
-                                title="Six digit zip code M9A 2R6" class="editData">
-                            <label for="postalCode">EG: M9A 2R6</label>
+                    <div class="">
+                        <div>
+                            <label class="viewData" data-bind="postalCode"></label>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div>
-                        <label for="Street"><strong>Street:</strong></label>
+                <div class="row">
+                    <div class="">
+                        <div>
+                            <label class="viewData" data-bind="street"></label>
+                        </div>
                     </div>
-                    <div>
-                        <label class="viewData" data-bind="street"></label>
-                        <input id="Street" data-bind="street" name="Street" placeholder="Street No." type="text"
-                            hidden="true" class="editData" />
+                    <div class="">
+                        <div>
+                            <label class="viewData" data-bind="city"></label>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div>
+                            <label class="viewData" data-bind="province"></label>
+                        </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div>
-                        <label for="City"><strong>*City:</strong></label>
+                <br />
+            </fieldset>
+            <fieldset>
+                <legend>*Detail Information:</legend>
+                <div class="row">
+                    <div class="col">
+                        <div>
+                            <label for="listDept"><strong>*Select a Deparment:</strong></label>
+                        </div>
+                        <div> 
+                            <label class="viewData" data-bind="department"></label>
+                        </div>
                     </div>
-                    <label class="viewData" data-bind="city"></label>
-                    <input type="text" placeholder="Toronto" id="City" name="City" data-bind="city" hidden="true"
-                        class="editData" required />
-                </div>
-                <div class="col">
-                    <div>
-                        <Label><strong>Province:</strong></Label>
+                    <div class="col">
+                        <div>
+                            <label for="Details"><strong>Details: </strong></label>
+                        </div>
+                        <div>
+                            <label class="viewData" data-bind="details"></label>
+                        </div>
                     </div>
-                    <label class="viewData" data-bind="province"></label>
-                    <select id="province" name="province" data-bind="province" class="editData" hidden="true">
-                        <option value="">Province</option>
-                        <option value="Alberta">
-                            Alberta
-                        </option>
-                        <option value="BC">
-                            British Columbia
-                        </option>
-                        <option value="Manitoba">
-                            Manitoba
-                        </option>
-                        <option value="New Brunswick">
-                            New Brunswick
-                        </option>
-                        <option value="Newfoundland and Labrador">
-                            Newfoundland and Labrador
-                        </option>
-                        <option value="Northwest Territories">
-                            Northwest Territories
-                        </option>
-                        <option value="Nova Scotia">
-                            Nova Scotia
-                        </option>
-                        <option value="Nunavut">
-                            Nunavut
-                        </option>
-                        <option value="Ontario">
-                            Ontario
-                        </option>
-                        <option value=" Prince Edward Island">
-                            Prince Edward Island
-                        </option>
-                        <option value="Quebec">
-                            Quebec
-                        </option>
-                        <option value="Saskatchewan">
-                            Saskatchewan
-                        </option>
-                    </select>
-                </div>
-            </div>
-            <br />
-        </fieldset>
-        <fieldset>
-            <legend>*Detail Information:</legend>
-            <div class="row">
-                <div class="col">
-                    <div>
-                        <label for="listDept"><strong>*Select a Deparment:</strong></label>
+                    <div class="col">
+                        <div>
+                            <label for="Type"><strong>Type:</strong></label>
+                        </div>
+                        <div>
+                            <label class="viewData" data-bind="typeName"></label>
+                        </div>
                     </div>
-                    <label class="viewData" data-bind="department"></label>
-                    <select id="listDept" name="listDept" data-bind="department" class="editData" hidden="true">
-                        <option value="">Select Department</option>
-                        <option value="Sales">Sales</option>
-                        <option value="Ordering">Ordering and Purchasing</option>
-                        <option value="Mantainance">Mantainance</option>
-                        <option value="Admin">Admin</option>
-                        <option value="Corporative">Corporative</option>
-                    </select>
                 </div>
-                <div class="col">
-                    <div>
-                        <label for="Details"><strong>Details: </strong></label>
+            </fieldset>
+        </div>
+        <div id="editPersonDiv" class="editData" hidden="true">
+            <h2 id="title">New Employee</h2>
+            <fieldset>
+                <legend>*Personal Information:</legend>
+                <div class="row">
+                    <div class="col">
+                        <div>
+                            <label for="Fname"><strong>*First name:</strong></label>
+                        </div>
+                        <div>
+                            <input id="Fname" name="Fname" placeholder="First name" type="text" data-bind="firstName"
+                                hidden="true" class="editData" required />
+                        </div>
                     </div>
-                    <label class="viewData" data-bind="details"></label>
-                    <select id="listDetail" name="listDept" data-bind="details" class="editData" hidden="true">
-                        <option value="">Select Details Person</option>
-                        <option value="Cash Register 2">Cash Register 2</option>
-                        <option value="Purchasing and Ordering Executive">Purchasing and Ordering Executive</option>
-                        <option value="Administrative Assistant">Administrative Assistant</option>
-                        <option value="CEO">CEO</option>
-                    </select>
-                </div>
-                <div class="col">
-                    <div>
-                        <label for="Type"><strong>Type:</strong></label>
+                    <div class="col">
+                        <div>
+                            <label for="Lname"><strong>*Last name:</strong></label>
+                        </div>
+                        <div>
+                            <input id="Lname" data-bind="lastName" name="Lname" placeholder="Last Name" type="text"
+                                hidden="true" class="editData" required />
+                        </div>   
                     </div>
-                    <label class="viewData" data-bind="typeName"></label>
-                    <select id="Type" name="Type" data-bind="type" class="editData" hidden="true">
-                        <option value="">Select Type</option>
-                    </select>
                 </div>
-            </div>
-        </fieldset>
+                <div class="row">
+                    <div class="col">
+                        <div>
+                            <label for="telephone"><strong>*Telephone:</strong></label>
+                        </div>
+                        <div>
+                            <div class="form-floating editData" hidden="true">
+                                <input id="telephone" data-bind="phone" class="form-control form-control-sm" placeholder="905 735 2211" type="tel"
+                                class="editData form-control" required>
+                                <label for="telephone">EG: (905) 735-2211</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <label for="ext"><strong>Personal External Number:</strong></label>
+                        </div>
+                        <div>
+                            <div class="form-floating editData" hidden="true">
+                                <input id="ext" name="ext" placeholder="#675"  class="form-control form-control-sm" data-bind="ext" type="text"
+                                    class="editData">
+                                <label for="ext">EG: 675</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div>
+                            <label for="email"><strong>Email:</strong></label>
+                        </div>
+                        <div>
+                            <div class="form-floating editData" hidden="true">
+                                <input type="email" data-bind="email" class="form-control form-control-sm" id="email" placeholder="email@domain.com">
+                                <label for="email">EG: email@domain.com</label>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <Label><strong>Postal Code:</strong></Label>
+                        </div>
+                        <div>
+                            <div class="form-floating editData" hidden="true">
+                                <input type="text" placeholder="M9A 2R6" id="postalCode" class="form-control form-control-sm"
+                                    pattern="[A-Za-z][0-9][A-Za-z][ ][0-9][A-Za-z][0-9]" data-bind="postalCode"
+                                    title="Six digit zip code M9A 2R6" class="editData">
+                                <label for="postalCode">EG: M9A 2R6</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div>
+                            <label for="Street"><strong>Street:</strong></label>
+                        </div>
+                        <div>
+                            <input id="Street" data-bind="street" name="Street" placeholder="Street No." type="text"
+                                hidden="true" class="editData" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <label for="City"><strong>*City:</strong></label>
+                        </div>
+                        <input type="text" placeholder="Toronto" id="City" name="City" data-bind="city" hidden="true"
+                            class="editData" required />
+                    </div>
+                    <div class="col">
+                        <div>
+                            <Label><strong>Province:</strong></Label>
+                        </div>
+                        <select id="province" name="province" data-bind="province" class="editData" hidden="true">
+                            <option value="">Province</option>
+                            <option value="Alberta">
+                                Alberta
+                            </option>
+                            <option value="BC">
+                                British Columbia
+                            </option>
+                            <option value="Manitoba">
+                                Manitoba
+                            </option>
+                            <option value="New Brunswick">
+                                New Brunswick
+                            </option>
+                            <option value="Newfoundland and Labrador">
+                                Newfoundland and Labrador
+                            </option>
+                            <option value="Northwest Territories">
+                                Northwest Territories
+                            </option>
+                            <option value="Nova Scotia">
+                                Nova Scotia
+                            </option>
+                            <option value="Nunavut">
+                                Nunavut
+                            </option>
+                            <option value="Ontario">
+                                Ontario
+                            </option>
+                            <option value=" Prince Edward Island">
+                                Prince Edward Island
+                            </option>
+                            <option value="Quebec">
+                                Quebec
+                            </option>
+                            <option value="Saskatchewan">
+                                Saskatchewan
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <br />
+            </fieldset>
+            <fieldset>
+                <legend>*Detail Information:</legend>
+                <div class="row">
+                    <div class="col">
+                        <div>
+                            <label for="listDept"><strong>*Select a Deparment:</strong></label>
+                        </div>
+                        <label class="viewData" data-bind="department"></label>
+                        <select id="listDept" name="listDept" data-bind="department" class="editData" hidden="true">
+                            <option value="">Select Department</option>
+                            <option value="Sales">Sales</option>
+                            <option value="Ordering">Ordering and Purchasing</option>
+                            <option value="Mantainance">Mantainance</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Corporative">Corporative</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <label for="Details"><strong>Details: </strong></label>
+                        </div>
+                        <select id="listDetail" name="listDept" data-bind="details" class="editData" hidden="true">
+                            <option value="">Select Details Employee</option>
+                            <option value="Cash Register 2">Cash Register 2</option>
+                            <option value="Purchasing and Ordering Executive">Purchasing and Ordering Executive</option>
+                            <option value="Administrative Assistant">Administrative Assistant</option>
+                            <option value="CEO">CEO</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <label for="Type"><strong>Type:</strong></label>
+                        </div>
+                        <select id="Type" name="Type" data-bind="type" class="editData" hidden="true">
+                            <option value="">Select Type</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        
         <div class="row align-items-center">
             <div class="col-2">
                 <button id="btnDelete" hidden="true" type="button" class="btn btn-danger col"

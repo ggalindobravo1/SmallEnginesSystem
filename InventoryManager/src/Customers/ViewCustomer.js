@@ -49,7 +49,7 @@ viewCustomerF.init = () => {
     }
 
     // Add Valid form
-    const form = document.getElementById('FormCustomer');
+   const form = document.getElementById('FormCustomer');
     addValidationForm(form, viewCustomerF.save);
 
     // Check Mode

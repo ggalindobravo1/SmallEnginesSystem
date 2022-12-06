@@ -13,8 +13,8 @@
 					<option value="inventory">Inventory</option>
 					<option value="supplier">Suppliers</option>
 					<option value="Customer">Customers</option>
-					<option value="invoice">Invoice</option>
-					<option value="order">POS</option>
+					<option value="invoice">Purchase Report</option>
+					<option value="order">Sales Report</option>
 				</select>
 				<div class="invalid-feedback">Please select a valid report.</div>
 			</div>
@@ -29,7 +29,10 @@
 				<div class="invalid-feedback">Please select a valid Date.</div>
 			</div>
 		</div>
-		<div class="row justify-content-center">
+		<div style="height: 50px;">
+
+		</div>
+		<!-- <div class="row justify-content-center">
 			<button
 				type="submit"
 				onclick="searchReport()"
@@ -37,18 +40,28 @@
 			>
 				Search
 			</button>
-		</div>
+		</div> -->
 		<!-- </form> -->
 		<div class="row justify-content-around">
-			<label hidden id="lblResult" for="dataDownload">Result:</label>
+			<a
+				id="invoice_download_btn"
+				class="btn btn-lg btn-download btn-theme"
+				href="javascript:searchReport()"
+			>
+				<i class="fa-solid fa-download fa-8x">
+
+				</i>
+			</a>
+			
+			<!-- <label hidden id="lblResult" for="dataDownload">Result:</label>
 			<textarea
 				hidden
 				class="form-control"
 				id="dataDownload"
 				style="height: 200px"
-			></textarea>
+			></textarea> -->
 		</div>
-      <div class="row justify-content-center">
+      <!-- <div class="row justify-content-center">
 			<button
 				hidden
 				id="btnDownload"
@@ -58,6 +71,6 @@
 			>
 				Download
 			</button>
-		</div>
+		</div> -->
 	</div>
 </div>

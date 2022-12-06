@@ -386,6 +386,7 @@ TableActions.prototype.addRow = function (item, tableBody) {
     if (this.actions && this.actions.length > 0) {
         const td = tr.insertCell();
         td.classList.add("row");
+        td.classList.add("justify-content-center");
         for (let i = 0; i < this.actions.length; i++) {
             const myAction = this.actions[i];
             let redirectTo = myAction.redirectTo;

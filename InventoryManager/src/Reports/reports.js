@@ -2,10 +2,12 @@ searchReport = () => {
 	var json = JSON.parse(localStorage.getItem( document.getElementById("reportType").value ));
     if( json ) {
         const csvData = convertToCsv(json);
-        document.getElementById("dataDownload").textContent = csvData;
-        document.getElementById("lblResult").hidden = false;
-        document.getElementById("dataDownload").hidden = false;
-        document.getElementById("btnDownload").hidden = false;
+        // document.getElementById("dataDownload").textContent = csvData;
+        // document.getElementById("lblResult").hidden = false;
+        // document.getElementById("dataDownload").hidden = false;
+        // document.getElementById("btnDownload").hidden = false;
+        console.log(csvData)
+        window.open('data:text/csv;charset=utf-8,' + escape(csvData));
     }
 };
 

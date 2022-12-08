@@ -1,5 +1,5 @@
-const serverBasePath = "/InventoryManager/src/";
-//const serverBasePath = "/src/";
+//const serverBasePath = "/InventoryManager/src/";
+const serverBasePath = "/src/";
 const basePath = serverBasePath + "/Commons/json-data/";
 
 const globalData = {

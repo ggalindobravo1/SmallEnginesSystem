@@ -4,64 +4,239 @@
 			<h2>Reports</h2>
 		</div>
 		<div class="col-7"></div>
+
+		<div class="accordion accordion-flush" id="accordionFlushExample">
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="flush-headingOne">
+					<button
+						class="accordion-button collapsed"
+						type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#flush-collapseOne"
+						aria-expanded="false"
+						aria-controls="flush-collapseOne"
+					>
+						Purchase Report
+					</button>
+				</h2>
+				<div
+					id="flush-collapseOne"
+					class="accordion-collapse collapse"
+					aria-labelledby="flush-headingOne"
+					data-bs-parent="#accordionFlushExample"
+				>
+					<div class="accordion-body">
+						<div class="row justify-content-around">
+							<div class="col-md-4 mb-3">
+								<label for="startDate">Start Date</label>
+								<input id="startDate" type="date" />
+								<div class="invalid-feedback">Please select a valid Date.</div>
+							</div>
+							<div class="col-md-4 mb-3">
+								<label for="endDate">End Date</label>
+								<input id="endDate" type="date" />
+								<div class="invalid-feedback">Please select a valid Date.</div>
+							</div>
+						</div>
+						<div style="height: 50px"></div>
+						<div class="row justify-content-around">
+							<a
+								id="invoice_download_btn"
+								class="btn btn-lg btn-download btn-theme"
+								href="javascript:searchReport('invoice')"
+							>
+								<i class="fa-solid fa-download fa-8x"> </i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="flush-headingTwo">
+					<button
+						class="accordion-button collapsed"
+						type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#flush-collapseTwo"
+						aria-expanded="false"
+						aria-controls="flush-collapseTwo"
+					>
+						Sales Report
+					</button>
+				</h2>
+				<div
+					id="flush-collapseTwo"
+					class="accordion-collapse collapse"
+					aria-labelledby="flush-headingTwo"
+					data-bs-parent="#accordionFlushExample"
+				>
+					<div class="accordion-body">
+						<div class="row justify-content-around">
+							<div class="col-md-4 mb-3">
+								<label for="startDate">Start Date</label>
+								<input id="startDate" type="date" />
+								<div class="invalid-feedback">Please select a valid Date.</div>
+							</div>
+							<div class="col-md-4 mb-3">
+								<label for="endDate">End Date</label>
+								<input id="endDate" type="date" />
+								<div class="invalid-feedback">Please select a valid Date.</div>
+							</div>
+						</div>
+						<div style="height: 50px"></div>
+						<div class="row justify-content-around">
+							<a
+								id="invoice_download_btn"
+								class="btn btn-lg btn-download btn-theme"
+								href="javascript:searchReport('order')"
+							>
+								<i class="fa-solid fa-download fa-8x"> </i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="flush-headingThree">
+					<button
+						class="accordion-button collapsed"
+						type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#flush-collapseThree"
+						aria-expanded="false"
+						aria-controls="flush-collapseThree"
+					>
+						Customers
+					</button>
+				</h2>
+				<div
+					id="flush-collapseThree"
+					class="accordion-collapse collapse"
+					aria-labelledby="flush-headingThree"
+					data-bs-parent="#accordionFlushExample"
+				>
+					<div class="accordion-body">
+						<div class="row justify-content-around">
+							<div class="col-md-4 mb-3">
+								<label for="startDate">Start Date</label>
+								<input id="startDate" type="date" />
+								<div class="invalid-feedback">Please select a valid Date.</div>
+							</div>
+							<div class="col-md-4 mb-3">
+								<label for="endDate">End Date</label>
+								<input id="endDate" type="date" />
+								<div class="invalid-feedback">Please select a valid Date.</div>
+							</div>
+						</div>
+						<div style="height: 50px"></div>
+						<div class="row justify-content-around">
+							<a
+								id="invoice_download_btn"
+								class="btn btn-lg btn-download btn-theme"
+								href="javascript:searchReport('Customer')"
+							>
+								<i class="fa-solid fa-download fa-8x"> </i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="flush-headingFour">
+					<button
+						class="accordion-button collapsed"
+						type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#flush-collapseFour"
+						aria-expanded="false"
+						aria-controls="flush-collapseFour"
+					>
+						Suppliers
+					</button>
+				</h2>
+				<div
+					id="flush-collapseFour"
+					class="accordion-collapse collapse"
+					aria-labelledby="flush-headingFour"
+					data-bs-parent="#accordionFlushExample"
+				>
+					<div class="accordion-body">
+						<div class="row justify-content-around">
+							<div class="col-md-4 mb-3">
+								<label for="startDate">Start Date</label>
+								<input id="startDate" type="date" />
+								<div class="invalid-feedback">Please select a valid Date.</div>
+							</div>
+							<div class="col-md-4 mb-3">
+								<label for="endDate">End Date</label>
+								<input id="endDate" type="date" />
+								<div class="invalid-feedback">Please select a valid Date.</div>
+							</div>
+						</div>
+						<div style="height: 50px"></div>
+						<div class="row justify-content-around">
+							<a
+								id="invoice_download_btn"
+								class="btn btn-lg btn-download btn-theme"
+								href="javascript:searchReport('Customer')"
+							>
+								<i class="fa-solid fa-download fa-8x"> </i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="flush-headingFive">
+					<button
+						class="accordion-button collapsed"
+						type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#flush-collapseFive"
+						aria-expanded="false"
+						aria-controls="flush-collapseFive"
+					>
+						Inventory
+					</button>
+				</h2>
+				<div
+					id="flush-collapseFive"
+					class="accordion-collapse collapse"
+					aria-labelledby="flush-headingFive"
+					data-bs-parent="#accordionFlushExample"
+				>
+					<div class="accordion-body">
+						<div class="row justify-content-around">
+							<div class="col-md-4 mb-3">
+								<label for="startDate">Start Date</label>
+								<input id="startDate" type="date" />
+								<div class="invalid-feedback">Please select a valid Date.</div>
+							</div>
+							<div class="col-md-4 mb-3">
+								<label for="endDate">End Date</label>
+								<input id="endDate" type="date" />
+								<div class="invalid-feedback">Please select a valid Date.</div>
+							</div>
+						</div>
+						<div style="height: 50px"></div>
+						<div class="row justify-content-around">
+							<a
+								id="invoice_download_btn"
+								class="btn btn-lg btn-download btn-theme"
+								href="javascript:searchReport('Customer')"
+							>
+								<i class="fa-solid fa-download fa-8x"> </i>
+							</a>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
 		<!-- <form> -->
-		<div class="row justify-content-around">
-			<div class="col-md-4 mb-3">
-				<label for="reportType">Report Type</label>
-				<select class="custom-select d-block" id="reportType" required>
-					<option value="">Choose...</option>
-					<option value="inventory">Inventory</option>
-					<option value="supplier">Suppliers</option>
-					<option value="Customer">Customers</option>
-					<option value="invoice">Purchase Report</option>
-					<option value="order">Sales Report</option>
-				</select>
-				<div class="invalid-feedback">Please select a valid report.</div>
-			</div>
-			<div class="col-md-4 mb-3">
-				<label for="startDate">Start Date</label>
-				<input id="startDate" type="date" />
-				<div class="invalid-feedback">Please select a valid Date.</div>
-			</div>
-			<div class="col-md-4 mb-3">
-				<label for="endDate">End Date</label>
-				<input id="endDate" type="date" />
-				<div class="invalid-feedback">Please select a valid Date.</div>
-			</div>
-		</div>
-		<div style="height: 50px;">
 
-		</div>
 		<!-- <div class="row justify-content-center">
-			<button
-				type="submit"
-				onclick="searchReport()"
-				style="width: 150px"
-			>
-				Search
-			</button>
-		</div> -->
-		<!-- </form> -->
-		<div class="row justify-content-around">
-			<a
-				id="invoice_download_btn"
-				class="btn btn-lg btn-download btn-theme"
-				href="javascript:searchReport()"
-			>
-				<i class="fa-solid fa-download fa-8x">
-
-				</i>
-			</a>
-			
-			<!-- <label hidden id="lblResult" for="dataDownload">Result:</label>
-			<textarea
-				hidden
-				class="form-control"
-				id="dataDownload"
-				style="height: 200px"
-			></textarea> -->
-		</div>
-      <!-- <div class="row justify-content-center">
 			<button
 				hidden
 				id="btnDownload"

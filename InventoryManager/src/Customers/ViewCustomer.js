@@ -79,7 +79,7 @@ viewCustomerF.init = () => {
             document.getElementById("editCustomerDiv").hidden = true;
         }
 
-        // Fill all data
+        // Fill all data.
         fillFormData(viewCustomerF.Customer);
     }
 }

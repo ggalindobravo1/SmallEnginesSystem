@@ -66,8 +66,8 @@ main {
 
 /******** form fieldset padding ********/
 fieldset div.row {
-  padding-left: 30px !important;
+  padding: 30px !important;
 }
 fieldset legend{
-  padding-left: 20px;
+  padding: 20px;
 }

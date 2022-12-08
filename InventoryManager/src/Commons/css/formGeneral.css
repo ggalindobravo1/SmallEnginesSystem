@@ -51,7 +51,7 @@ label {
 	margin-bottom: 5px;
 	margin-top: 5px;
 }
-select, textarea, input[type=text], input[type=email], input[type=tel], input[type=date], input[type=number], input[type=province] {
+select, textarea, input[type=text], input[type=email], input[type=tel], input[type=date], input[type=number], input[type=province], input[type=Street], input[type=postalCode] {
 	background-color: white;
 	color: black;
 	border: 1px solid black;

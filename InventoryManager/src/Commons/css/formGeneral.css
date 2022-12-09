@@ -1,14 +1,20 @@
 html,
+<<<<<<< Updated upstream
 a:link { text-decoration: none;
 	text-decoration-line:none; }
 
+=======
+>>>>>>> Stashed changes
 body {
   height: 100%;
   margin: 0;
 }
 
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
 .box {
   display: flex;
   flex-flow: column;
@@ -38,7 +44,10 @@ form {
 	width: 90%;
 	margin: 0 auto;
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 fieldset {
     background-color: #d9d9d9;
 	margin: 25px 5px;
@@ -51,7 +60,11 @@ label {
 	margin-bottom: 5px;
 	margin-top: 5px;
 }
+<<<<<<< Updated upstream
 select, textarea, input[type=text], input[type=email], input[type=tel], input[type=date], input[type=number], input[type=province] {
+=======
+select, textarea, input[type=text], input[type=email], input[type=tel], input[type=date], input[type=number] {
+>>>>>>> Stashed changes
 	background-color: white;
 	color: black;
 	border: 1px solid black;
@@ -64,14 +77,22 @@ select, textarea, input[type=text], input[type=email], input[type=tel], input[ty
 select {
 	height: 25px;
 }*/
+<<<<<<< Updated upstream
 input[type=submit], button[type=submit], #btnSaveInv{
+=======
+input[type=submit], button[type=submit]{
+>>>>>>> Stashed changes
 	background: #e9a442;
 	color: whitesmoke;
 	border: 2px solid whitesmoke;
 	font-size: 16px;
 	margin-top: 15px;
     margin-bottom: 15px;
+<<<<<<< Updated upstream
 	padding: 30px 25px;
+=======
+	padding: 5px 25px;
+>>>>>>> Stashed changes
 }
 .two-col {
 	display: inline-block;

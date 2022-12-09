@@ -29,6 +29,7 @@ const mainF = {
             initFunction: () => {
                 viewPersonF.init();
             }
+<<<<<<< Updated upstream
         },
         Customers: {
             title: "Customer List",
@@ -204,6 +205,33 @@ const mainF = {
         }
 
 
+=======
+
+        },      
+            
+
+        newItem: {
+                title: "New Item",
+                page: "Inventory/ViewInventory.html",
+                mainElement: "#inventorySection",
+                styles: ["Commons/css/formGeneral.css"],
+                scripts: ["Inventory/viewInventory.js"],
+                initFunction: () => {
+                    viewInventoryF.init();                
+                }
+        },
+
+        DetailItem: {
+            title: "Detail Item",
+            page: "Inventory/ViewInventory.html",
+            mainElement: "#inventorySection",
+            styles: ["Commons/css/formGeneral.css"],
+            scripts: ["Inventory/viewInventory.js"],
+            initFunction: () => {
+                viewInventoryF.init();                
+            }
+        },
+>>>>>>> Stashed changes
     }
 
 };

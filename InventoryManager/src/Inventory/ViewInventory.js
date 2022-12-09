@@ -19,7 +19,7 @@ viewInventoryF.edit = () => {
     document.getElementById("btnSave").hidden = false;
 }
 
-viewInventoryF.configSave = () => {
+viewInventoryF.confirmSave = () => {
      // Add When was updated
      viewInventoryF.inventory.updateAt = getDateTimeFormat(new Date());
      // Read Field from form and mapping into object

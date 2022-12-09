@@ -49,7 +49,7 @@ viewCustomerF.init = () => {
     }
 
     // Add Valid form
-    const form = document.getElementById('FormCustomer');
+   const form = document.getElementById('FormCustomer');
     addValidationForm(form, viewCustomerF.save);
 
     // Check Mode
@@ -75,9 +75,11 @@ viewCustomerF.init = () => {
             // SHow Edit Btn and Hidden Save
             document.getElementById("btnEdit").hidden = false;
             document.getElementById("btnSave").hidden = true;
+            document.getElementById("viewCustomerDiv").hidden = false;
+            document.getElementById("editCustomerDiv").hidden = true;
         }
 
-        // Fill all data
+        // Fill all data.
         fillFormData(viewCustomerF.Customer);
     }
 }

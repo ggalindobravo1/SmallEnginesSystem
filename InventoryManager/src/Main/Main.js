@@ -11,7 +11,7 @@ const mainF = {
              }
         },
         persons: {
-            title: "Person List",
+            title: "Employee List",
             page: "Person/IndexPerson.html",
             mainElement: "#personTable",
             styles: ["Person/person.css"],
@@ -21,7 +21,7 @@ const mainF = {
             }
         },
         newPerson: {
-            title: "New Person",
+            title: "New Employee",
             page: "Person/ViewPerson.html",
             mainElement: "#personSection",
             styles: ["Person/formPerson.css"],
@@ -122,6 +122,16 @@ const mainF = {
                 viewInvoiceF.init();
             }
         },
+        reports: {
+            title: "Reports",
+            page: "Reports/reports.html",
+            mainElement: "#reportSection",
+            styles: ["Commons/css/formGeneral.css"],
+            scripts: ["Reports/reports.js"],
+            initFunction: () => {
+                //viewInvoiceF.init();
+            }
+        },
         printInvoice: {
             title: "Print Invoice",
             page: "Invoice/printInvoice.html",
@@ -181,6 +191,16 @@ const mainF = {
             initFunction: () => {
                 viewOrderF.init();
             }
+        }, 
+        UsersManager: {
+            title: "Manage Users Accounts",
+            page: "UsersManager/UserMngr.html",
+            mainElement: "#usersTable",
+            styles: ["Commons/css/formGeneral.css"],
+            scripts: ["UsersManager/UserMngr.js"],
+            initFunction: () => {
+                userMngrF.initTable();
+            }
         }
 
 
@@ -191,6 +211,7 @@ const mainF = {
 const showMenuByRole = () => {
   //get user from shared functions
   var links = document.querySelectorAll(".nav-link");
+  console.log(links)
   var currentUser = getCurrentUser();
   //console.log(currentUser)
   switch(currentUser){
@@ -212,6 +233,7 @@ const showMenuByRole = () => {
             link.hidden = false;
         })
         document.getElementById("logs").hidden = false;
+        document.getElementById("user-roles").hidden = false;
         break;
 
   }
@@ -256,7 +278,11 @@ mainF.init = async () => {
 
     // Adding JS
     for (i = 0; i < page.scripts.length; i++) {
-        await mainF.loadScript(serverBasePath + page.scripts[i]);
+        if (page.scripts[i].startsWith("http://") || page.scripts[i].startsWith("https://")) {
+            await mainF.loadScript(page.scripts[i]);
+        } else {
+            await mainF.loadScript(serverBasePath + page.scripts[i]);
+        }
     }
 
     // Loading Page
@@ -267,6 +293,10 @@ mainF.init = async () => {
     // Start Function Page
     setTimeout(() => {
         page.initFunction();
+        $("input[type=tel]").each(function (ev) {
+            $(this).attr("placeholder", "(999) 999-9999");
+            $(this).inputmask({"mask": "(999) 999-9999"});
+        });
     }, 300);
 }
 

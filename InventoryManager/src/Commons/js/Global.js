@@ -153,11 +153,24 @@ const editDataForm = () => {
     let viewArr = document.querySelectorAll(".viewData");
     let editArr = document.querySelectorAll(".editData");
 
-    if (viewArr && editArr) {
+
+    if (viewArr && editArr && viewArr.length == editArr.length) {
         for (let i = 0; i < viewArr.length; i++) {
             viewArr[i].hidden = true;
             editArr[i].hidden = false;
             editArr[i].value = viewArr[i].innerHTML;
+        }
+    } else {
+        if (viewArr) {
+            for (let i = 0; i < viewArr.length; i++) {
+                viewArr[i].hidden = true;
+            }
+        }
+
+        if (editArr) {
+            for (let i = 0; i < editArr.length; i++) {
+                editArr[i].hidden = false;
+            }
         }
     }
 }
@@ -253,7 +266,7 @@ function processElementToIncludeHtml(elmnt) {
     return false;
 };
 
-function createActionTable(cssAction, redirectTo, actionClick, title, target= "_self") {
+function createActionTable(cssAction, redirectTo, actionClick, title, target= "_self", classX = "block-action") {
     const action = document.createElement("a");
     action.href = redirectTo;
     action.target = target;
@@ -265,7 +278,7 @@ function createActionTable(cssAction, redirectTo, actionClick, title, target= "_
     action.title = title;
     action.setAttribute("data-toggle", "tooltip");
     action.classList.add("col-3");
-    action.classList.add("block-action");
+    action.classList.add(classX);
 
     const actionI = document.createElement("i");
     action.appendChild(actionI);
@@ -340,7 +353,7 @@ TableActions.prototype.addActionView = function (redirectTo) {
 
 TableActions.prototype.addActionDelete = function (crucAction, callBack, confirmMessage) {
     this.actions.push({
-        css: "fa fa-trash red",
+        css: "fa fa-trash white",
         redirectTo: "#",
         title: "Delete",
         action: (item) => {
@@ -373,6 +386,7 @@ TableActions.prototype.addRow = function (item, tableBody) {
     if (this.actions && this.actions.length > 0) {
         const td = tr.insertCell();
         td.classList.add("row");
+        td.classList.add("justify-content-center");
         for (let i = 0; i < this.actions.length; i++) {
             const myAction = this.actions[i];
             let redirectTo = myAction.redirectTo;
@@ -392,7 +406,8 @@ TableActions.prototype.addRow = function (item, tableBody) {
                         }
                     },
                     myAction.title || "",
-                    myAction.target,)
+                    myAction.target,
+                    myAction.title == "Delete" ? "block-action-red" : "block-action" )
             );
         }
     }

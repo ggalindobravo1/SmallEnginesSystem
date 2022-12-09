@@ -4,7 +4,16 @@
   background-color: #184C52;
   border-radius: 50px;
   color: #fff;
-  margin-right: 5px;
+  margin: 5px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.block-action-red {
+  background-color: red;
+  border-radius: 50px;
+  color: #fff;
+  margin: 5px;
   text-align: center;
   text-decoration: none;
 }
@@ -53,4 +62,12 @@ table>tbody tr:hover {
 main {
   flex: 1;
   width: 100%;
+}
+
+/******** form fieldset padding ********/
+fieldset div.row {
+  padding: 30px !important;
+}
+fieldset legend{
+  padding: 20px;
 }

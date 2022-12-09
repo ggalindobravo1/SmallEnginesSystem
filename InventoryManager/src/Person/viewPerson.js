@@ -20,8 +20,8 @@ viewPersonF.edit = () => {
     document.getElementById("btnEdit").hidden = true;
     document.getElementById("btnSave").hidden = false;
     viewPersonF.loadTypesSelect();
-    document.getElementById("title").textContent = "Edit Person";
-    document.title = "Edit Person";
+    document.getElementById("title").textContent = "Edit Employee";
+    document.title = "Edit Employee";
 }
 
 viewPersonF.save = () => {
@@ -79,7 +79,7 @@ viewPersonF.init = () => {
         document.getElementById("btnDelete").hidden = false;
 
         // Load Person from parameter
-        viewPersonF.person = loadDataSelected(globalData.personData,  "../Main/Main.html?page=persons");
+        viewPersonF.person = loadDataSelected(globalData.personData, "../Main/Main.html?page=persons");
         if (!viewPersonF.person) {
             return;
         }
@@ -90,6 +90,8 @@ viewPersonF.init = () => {
             // SHow Edit Btn and Hidden Save
             document.getElementById("btnEdit").hidden = false;
             document.getElementById("btnSave").hidden = true;
+            document.getElementById("viewPersonDiv").hidden = false;
+            document.getElementById("editPersonDiv").hidden = true;
         }
 
         // Fill all data

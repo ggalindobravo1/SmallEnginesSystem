@@ -14,11 +14,11 @@ orderTableF.initTable = () => {
     );
     orderTableF.orderTable.addActionEdit("../Main/Main.html?page=viewOrder");
     orderTableF.orderTable.addActionView("../Main/Main.html?page=viewOrder");
+    orderTableF.orderTable.addAction({ css: "fa-solid fa-print", redirectTo: "../Reports/printInvoice.html", title: "Print", target: "_blank" });
     orderTableF.orderTable.addActionDelete(
         globalData.orderData,
         () => orderTableF.filerTable(), "Are you sure you want to delete this order?"
     );
-    orderTableF.orderTable.addAction({ css: "fa-solid fa-print", redirectTo: "../Reports/printInvoice.html", title: "Print", target: "_blank" });
     // inventoryTableF.inventoryTable.addAction({ css: "fa fa-trash red", redirectTo: "IndexPerson.html", title: "Delete" });
     // inventoryTableF.inventoryTable.addAction({ css: "fa fa-search", redirectTo: "IndexPerson.html", title: "View" });
   

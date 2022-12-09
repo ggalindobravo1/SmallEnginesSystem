@@ -6,7 +6,7 @@ const validUsers = [
         name:"Sam",
         lastName:"Lopez",
         email: "shopping@emmas.com",
-        password: "123456789",
+        password: "Pa55w@rd",
         role: "Admin"
     },
     {
@@ -14,7 +14,7 @@ const validUsers = [
         name:"Emma",
         lastName:"Martin",
         email: "emmam@emmas.com",
-        password: "789456123",
+        password: "Pa55w@rd",
         role: "Manager"
     }, 
     {
@@ -22,7 +22,7 @@ const validUsers = [
         name:"Wendy",
         lastName:"Salinas",
         email: "wsalinas@hotmail.com",
-        password: "111222",
+        password: "Pa55w@rd",
         role: "Sales"
     }
     , 
@@ -31,7 +31,7 @@ const validUsers = [
         name:"Eugene",
         lastName:"Herrera",
         email: "warehouse1@emmas.com",
-        password: "545454",
+        password: "Pa55w@rd",
         role: "Warehouse"
     }
 ]
@@ -42,24 +42,32 @@ function myFunction(event) {
 
 
     let msg = "Invalid Password or Username";
+
+    let userList = localStorage.getItem('validUsers') == null? validUsers : JSON.parse(localStorage.getItem('validUsers'));
     
-    
-    validUsers.forEach(user => {
+    if(localStorage.getItem('validUsers') == null ){
+        localStorage.setItem('validUsers', JSON.stringify(userList));
+    }
+
+    userList.forEach(user => {
         if(user.email == event.target.inputEmail.value && user.password == event.target.inputPassword.value )
         { 
             logSession(user);
             msg = "Welcome " + user.name;
             localStorage.setItem("ActiveUser", JSON.stringify(user));
             document.getElementById('statusSpinner').hidden = false;
-            console.log("Logged in")
-            console.log(document.getElementById("navbarNav"))
+
+            
             setTimeout(() => {
                 location.replace(location.href.split('/').slice(0, -2).join('/')+"/Main/Main.html?page=inventoryListView");
-              }, "2000")
+            }, "2000")
         }
-    })
+    });
+
 
     document.getElementById("formMessage").textContent = msg;
+
+    
 }
 
 const logSession = (user) => {

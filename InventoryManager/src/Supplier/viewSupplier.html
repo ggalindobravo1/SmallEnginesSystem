@@ -16,13 +16,17 @@
 
                 </div>
                 <div class="col">
-                    <div>
-                        <label for="supplierDetail"><strong>Supplier Additional Details: </strong></label>
-                    </div>
-                    <div>
-                        <label class="viewData" data-bind="supplierDetail"></label>
-                        <input id="supplierDetail" name="supplierDetail" placeholder="Additional Details" type="text"
-                            data-bind="supplierDetail" hidden="true" class="editData" required />
+                    <div class="col">
+                        <div>
+                            <label for="supplierEmail"><strong>*Email: </strong></label>
+                        </div>
+    
+                        <div>
+                            <label class="viewData" data-bind="supplierEmail"></label>
+                            <input id="supplierEmail" data-bind="supplierEmail" class="editData"
+                                name="supplierEmail" hidden="true" placeholder="email@domain.com" type="email"
+                                required />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -49,17 +53,14 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col">
-                    <div>
-                        <label for="supplierEmail"><strong>*Email: </strong></label>
-                    </div>
-
-                    <div>
-                        <label class="viewData" data-bind="supplierEmail"></label>
-                        <input id="supplierEmail" data-bind="supplierEmail" class="editData"
-                            name="supplierEmail" hidden="true" placeholder="email@domain.com" type="email"
-                            required />
-                    </div>
+                <div>
+                    <label for="supplierDetail"><strong>Supplier Additional Details: </strong></label>
+                </div>
+                <div>
+                    <label class="viewData" data-bind="supplierDetail"></label>
+                    <textarea  id="supplierDetail" name="supplierDetail" placeholder="Additional Details" 
+                        data-bind="supplierDetail" hidden class="editData" required rows="6">
+                    </textarea>
                 </div>
             </div>
             <br /><br />

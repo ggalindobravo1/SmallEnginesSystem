@@ -129,7 +129,7 @@ const mainF = {
             styles: ["Commons/css/formGeneral.css"],
             scripts: ["Reports/reports.js"],
             initFunction: () => {
-                //viewInvoiceF.init();
+                reportPage.init();
             }
         },
         printInvoice: {

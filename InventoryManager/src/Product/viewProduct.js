@@ -35,6 +35,29 @@ viewProductF.save = () => {
     // Send to list
     window.location.href = "../Main/Main.html?page=products";    
 }
+viewProductF.confirmSave = () => {
+    // Add When was updated
+    viewProductF.product.updateAt = getDateTimeFormat(new Date());
+    // Read Field from form and mapping into object
+    mapFormToObject(viewProductF.product);
+    var reqFields = document.getElementById("productSection").querySelectorAll("[required]")
+    for(i = 0; i<reqFields.length; i++){
+        if(reqFields[i].value.length == 0){
+          document.getElementById("errorSubmit").hidden = false;
+          return;
+        }
+      }
+    // Valid is a new Object or Update
+    if (viewCustomerF.mode == "new") {
+        globalData.CustomerData.insert(viewCustomerF.Customer);
+        alert("Customer created successfully!!!");
+    } else {
+        globalData.CustomerData.update(viewCustomerF.Customer);
+        alert("Customer updated successfully!!!");
+    }
+    // Send to list
+    window.location.href = "../Main/Main.html?page=Customers";
+}
 
 viewProductF.init = () => {
     if (globalData.searchParams.has("mode")) {

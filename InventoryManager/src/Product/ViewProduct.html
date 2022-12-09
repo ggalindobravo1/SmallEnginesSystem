@@ -10,20 +10,22 @@
                     </div>
                     <div>
                         <label class="viewData" data-bind="UPC"></label>
-                        <input id="UPC" name="UPC" placeholder="UPC number" type="number" data-bind="UPC" hidden="true"
-                            class="editData" required />
+                        <input id="UPC" name="UPC" placeholder="UPC number" type="number" data-bind="UPC" hidden="true" class="editData" required />
                     </div>
 
                 </div>
-                <div class="col">
-                    <div>
+                <div class="col">                    
                         <label for="productName"><strong>Product name (*):</strong></label>
-                    </div>
-                    <div>
+                        <a href="#collapseHelp2" data-bs-toggle="collapse" href="#collapseHelp2" role="button" aria-expanded="false" aria-controls="collapseHelp2">
+                            <i class="fa-solid fa-circle-info" title="Name of the product given by the manufacturer"></i>
+                        </a>                
                         <label class="viewData" data-bind="productName"></label>
                         <input id="productName" name="productName" placeholder="Product Name" type="text"
                             data-bind="productName" hidden="true" class="editData" required />
-                    </div>
+                            <div class="collapse bg-primary text-white p-1" id="collapseHelp">
+                                <span>Name of the product given by the manufacturer</span>
+                            </div>
+        
                 </div>
             </div>
             <div class="row">
@@ -125,7 +127,7 @@
                     </div>
                     <div>
                         <label class="viewData" data-bind="productUpdateAt"></label>
-                        </div>
+                       
                     </div>
                 </div>
 
@@ -160,7 +162,7 @@
                 <button id="btnEdit" hidden="true" type="button" class="btn btn-primary col"
                     onclick="viewProductF.edit()"><i class="fa-solid fa-pencil"></i> Edit </button>
                 <button id="btnSave" hidden="true" type="button" class="btn btn-primary col"
-                    onclick="viewProductF.save()"><i class="fa-solid fa-save"></i> Save </button>
+                    onclick="viewProductF.confirmSave()"><i class="fa-solid fa-save"></i> Save </button>
             </div>
         </div>
     </form>

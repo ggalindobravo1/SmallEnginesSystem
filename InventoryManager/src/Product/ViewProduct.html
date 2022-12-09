@@ -22,7 +22,7 @@
                         <label class="viewData" data-bind="productName"></label>
                         <input id="productName" name="productName" placeholder="Product Name" type="text"
                             data-bind="productName" hidden="true" class="editData" required />
-                            <div class="collapse bg-primary text-white p-1" id="collapseHelp">
+                            <div class="collapse bg-primary text-white p-1" id="collapseHelp2">
                                 <span>Name of the product given by the manufacturer</span>
                             </div>
         
@@ -150,13 +150,17 @@
             </div>
             <div class="col">
             </div>
-            <div class="col">
-            </div>
-            <div class="col">
-            </div>
-            <div class="col">
-            </div>
-            <div class="col">
+            <div class="col-5">
+                <code>* Mandatory Fields</code>
+                <div id="errorSubmit" hidden>
+                    <div class="alert alert-danger d-flex align-items-center" role="alert">
+                        <i class="fa-solid fa-triangle-exclamation" title="Mandatory fields empty"></i>
+                        <strong>
+                            &nbsp; &nbsp; Please fill out all mandatory fields and try again.
+                        </strong>
+                    </div>
+                </div>
+            </div>            <div class="col">
             </div>
             <div class="col">
                 <button id="btnEdit" hidden="true" type="button" class="btn btn-primary col"

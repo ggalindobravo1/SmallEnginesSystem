@@ -23,11 +23,18 @@ viewCustomerF.edit = () => {
     document.title = "Edit Customer";
 }
 
-viewCustomerF.save = () => {
+viewCustomerF.confirmSave = () => {
     // Add When was updated
     viewCustomerF.Customer.updateAt = getDateTimeFormat(new Date());
     // Read Field from form and mapping into object
     mapFormToObject(viewCustomerF.Customer);
+    var reqFields = document.getElementById("editCustomerDiv").querySelectorAll("[required]")
+    for(i = 0; i<reqFields.length; i++){
+        if(reqFields[i].value.length == 0){
+          document.getElementById("errorSubmit").hidden = false;
+          return;
+        }
+      }
     // Valid is a new Object or Update
     if (viewCustomerF.mode == "new") {
         globalData.CustomerData.insert(viewCustomerF.Customer);
@@ -39,6 +46,7 @@ viewCustomerF.save = () => {
     // Send to list
     window.location.href = "../Main/Main.html?page=Customers";
 }
+
 
 viewCustomerF.init = () => {
     if (globalData.searchParams.has("mode")) {
@@ -79,7 +87,7 @@ viewCustomerF.init = () => {
             document.getElementById("editCustomerDiv").hidden = true;
         }
 
-        // Fill all data
+        // Fill all data.
         fillFormData(viewCustomerF.Customer);
     }
 }

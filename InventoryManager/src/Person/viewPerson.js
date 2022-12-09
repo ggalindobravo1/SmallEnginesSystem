@@ -24,11 +24,18 @@ viewPersonF.edit = () => {
     document.title = "Edit Employee";
 }
 
-viewPersonF.save = () => {
+viewPersonF.confirmSave = () => {
     // Add When was updated
     viewPersonF.person.updateAt = getDateTimeFormat(new Date());
     // Read Field from form and mapping into object
     mapFormToObject(viewPersonF.person);
+    var reqFields = document.getElementById("editPersonDiv").querySelectorAll("[required]")
+    for(i = 0; i<reqFields.length; i++){
+        if(reqFields[i].value.length == 0){
+          document.getElementById("errorSubmit").hidden = false;
+          return;
+        }
+      }
     // Valid is a new Object or Update
     if (viewPersonF.mode == "new") {
         globalData.personData.insert(viewPersonF.person);

@@ -30,6 +30,13 @@ const globalData = {
     CustomerData: new CrudData("Customer", basePath + "Customer.json", "id", (customer) => {
         customer.type = 2;
 
+        const customerType = globalData.personTypesData.findById(customer.type);
+        if (customerType) {
+            customer.typeName = customerType.name;
+        } else {
+            customer.typeName = "N/A";
+        }
+
         customer.fullName = customer.lastName + " " + customer.firstName;
 
         customer.address = customer.street + ". - " + customer.city + " "

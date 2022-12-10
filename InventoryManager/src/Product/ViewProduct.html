@@ -6,44 +6,32 @@
             <div class="row">
                 <div class="col">
                     <div>
-                        <label for="UPC"><strong>*UPC:</strong></label>
+                        <label for="UPC"><strong>UPC (*):</strong></label>
                     </div>
                     <div>
                         <label class="viewData" data-bind="UPC"></label>
-                        <input id="UPC" name="UPC" placeholder="UPC number" type="number" data-bind="UPC" hidden="true"
-                            class="editData" required />
+                        <input id="UPC" name="UPC" placeholder="UPC number" type="number" data-bind="UPC" hidden="true" class="editData" required />
                     </div>
 
                 </div>
-                <div class="col">
-                    <div>
-                        <label for="productName"><strong>*Product name:</strong></label>
-                    </div>
-                    <div>
+                <div class="col">                    
+                        <label for="productName"><strong>Product name (*):</strong></label>
+                        <a href="#collapseHelp2" data-bs-toggle="collapse" href="#collapseHelp2" role="button" aria-expanded="false" aria-controls="collapseHelp2">
+                            <i class="fa-solid fa-circle-info" title="Name of the product given by the manufacturer"></i>
+                        </a>                
                         <label class="viewData" data-bind="productName"></label>
                         <input id="productName" name="productName" placeholder="Product Name" type="text"
                             data-bind="productName" hidden="true" class="editData" required />
-                    </div>
+                            <div class="collapse bg-primary text-white p-1" id="collapseHelp2">
+                                <span>Name of the product given by the manufacturer</span>
+                            </div>
+        
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <div>
-                        <label for="productDescription"><strong>*Description:</strong></label>
-                    </div>
-
-                    <div>
-                        <label class="viewData" data-bind="productDescription"></label>
-                        <input id="productDescription" data-bind="productDescription" class="editData"
-                            name="productDescription" hidden="true" placeholder="Description of the product" type="text"
-                            required />
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div>
-                        <label for="productBrand"><strong>*Brand:</strong></label>
+                        <label for="productBrand"><strong>Brand (*):</strong></label>
                     </div>
                     <div>
                         <label class="viewData" data-bind="productBrand"></label>
@@ -53,7 +41,7 @@
                 </div>
                 <div class="col">
                     <div>
-                        <label for="productDetails"><strong>*Details:</strong></label>
+                        <label for="productDetails"><strong>Details:</strong></label>
                     </div>
                     <div>
                         <label class="viewData" data-bind="productDetails"></label>
@@ -63,9 +51,10 @@
                 </div>
 
             </div>
+            <div class="row">
             <div class="col">
                 <div>
-                    <label for="productType"><strong>*Type:</strong></label>
+                    <label for="productType"><strong>Type:</strong></label>
                 </div>
                 <div>
                     <label class="viewData" data-bind="productType"></label>
@@ -73,10 +62,9 @@
                         placeholder="Type of the product" class="editData" type="text" required />
                 </div>
             </div>
-            <div class="row">
                 <div class="col">
                     <div>
-                        <label for="productAVGCost"><strong>*Average Cost:</strong></label>
+                        <label for="productAVGCost"><strong>Average Cost (*):</strong></label>
                     </div>
                     <div>
                         <label class="viewData" data-bind="productAVGCost"></label>
@@ -88,9 +76,23 @@
                     </div>
 
                 </div>
+            </div>
+            <div class="row">
                 <div class="col">
                     <div>
-                        <label for="productPrice"><strong>*Price:</strong></label>
+                        <label for="productDescription"><strong>Description:</strong></label>
+                    </div>
+
+                    <div>
+                        <label class="viewData" data-bind="productDescription"></label>
+                        <input id="productDescription" data-bind="productDescription" class="editData"
+                            name="productDescription" hidden="true" placeholder="Description of the product" type="text"
+                            required />
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <label for="productPrice"><strong>Price (*):</strong></label>
                     </div>
                     <div>
                         <label class="viewData" data-bind="productPrice"></label>
@@ -103,7 +105,9 @@
 
                 </div>
 
+
             </div>
+
             <br /><br />
         </fieldset>
         <fieldset>
@@ -115,11 +119,6 @@
                     </div>
                     <div>
                         <label class="viewData" data-bind="productCreatedAt"></label>
-                        <div class="form-floating editData">
-                            <input type="date" data-bind="productCreatedAt" class="form-control form-control-sm"
-                                id="productCreatedAt" placeholder="yyyy/mm/dd">
-                            <label for="productCreatedAt">Product creation date. EG: yyyy/mm/dd</label>
-                        </div>
                     </div>
                 </div>
                 <div class="col">
@@ -128,11 +127,7 @@
                     </div>
                     <div>
                         <label class="viewData" data-bind="productUpdateAt"></label>
-                        <div class="form-floating editData">
-                            <input type="date" data-bind="productUpdateAt" class="form-control form-control-sm"
-                                id="productUpdateAt" placeholder="yyyy/mm/dd">
-                            <label for="productUpdateAt">Updated product date. EG: yyyy/mm/dd</label>
-                        </div>
+                       
                     </div>
                 </div>
 
@@ -140,6 +135,12 @@
             <br /><br />
 
         </fieldset>
+        <div class="row align-items-center">        
+            <div class="col">
+                <p>(*) Mandatory fields</p>
+            </div>
+        </div>
+
         <div class="row align-items-center">
             <div class="col-2">
                 <button id="btnDelete" hidden="true" type="button" class="btn btn-danger col"
@@ -149,19 +150,23 @@
             </div>
             <div class="col">
             </div>
-            <div class="col">
-            </div>
-            <div class="col">
-            </div>
-            <div class="col">
-            </div>
-            <div class="col">
+            <div class="col-5">
+                <code>* Mandatory Fields</code>
+                <div id="errorSubmit" hidden>
+                    <div class="alert alert-danger d-flex align-items-center" role="alert">
+                        <i class="fa-solid fa-triangle-exclamation" title="Mandatory fields empty"></i>
+                        <strong>
+                            &nbsp; &nbsp; Please fill out all mandatory fields and try again.
+                        </strong>
+                    </div>
+                </div>
+            </div>            <div class="col">
             </div>
             <div class="col">
                 <button id="btnEdit" hidden="true" type="button" class="btn btn-primary col"
                     onclick="viewProductF.edit()"><i class="fa-solid fa-pencil"></i> Edit </button>
                 <button id="btnSave" hidden="true" type="button" class="btn btn-primary col"
-                    onclick="viewProductF.save()"><i class="fa-solid fa-save"></i> Save </button>
+                    onclick="viewProductF.confirmSave()"><i class="fa-solid fa-save"></i> Save </button>
             </div>
         </div>
     </form>

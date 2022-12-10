@@ -156,7 +156,7 @@ const mainF = {
             title: "Supplier List",
             page: "Supplier/ListViewSupplier.html",
             mainElement: "#supplierTable",
-            styles: ["Supplier/supplier.css"],
+            styles: ["Commons/css/formGeneral.css"],
             scripts: ["Supplier/supplier.js"],
             initFunction: () => {
                 supplierTableF.initTable();

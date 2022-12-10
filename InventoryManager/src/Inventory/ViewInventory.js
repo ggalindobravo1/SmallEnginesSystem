@@ -19,11 +19,19 @@ viewInventoryF.edit = () => {
     document.getElementById("btnSave").hidden = false;
 }
 
-viewInventoryF.save = () => {
+viewInventoryF.confirmSave = () => {
      // Add When was updated
      viewInventoryF.inventory.updateAt = getDateTimeFormat(new Date());
      // Read Field from form and mapping into object
      mapFormToObject(viewInventoryF.inventory);
+     var reqFields = document.getElementById("inventorySection").querySelectorAll("[required]")
+     for(i = 0; i<reqFields.length; i++){
+        if(reqFields[i].value.length == 0){
+          document.getElementById("errorSubmit").hidden = false;
+          return;
+        }
+      }
+
      // Valid is a new Object or Update
      if (viewInventoryF.mode == "new") {
          globalData.inventoryData.insert(viewInventoryF.inventory);
@@ -84,6 +92,7 @@ viewInventoryF.init = () => {
 
         if (sessionStorage.getItem("shoppingCart") != null) 
             document.getElementById("viewCart").hidden = false;
+
 
     }
 }

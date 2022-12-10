@@ -9,7 +9,7 @@ inventoryTableF.initTable = () => {
 
     inventoryTableF.inventoryTable = new TableActions(
         "inventoryTable",
-        ["UPC", "productName","inventoryQty", "inventoryPrice"],
+        ["UPC", "productName","inventoryQty", {"key": "inventoryPrice", "action": (dataValue) => formatCurrencyNumber(dataValue)}],
         "Inventoryid"
     );
     inventoryTableF.inventoryTable.addActionEdit("../Main/Main.html?page=newItem");

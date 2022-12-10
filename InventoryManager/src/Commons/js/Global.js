@@ -189,6 +189,14 @@ function getDateFormat(d) {
     return curr_year + "-" + curr_month + "-" + curr_date;
 }
 
+function formatNumber(dataValue) {
+    return new Intl.NumberFormat('en-IN').format(dataValue);
+}
+
+function formatCurrencyNumber(dataValue) {
+    return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'USD' }).format(dataValue);
+}
+
 function getDateTimeFormat(d) {
     var timezone_offset_min = d.getTimezoneOffset(),
         offset_hrs = parseInt(Math.abs(timezone_offset_min / 60)),
@@ -384,7 +392,13 @@ TableActions.prototype.addRow = function (item, tableBody) {
     let tr = tableBody.insertRow();
 
     for (let i = 0; i < this.fieldsToInclude.length; i++) {
-        const value = item[this.fieldsToInclude[i]];
+        let valueField = this.fieldsToInclude[i];
+        if (typeof valueField === "object" && valueField.key && valueField.action && (typeof valueField.action === "function")) {
+            valueField = valueField.action(item[valueField.key]);
+        } else {
+            valueField = item[valueField];
+        }
+        const value = valueField;
         const td = tr.insertCell();
         td.appendChild(document.createTextNode(value));
     }

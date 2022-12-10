@@ -38,10 +38,12 @@ const addNewItem = () =>{
     var qtys = document.querySelectorAll(".Qty");
     var unitprices = document.querySelectorAll(".unitPrice");
     let subTotal = 0;
+    let tax = 0;
+    let total = 0;
 
     for(let i =0; i < qtys.length; i++){
       let qty = parseInt(qtys[i].value);
-      let price = parseInt(unitprices[i].value);
+      let price = parseFloat(unitprices[i].value);
       console.log(qty);
       if(isNaN(qty) || isNaN(price) || qty<0 || price<0)
       {
@@ -49,11 +51,16 @@ const addNewItem = () =>{
         document.getElementById("errorSubtotal").hidden = false;
         break;
       }
-      subTotal += parseInt(qtys[i].value) * parseInt(unitprices[i].value);
+      subTotal += qty * price;
     }
 
-    console.log(subTotal);
-    document.getElementById("subTotal").value = subTotal;
+    tax = subTotal * 0.13;
+    total = subTotal + tax;
+
+    //console.log(subTotal);
+    document.getElementById("subTotal").innerText = new Intl.NumberFormat().format(subTotal.toFixed(2));
+    document.getElementById("tax").innerText = new Intl.NumberFormat().format(tax.toFixed(2));
+    document.getElementById("Total").innerText = new Intl.NumberFormat().format(total.toFixed(2));
   }
 
   function deleteRow(r) {
@@ -65,18 +72,23 @@ const addNewItem = () =>{
 
   const confirmSave = () => {
     document.getElementById("errorSubmit").hidden = true;
-    let invTotal = document.getElementById("subTotal").value;
-    console.log(invTotal)
+    let invTotal = parseFloat(document.getElementById("subTotal").innerText);
     var reqFields = document.getElementById("newInvoiceForm").querySelectorAll("[required]")
+    let validOrder = true;
     console.log(reqFields);
+    console.log(invTotal)
     
     for(i = 0; i<reqFields.length; i++){
+      reqFields[i].style.border = "";
       if(reqFields[i].value.length == 0){
+        reqFields[i].style.border = "2px solid red";
         document.getElementById("errorSubmit").hidden = false;
-        return;
+        validOrder = false;
       }
     }
-    if(!invTotal || invTotal == 0)
+    if(!validOrder)
+      return;
+    if(!invTotal || invTotal == 0 || isNaN(invTotal) )
     {
       document.getElementById("errorSubtotal").hidden = false;
       return;
@@ -85,7 +97,8 @@ const addNewItem = () =>{
     document.getElementById("submitCheck").hidden = false;
 
     setTimeout(() => {
-      alert("Invoice Succesfully Saved !");
+      alert("Purchase Order Succesfully Created !\n"
+      + `Total: $ ${new Intl.NumberFormat().format((invTotal*1.13).toFixed(2))}\n`);
       window.location.href = "../Main/Main.html?page=invoiceListView";
     }, 1000)
     

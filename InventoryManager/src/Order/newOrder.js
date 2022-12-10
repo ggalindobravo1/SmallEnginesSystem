@@ -63,7 +63,7 @@ const cancelOrder = () => {
     document.getElementById("submitCheck").hidden = false;
 
     setTimeout(() => {
-      alert("Sales Order Succesfully Saved !\n"
+      alert("Sales Order Succesfully Created !\n"
        + `Total: $ ${new Intl.NumberFormat().format((shoppingCart.totalCart() * 1.13).toFixed(2))}\n`
        + `Items in Cart: ${shoppingCart.totalCount()} `);
        shoppingCart.clearCart();

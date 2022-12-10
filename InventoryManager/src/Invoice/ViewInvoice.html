@@ -1,15 +1,20 @@
 <section id="invoiceSection">
 
     <form id="formInvoice">
-        <h2>View Invoice</h2>
+        <h2>Purchase Order No: # <label data-bind="invoiceID"></label></h2>
         <fieldset style="margin: 25px 5px;">
             <legend>Order Information</legend>
             <div class="row p-1">
                 <div class="col">
-                    
-                        <label><strong>Id: </strong></label>
-                        <label class="viewData" data-bind="invoiceID"></label>
-                        <label class="editData" hidden data-bind="invoiceID"></label>
+                    <label><strong>External Number ID:</strong></label>
+                    <a href="#collapseHelp2" data-bs-toggle="collapse" href="#collapseHelp2" role="button" aria-expanded="false" aria-controls="collapseHelp2">
+                        <i class="fa-solid fa-circle-info" title="ID number assigned by the supplier ordering system"></i>
+                    </a>
+                    <label class="viewData" data-bind="invoiceExternalNumber"></label>
+                    <input type="number" hidden class="editData form-control form-control-sm" data-bind="invoiceExternalNumber" />
+					<div class="collapse bg-primary text-white p-1" id="collapseHelp2">
+						<span>ID number assigned by the supplier ordering system. Used for tracking purposes</span>
+					</div>                        
                 </div>
                 <div class="col">
                     <label><strong>Type: </strong></label>
@@ -18,17 +23,12 @@
             </div>
             <div class="row p-1">
                 <div class="col">
-                    <label><strong>Supplier: </strong></label>
-                    <label class="viewData" data-bind="supplier" id="supNameView"></label>
-                    <label class="editData" data-bind="supplier" hidden id="supNameEdit"></label>
-                </div>
-                <div class="col">
                     <label><strong>Status: </strong></label>
                     <a href="#collapseHelp" data-bs-toggle="collapse" href="#collapseHelp" role="button" aria-expanded="false" aria-controls="collapseHelp">
                         <i class="fa-solid fa-circle-info" title="General Delivery Status of the order"></i>
                     </a>
                     <label class="viewData" data-bind="invoiceStatus">Bought</label>
-                    <select name="status" id="status" hidden class="editData" data-bind="invoiceStatus" tabindex="0" >
+                    <select name="status" id="status" hidden class="editData form-control form-control-sm" data-bind="invoiceStatus" tabindex="0" >
                         <option value="Bought">Bought</option>
                         <option value="Generated">Generated</option>
                         <option value="Cancelled">Cancelled</option>
@@ -38,26 +38,13 @@
 						<span>General Delivery Status of the order</span>
 					</div>
                 </div>
-            </div>
-            <div class="row p-1">
-                <div class="col">
-                    <label><strong>External Number ID:</strong></label>
-                    <a href="#collapseHelp2" data-bs-toggle="collapse" href="#collapseHelp2" role="button" aria-expanded="false" aria-controls="collapseHelp2">
-                        <i class="fa-solid fa-circle-info" title="ID number assigned by the supplier ordering system"></i>
-                    </a>
-                    <label class="viewData" data-bind="invoiceExternalNumber"></label>
-                    <input type="number" hidden class="editData" data-bind="invoiceExternalNumber" />
-					<div class="collapse bg-primary text-white p-1" id="collapseHelp2">
-						<span>ID number assigned by the supplier ordering system. Used for tracking purposes</span>
-					</div>
-                </div>
                 <div class="col">
                     <label><strong>Sub Status: </strong></label>
                     <a href="#collapseHelp3" data-bs-toggle="collapse" href="#collapseHelp3" role="button" aria-expanded="false" aria-controls="collapseHelp3">
                         <i class="fa-solid   fa-circle-info" title="Specific Delivery Status of the order"></i>
                     </a>
                     <label class="viewData" data-bind="invoiceSubStatus">Complete</label>
-                    <select name="subStatus" id="subStatus" hidden class="editData" data-bind="invoiceSubStatus">
+                    <select name="subStatus" id="subStatus" hidden class="editData form-control form-control-sm" data-bind="invoiceSubStatus">
                         <option value="Complete">Complete</option>
                         <option value="Incomplete">Incomplete</option>
                         <option value="Cancelled">Cancelled</option>
@@ -67,13 +54,43 @@
 						<span>Specific Delivery Status of the order</span>
 					</div>
                 </div>
+               
+            </div>
+            <div class="row p-1">
+                <div class="col">
+                    <label><strong>Supplier: </strong></label>
+                    <label class="viewData" id="supNameView"></label>
+                    <input type="text" class="editData form-control form-control-sm" hidden id="supNameEdit" />
+                </div>
+                <div class="col">
+                    <label><strong>Supplier Address: </strong></label>
+                    <label class="viewData" id="supAddrView"></label>
+                    <input type="text" class="editData form-control form-control-sm" hidden id="supAddrEdit" />
+                </div>
+            </div>
+            <div class="row p-1">
+                <div class="col">
+                    <label><strong>Supplier Email: </strong></label>
+                    <label class="viewData" id="supEmailView"></label>
+                    <input type="text" class="editData form-control form-control-sm" hidden id="supEmailEdit" />
+                </div>
+                <div class="col">
+                    <label><strong>Supplier Telephone: </strong></label>
+                    <label class="viewData" id="supPhoneView"></label>
+                    <input type="text" class="editData form-control form-control-sm" hidden id="supPhoneEdit" />
+                </div>
             </div>
             <br>
         </fieldset>
 
         <fieldset style="margin: 25px 5px;">
             <legend>Order Details</legend>
-
+            <div class="row p-1 mb-3">
+                <div class="col">
+                    <label><strong>Description: </strong></label>
+                    <textarea class="form-control form-control-sm" id="invDescArea" placeholder="Add some description or comments here..." readonly></textarea>
+                </div>
+            </div>
             <div class="row p-1 mb-3">
                 <div class="col">
                     <table style="width:95%;" class="m-2" id="tableItems">
@@ -95,17 +112,21 @@
             </div>
             <div class="row p-1">
                 <div class="col"> 
-                    <label><strong>Subtotal: </strong></label>
-                    <label  data-bind="invoiceSubtotal"></label>
+                    <label><strong>Subtotal: $</strong></label>
+                    <label  id="invSubtotal"></label>
                 </div>
                 <div class="col">
-                    <label><strong>Tax: </strong></label>
+                    <label><strong>Tax: $</strong></label>
                     <label  data-bind="invoiceTax"></label>
                 </div>
                 <div class="col">
                     <label><strong>Discount % : </strong></label>
                     <label class="viewData" data-bind="invoiceDiscount">0</label>
                     <input type="number" hidden class="editData" data-bind="invoiceDiscount" />
+                </div>
+                <div class="col">
+                    <label><strong>Total: $</strong></label>
+                    <label  id="invTotal"></label>
                 </div>
                 <div class="col">
                     <label><strong>Order Completion Date: </strong></label>

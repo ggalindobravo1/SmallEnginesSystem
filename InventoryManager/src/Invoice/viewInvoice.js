@@ -24,11 +24,20 @@ viewInvoiceF.init = () => {
     // Fill all data
     fillFormData(viewInvoiceF.invoice);
 
-    //Manual fill data of nested objects
+    //Manual fill data of nested objects of supplier
     document.getElementById("supNameView").textContent =
       viewInvoiceF.invoice.supplier[0].supplierName;
-    document.getElementById("supNameEdit").textContent =
-      viewInvoiceF.invoice.supplier[0].supplierName;
+    document.getElementById("supAddrView").textContent =
+      viewInvoiceF.invoice.supplier[0].supplierStreet + " " + viewInvoiceF.invoice.supplier[0].supplierPostalCode
+       + " " +  viewInvoiceF.invoice.supplier[0].supplierProvince;
+    document.getElementById("supEmailView").textContent =
+      viewInvoiceF.invoice.supplier[0].supplierEmail;
+    document.getElementById("supPhoneView").textContent =
+      viewInvoiceF.invoice.supplier[0].supplierPhone;
+    
+    document.getElementById("invSubtotal").textContent = new Intl.NumberFormat().format(viewInvoiceF.invoice.invoiceSubtotal); 
+    document.getElementById("invTotal").textContent = 
+    new Intl.NumberFormat().format(viewInvoiceF.invoice.invoiceSubtotal + viewInvoiceF.invoice.invoiceTax); 
 
     //insert details to table
     let tableRef = document
@@ -36,14 +45,14 @@ viewInvoiceF.init = () => {
       .getElementsByTagName("tbody")[0];
     for (let x = 0; x < viewInvoiceF.invoice.details.length; x++) {
       var row = tableRef.insertRow(-1);
-      for (let i = 0; i < 6; i++) {
+      for (let i = 0; i < 5; i++) {
         let cell = row.insertCell(i);
         if (i == 0)
           cell.innerHTML = `${viewInvoiceF.invoice.details[x].iDetailQty}`;
         else if (i == 1)
           cell.innerHTML = `${viewInvoiceF.invoice.details[x].iDetailDescription}`;
         else if (i == 2)
-          cell.innerHTML = `${viewInvoiceF.invoice.details[x].iDetailUnitPrice}`;
+          cell.innerHTML = `$ ${viewInvoiceF.invoice.details[x].iDetailUnitPrice}`;
         else if (i == 3) {
           cell.innerHTML = `<label class="viewData">${viewInvoiceF.invoice.details[x].iDetailStatus}</label>
           <select name="subStatus" id="itemStatus" hidden class="editData">
@@ -82,15 +91,15 @@ viewInvoiceF.delete = () => {
 viewInvoiceF.editInvoice = () => {
     let viewArr = document.querySelectorAll(".viewData");
     let editArr = document.querySelectorAll(".editData");
-    console.log(viewArr);
-   console.log(editArr);
+  //   console.log(viewArr);
+  //  console.log(editArr);
 
   for(let i =0; i<viewArr.length ; i++){
     viewArr[i].hidden = true;
     editArr[i].hidden = false;
     editArr[i].value = viewArr[i].innerHTML;
   }
-
+ document.getElementById("invDescArea").readOnly = false;
  document.getElementById("btnSave").hidden = false;
  document.getElementById("btnEdit").hidden = true;
   
@@ -106,7 +115,7 @@ viewInvoiceF.saveChanges = () => {
         editArr[i].hidden = true;
         viewArr[i].innerHTML  = editArr[i].value;
       }
-    
+      document.getElementById("invDescArea").readOnly = true;
     document.getElementById("btnSave").hidden = true;
     document.getElementById("btnEdit").hidden = false;
 

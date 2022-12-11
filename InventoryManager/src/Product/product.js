@@ -9,7 +9,8 @@ productTableF.initTable = () => {
 
     productTableF.productTable = new TableActions(
         "productTable",
-        [ "UPC", "productName", "productType", "productPrice"]
+        [ "UPC", "productName", "productType", {"key": "productPrice", "action": (datavalue) => formatCurrencyNumber(datavalue)}],
+        "id"
     );
     productTableF.productTable.addActionEdit("Main.html?page=newProduct");
     productTableF.productTable.addActionView("Main.html?page=newProduct");

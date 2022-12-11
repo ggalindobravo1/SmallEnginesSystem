@@ -9,7 +9,7 @@ orderTableF.initTable = () => {
 
     orderTableF.orderTable = new TableActions(
         "orderTable",
-        ["orderNumber", "orderDescription", "orderTotal"],
+        ["orderNumber", "orderDescription", "orderSubtotal"],
         "orderID"
     );
     orderTableF.orderTable.addActionEdit("../Main/Main.html?page=viewOrder");

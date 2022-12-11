@@ -30,6 +30,13 @@ const globalData = {
     CustomerData: new CrudData("Customer", basePath + "Customer.json", "id", (customer) => {
         customer.type = 2;
 
+        const customerType = globalData.personTypesData.findById(customer.type);
+        if (customerType) {
+            customer.typeName = customerType.name;
+        } else {
+            customer.typeName = "N/A";
+        }
+
         customer.fullName = customer.lastName + " " + customer.firstName;
 
         customer.address = customer.street + ". - " + customer.city + " "
@@ -180,6 +187,14 @@ function getDateFormat(d) {
     var curr_month = d.getMonth() > 9 ? d.getMonth() : "0" + d.getMonth();
     var curr_year = d.getFullYear();
     return curr_year + "-" + curr_month + "-" + curr_date;
+}
+
+function formatNumber(dataValue) {
+    return new Intl.NumberFormat('en-IN').format(dataValue);
+}
+
+function formatCurrencyNumber(dataValue) {
+    return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'USD' }).format(dataValue);
 }
 
 function getDateTimeFormat(d) {
@@ -377,7 +392,13 @@ TableActions.prototype.addRow = function (item, tableBody) {
     let tr = tableBody.insertRow();
 
     for (let i = 0; i < this.fieldsToInclude.length; i++) {
-        const value = item[this.fieldsToInclude[i]];
+        let valueField = this.fieldsToInclude[i];
+        if (typeof valueField === "object" && valueField.key && valueField.action && (typeof valueField.action === "function")) {
+            valueField = valueField.action(item[valueField.key]);
+        } else {
+            valueField = item[valueField];
+        }
+        const value = valueField;
         const td = tr.insertCell();
         td.appendChild(document.createTextNode(value));
     }

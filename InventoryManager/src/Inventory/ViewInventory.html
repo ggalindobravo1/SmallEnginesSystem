@@ -10,29 +10,17 @@
         </div>
         <fieldset style="margin: 25px 5px;">
             <legend>General Information Item:
-                <a href="#collapseHelp1" data-bs-toggle="collapse" href="#collapseHelp1" role="button" aria-expanded="false" aria-controls="collapseHelp1">
-                    <i class="fa-solid fa-circle-info" title="Meaning (General Information Item)"></i>
-                </a>
-                <div class="collapse bg-primary text-white p-1" id="collapseHelp1">
-                    <span>Related information about an item or product with stock in inventory</span>
-                </div>
             </legend>
             
             <div class="row">
                 <div class="col">
                     <div>
                         <label for="productName"><strong>*Product Name:</strong></label>
-                        <a href="#collapseHelp2" data-bs-toggle="collapse" href="#collapseHelp2" role="button" aria-expanded="false" aria-controls="collapseHelp2">
-                            <i class="fa-solid fa-circle-info" title="Meaning (Product Name)"></i>
-                        </a>
                     </div>
                     <div>
                         <label class="viewData" data-bind="productName"></label>
-                        <input class="editData" hidden="true" id="productName" data-bind="productName" name="productName"
+                        <input class="editData form-control form-control-sm" hidden="true" id="productName" data-bind="productName" name="productName"
                             placeholder="Product Name" type="text" required />
-                    </div>
-                    <div class="collapse bg-primary text-white p-1" id="collapseHelp2">
-                        <span>Word or words than identify an item or product in inventory stock.</span>
                     </div>
                 </div>
                 <div class="col">
@@ -44,7 +32,7 @@
                     </div>
                     <div>
                         <label class="viewData" data-bind="productDescription"></label>
-                        <input class="editData" hidden="true" id="productDescription" data-bind="productDescription" name="productDescription"
+                        <input class="editData form-control form-control-sm" hidden="true" id="productDescription" data-bind="productDescription" name="productDescription"
                             placeholder="Product Description" type="text" required />
                     </div>
                     <div class="collapse bg-primary text-white p-1" id="collapseHelp3">
@@ -62,7 +50,7 @@
                     </div>
                     <div>
                         <label class="viewData" data-bind="productDetails"></label>
-                        <input class="editData" hidden="true" id="productDetails" data-bind="productDetails" name="productDetails"
+                        <input class="editData form-control form-control-sm" hidden="true" id="productDetails" data-bind="productDetails" name="productDetails"
                             placeholder="Product Details" type="text" required />
                     </div>
                     <div class="collapse bg-primary text-white p-1" id="collapseHelp4">
@@ -72,17 +60,11 @@
                 <div class="col">
                     <div>
                         <label for="productBrand"><strong>*Product Brand:</strong></label>
-                        <a href="#collapseHelp5" data-bs-toggle="collapse" href="#collapseHelp5" role="button" aria-expanded="false" aria-controls="collapseHelp5">
-                            <i class="fa-solid fa-circle-info" title="Meaning (Product Brand)"></i>
-                        </a>
                     </div>
                     <div>
                         <label class="viewData" data-bind="productBrand"></label>
-                        <input class="editData" hidden="true" id="productBrand" data-bind="productBrand" name="productBrand"
+                        <input class="editData form-control form-control-sm" hidden="true" id="productBrand" data-bind="productBrand" name="productBrand"
                             placeholder="Product Brand" type="text" required />
-                    </div>
-                    <div class="collapse bg-primary text-white p-1" id="collapseHelp5">
-                        <span>Manufacturer or major distributor of a product in inventory.</span>
                     </div>
                 </div>
 
@@ -97,7 +79,7 @@
                     </div>
                     <div>
                         <label class="viewData" data-bind="UPC"></label>
-                        <input class="editData" hidden="true" id="UPC" data-bind="UPC" name="UPC"
+                        <input class="editData form-control form-control-sm" hidden="true" id="UPC" data-bind="UPC" name="UPC"
                             placeholder="Product UPC" type="number" required />
                     </div>
                     <div class="collapse bg-primary text-white p-1" id="collapseHelp6">
@@ -108,17 +90,11 @@
                 <div class="col">
                     <div>
                         <label for="quantity"><strong>*Quantity:</strong></label>
-                        <a href="#collapseHelp7" data-bs-toggle="collapse" href="#collapseHelp7" role="button" aria-expanded="false" aria-controls="collapseHelp7">
-                            <i class="fa-solid fa-circle-info" title="Meaning (Quantity)"></i>
-                        </a>
                     </div>
                     <div>
                         <label class="viewData" data-bind="inventoryQty"></label>
-                        <input class="editData" hidden="true" id="quantity" data-bind="inventoryQty" name="quantity"
+                        <input class="editData form-control form-control-sm" hidden="true" id="quantity" data-bind="inventoryQty" name="quantity"
                             placeholder="Quantity" type="number" required />
-                    </div>
-                    <div class="collapse bg-primary text-white p-1" id="collapseHelp7">
-                        <span>Number of units of product in inventory.</span>
                     </div>
                 </div>
             </div>
@@ -133,8 +109,8 @@
                     <div>
                         <label class="viewData" data-bind="inventoryCost"></label>
                         <div class="form-floating editData" hidden="true">
-                            <input id="cost" data-bind="inventoryCost" class="form-control form-control-sm"
-                                placeholder="CA$ 200.00" type="number" class="editData form-control" required>
+                            <input id="cost" data-bind="inventoryCost" 
+                                placeholder="CA$ 200.00" type="number" min="0.01" max="100000.00" class="editData  form-control form-control-sm" required >
                             <label for="cost">EG: CA$ 200.00</label>
                         </div>
                         <div class="collapse bg-primary text-white p-1" id="collapseHelp8">
@@ -153,7 +129,7 @@
                         <label class="viewData" data-bind="inventoryPrice"></label>
                         <div class="form-floating editData" hidden="true">
                             <input id="Price" data-bind="inventoryPrice" class="form-control form-control-sm"
-                            placeholder="CA$ 200.00" type="number" class="editData form-control" required>
+                            placeholder="CA$ 200.00" type="number" min="0.01" max="100000.00" class="editData form-control" required Class="form-control form-control-sm">
                             <label for="Price">EG: CA$ 1000.00</label>
                         </div>
                         <div class="collapse bg-primary text-white p-1" id="collapseHelp9">
@@ -181,7 +157,7 @@
                     </div>
                     <div>
                         <label class="viewData" data-bind="inventoryMaxStorage"></label>
-                        <input class="editData" hidden="true" id="Maximum" data-bind="inventoryMaxStorage"
+                        <input class="editData  form-control form-control-sm" hidden="true" id="Maximum" data-bind="inventoryMaxStorage"
                             name="Maximum" placeholder="Maximum in storage" type="number" required />
                     </div>
                     <div class="collapse bg-primary text-white p-1" id="collapseHelp10">
@@ -190,7 +166,7 @@
                 </div>
                 <div class="col">
                     <div>
-                        <label for="CreatedAt"><strong>*CreatedAt:</strong></label>
+                        <label for="CreatedAt"><strong>CreatedAt:</strong></label>
                     </div>
                     <div>
                         <label data-bind="inventoryCreatedAt"></label>
@@ -207,7 +183,7 @@
                     </div>
                     <div>
                         <label class="viewData" data-bind="inventoryAlertStorage"></label>
-                        <input class="editData" hidden="true" id="Minimum" data-bind="inventoryAlertStorage"
+                        <input class="editData form-control form-control-sm" hidden="true" id="Minimum" data-bind="inventoryAlertStorage"
                             name="Minimum" placeholder="Minimum in storage" type="number" required />
                     </div>
                     <div class="collapse bg-primary text-white p-1" id="collapseHelp12">
@@ -216,7 +192,7 @@
                 </div>
                 <div class="col">
                     <div>
-                        <label for="UpdateAt"><strong>*UpdateAt:</strong></label>
+                        <label for="UpdateAt"><strong>UpdateAt:</strong></label>
                     </div>
                     <div>
                         <label  data-bind="inventoryUpdateAt"></label>
@@ -240,17 +216,25 @@
             </div>
             <div class="col">
             </div>
-            <div class="col">
-            </div>
-            <div class="col">
-            </div>
+            <div class="col-5">
+                <code>* Mandatory Fields</code>
+                <div id="errorSubmit" hidden>
+                    <div class="alert alert-danger d-flex align-items-center" role="alert">
+                        <i class="fa-solid fa-triangle-exclamation" title="Mandatory fields empty"></i>
+                        <strong>
+                            &nbsp; &nbsp; Please fill out all mandatory fields and try again.
+                        </strong>
+                    </div>
+                </div>
+            </div>           
             <div class="col">
             </div>
             <div class="col">
                 <button id="btnEdit" hidden="true" type="button" class="btn btn-primary col"
                     onclick="viewInventoryF.edit()"><i class="fa-solid fa-pencil"></i> Edit </button>
                 <button id="btnSave" hidden="true" type="button" class="btn btn-primary col"
-                    onclick="viewInventoryF.save()"><i class="fa-solid fa-save"></i> Save </button>
+                    onclick="viewInventoryF.confirmSave()"><i class="fa-solid fa-save"></i> Save </button>
+
             </div>
         </div>
     </form>

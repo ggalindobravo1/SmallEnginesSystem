@@ -1,6 +1,12 @@
 <section id="supplierSection">
     <form id="formSupplier">
-        <h2 id="title">New Supplier</h2>
+        <div class="row">
+            <div class="col-8">
+                <h2 id="title">New Supplier</h2>
+            </div>
+            <div class="col-4">
+            </div>
+        </div>
         <fieldset style="margin: 25px 5px;">
             <legend>*Business Information</legend>
             <div class="row">
@@ -16,13 +22,17 @@
 
                 </div>
                 <div class="col">
-                    <div>
-                        <label for="supplierDetail"><strong>Supplier Additional Details: </strong></label>
-                    </div>
-                    <div>
-                        <label class="viewData" data-bind="supplierDetail"></label>
-                        <input id="supplierDetail" name="supplierDetail" placeholder="Additional Details" type="text"
-                            data-bind="supplierDetail" hidden="true" class="editData" required />
+                    <div class="col">
+                        <div>
+                            <label for="supplierEmail"><strong>*Email: </strong></label>
+                        </div>
+    
+                        <div>
+                            <label class="viewData" data-bind="supplierEmail"></label>
+                            <input id="supplierEmail" data-bind="supplierEmail" class="editData"
+                                name="supplierEmail" hidden="true" placeholder="email@domain.com" type="email"
+                                required />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -50,17 +60,14 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col">
-                    <div>
-                        <label for="supplierEmail"><strong>*Email: </strong></label>
-                    </div>
-
-                    <div>
-                        <label class="viewData" data-bind="supplierEmail"></label>
-                        <input id="supplierEmail" data-bind="supplierEmail" class="editData"
-                            name="supplierEmail" hidden="true" placeholder="email@domain.com" type="email"
-                            required />
-                    </div>
+                <div>
+                    <label for="supplierDetail"><strong>Supplier Additional Details: </strong></label>
+                </div>
+                <div>
+                    <label class="viewData" data-bind="supplierDetail"></label>
+                    <textarea  id="supplierDetail" name="supplierDetail" placeholder="Additional Details" 
+                        data-bind="supplierDetail" hidden class="editData" required rows="6">
+                    </textarea>
                 </div>
             </div>
             <br /><br />
@@ -130,16 +137,33 @@
         </fieldset>
 
         <div class="row my-3">
-            <div class="col-10">
-                <button id="btnDelete" type="button" class="btn btn-danger col" onclick="supplierTableF.delete()"><i
+            <div class="col-2">
+                <button id="btnDelete" hidden="true" type="button" class="btn btn-danger col" onclick="supplierTableF.delete()"><i
                     class="fa-solid fa-trash"></i> Delete </button>
                 <button id="btnCancel" type="button" class="btn btn-secondary col" onclick="supplierTableF.cancel()"><i
                         class="fa-solid fa-cancel"></i> Cancel </button> 
             </div>
-            <div class="col-2">
-                <button id="btnEdit"  type="button" class="btn btn-primary col" onclick="supplierTableF.edit()"><i
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+            <div class="col-5">
+                <code>* Mandatory Fields</code>
+                <div id="errorSubmit" hidden>
+                    <div class="alert alert-danger d-flex align-items-center" role="alert">
+                        <i class="fa-solid fa-triangle-exclamation" title="Mandatory fields empty"></i>
+                        <strong>
+                            &nbsp; &nbsp; Please fill out all mandatory fields and try again.
+                        </strong>
+                    </div>
+                </div>
+            </div>           
+            <div class="col">
+            </div>
+            <div class="col">
+                <button id="btnEdit" hidden="true" type="button" class="btn btn-primary col" onclick="supplierTableF.edit()"><i
                     class="fa-solid fa-pencil"></i> Edit </button>
-            <button id="btnSave" hidden="true" type="button" class="btn btn-primary col" onclick="supplierTableF.save()"><i
+                <button id="btnSave" hidden="true" type="button" class="btn btn-primary col" onclick="supplierTableF.confirmSave()"><i
                     class="fa-solid fa-save"></i> Save </button>
             </div>
             <br />          

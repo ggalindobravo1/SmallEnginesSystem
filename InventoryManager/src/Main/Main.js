@@ -129,7 +129,7 @@ const mainF = {
             styles: ["Commons/css/formGeneral.css"],
             scripts: ["Reports/reports.js"],
             initFunction: () => {
-                //viewInvoiceF.init();
+                reportPage.init();
             }
         },
         printInvoice: {
@@ -146,7 +146,7 @@ const mainF = {
             title: "New Supplier",
             page: "Supplier/ViewSupplier.html",
             mainElement: "#supplierSection",
-            styles: ["appstyle.css"],
+            styles: ["Commons/css/formGeneral.css"],
             scripts: ["Supplier/ViewSupplier.js"],
             initFunction: () => {
                 supplierTableF.init();
@@ -156,7 +156,7 @@ const mainF = {
             title: "Supplier List",
             page: "Supplier/ListViewSupplier.html",
             mainElement: "#supplierTable",
-            styles: ["Supplier/supplier.css"],
+            styles: ["Commons/css/formGeneral.css"],
             scripts: ["Supplier/supplier.js"],
             initFunction: () => {
                 supplierTableF.initTable();

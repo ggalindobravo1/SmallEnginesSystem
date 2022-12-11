@@ -77,3 +77,29 @@ if (supplierTableF.mode == "new") {
     fillFormData(supplierTableF.supplier);
     }
 }
+
+supplierTableF.confirmSave = () => {
+    // Add When was updated
+    supplierTableF.supplier.updateAt = getDateTimeFormat(new Date());
+    // Read Field from form and mapping into object
+    mapFormToObject(supplierTableF.supplier);
+    var reqFields = document.getElementById("supplierSection").querySelectorAll("[required]")
+    for(i = 0; i<reqFields.length; i++){
+       if(reqFields[i].value.length == 0){
+         document.getElementById("errorSubmit").hidden = false;
+         return;
+       }
+     }
+
+    // Valid is a new Object or Update
+    if (supplierTableF.mode == "new") {
+        globalData.supplierData.insert(supplierTableF.supplier);
+        alert("Supplier created successfully!!!");
+    } else {
+        globalData.supplierData.update(supplierTableF.supplier);
+        alert("Supplier updated successfully!!!");
+    }
+    // Send to list
+    window.location.href = "../Main/Main.html?page=suppliers";
+   
+}

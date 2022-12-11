@@ -27,24 +27,27 @@
 				</div>
 				
 				<div class="col-4">
-					<label for="sName">*Customer FirstName</label>
-					<input id="sName" name="sName" placeholder="Customer FirstName"
-					 type="text" class="form-control form-control-sm" title="First Name" required />
-					
+					<label for="sName"><strong>*Customer FirstName</strong></label>
+					<div class="form-floating">
+						<input id="sName" name="sName" placeholder="Customer FirstName"
+						type="text" class="form-control form-control-sm" title="First Name" required />
+					</div>
 				</div>
 				<div class="col-4">
-					<label for="sLast">*Customer LastName</label>
-					<input id="sLast" name="sName" placeholder="Customer LastName"
-					 type="text" class="form-control form-control-sm" title="Last Name" required />
 					
+					<label for="sLast"><strong>*Customer LastName</strong></label>
+					<div class="form-floating ">
+						<input id="sLast" name="sName" placeholder="Customer LastName"
+						type="text" class="form-control form-control-sm" title="Last Name" required />
+					</div>
 				</div>
 				
 				<div class="col-4">
 					<div>
-						<label for="email">Email:</label>
+						<label for="email"><strong>Email:</strong></label>
 					</div>
 					<div>
-						<div class="form-floating editData">
+						<div class="form-floating">
 							<input type="email" data-bind="email" class="form-control form-control-sm" id="email"
 								placeholder="email@domain.com" title="Customer Email" onkeyup="validateEntry(this)">
 							<label for="email">EG: email@domain.com</label>
@@ -55,10 +58,10 @@
 				</div>
 				<div class="col-4">
 					<div>
-						<label for="telephone">*Telephone: <i class="fa-solid fa-circle-info btn btn-link" onclick="phoneHelp()"></i></label>
+						<label for="telephone"><strong>*Telephone:</strong> <i class="fa-solid fa-circle-info btn btn-link" onclick="phoneHelp()"></i></label>
 					</div>
 					<div>
-						<div class="form-floating editData">
+						<div class="form-floating">
 							<input id="telephone" data-bind="phone" class="form-control form-control-sm" title="Contact Phone"
 								placeholder="905 735 2211" type="tel" class="editData form-control" onkeyup="validateEntry(this)" required >
 							<label for="telephone">EG: 905 735 2211 (10-12 digit)</label>
@@ -70,7 +73,7 @@
 				
 				
 				<div class="col-4">
-					<label for="detail">Address</label>
+					<label for="detail"><strong>Address</strong></label>
 					<div class="form-floating">
 						<input id="address" name="address" placeholder="121 Ontario St. Welland, Ontario"
 						class="form-control form-control-sm" type="text" title="Street and Province" />
@@ -79,7 +82,7 @@
 					
 				</div>
 				<div class="col-4">
-					<label for="postal">*Postal Code</label>
+					<label for="postal"><strong>*Postal Code</strong></label>
 					<div class="form-floating">
 						<input id="postal" name="postal" placeholder="EG: M9A2R6" 
 						pattern="[A-Za-z][0-9][A-Za-z][ ]?[0-9][A-Za-z][0-9]" title="Six digit zip code M9A 2R6"
@@ -118,9 +121,9 @@
 			</div>
 			<div class="row p-1">
 				<div class="col px-4">
-					<label for="street">Comments</label>
-					<input id="machineDescription" name="machinemachineDescription" title="Add comments related"
-						placeholder="Lawn Mower, Kohler spare parts" type="text" class="form-control form-control-sm" />
+					<label for="street"><strong>Comments</strong></label>
+					<textarea class="form-control" id="machineDescription" name="machinemachineDescription"
+						placeholder="Lawn Mower, Kohler spare parts" ></textarea>
 				</div>
 			</div>
 			<div class="row p-1">

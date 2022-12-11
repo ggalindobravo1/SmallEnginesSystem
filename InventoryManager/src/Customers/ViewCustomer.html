@@ -292,17 +292,24 @@
             </div>
             <div class="col">
             </div>
-            <div class="col">
-            </div>
-            <div class="col">
-            </div>
+			<div class="col-5">
+				<code>* Mandatory Fields</code>
+				<div id="errorSubmit" hidden>
+					<div class="alert alert-danger d-flex align-items-center" role="alert">
+						<i class="fa-solid fa-triangle-exclamation" title="Mandatory fields empty"></i>
+						<strong>
+							&nbsp; &nbsp; Please fill out all mandatory fields and try again.
+						</strong>
+					</div>
+				</div>
+			</div>
             <div class="col">
             </div>
             <div class="col">
                 <button id="btnEdit" hidden="true" type="button" class="btn btn-primary col"
                     onclick="viewCustomerF.edit()"><i class="fa-solid fa-pencil"></i> Edit </button>
                 <button id="btnSave" hidden="true" type="submit" class="btn btn-primary col"
-                    onclick="viewCustomerF.save()"><i class="fa-solid fa-save"></i> Save </button>
+                    onclick="viewCustomerF.confirmSave()"><i class="fa-solid fa-save"></i> Save </button>
             </div>
         </div>
     </form>

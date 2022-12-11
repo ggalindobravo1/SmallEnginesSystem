@@ -14,12 +14,12 @@ userMngrF.initTable = (listFiltered = null) => {
       + "<td>" + c.lastName + "</td>"
       + "<td>" + c.email + "</td>"
       + "<td>"+  c.role + "</td>"
-      + "<td>" + `<button type='button' class='btn btn-success' onclick='userMngrF.selectUser(${c.id})' data-bs-toggle="modal" data-bs-target="#exampleModal" title='view and edit'>`
+      + "<td>" + `<button type='button' class='btn btn-success' onclick='userMngrF.selectUser(${c.id})'  title='view and edit'>`
       + " <i class='fa-solid fa-pen'></i> View </button>" +  "</td>"
       + "</tr>";
     });
     document.getElementById("usersTable").innerHTML += output;
-};
+}; //data-bs-toggle="modal" data-bs-target="#exampleModal"
 
 userMngrF.filterTable = (elem) => {
     let filter = elem.value.toUpperCase();
@@ -37,7 +37,12 @@ userMngrF.filterTable = (elem) => {
 }
 
 userMngrF.selectUser = (id) => {
-    
+   
+    if(validateUser()){ //show modal only if password is correct
+        var myModal = new bootstrap.Modal(document.getElementById("exampleModal"), {});
+        myModal.show();
+    }
+
     let user = JSON.parse(localStorage.getItem("validUsers")).find(c => Number(c.id) === id);
     let editData = document.querySelectorAll(".editData");
     editData.forEach(f => f.disabled = true)
@@ -53,6 +58,14 @@ userMngrF.selectUser = (id) => {
 }
 
 userMngrF.editUser = (action) => {
+    if(action == "add"){
+        if(validateUser()){ //show modal only if password is correct
+            var myModal = new bootstrap.Modal(document.getElementById("exampleModal"), {});
+            myModal.show();
+        }
+        else
+            return;
+    }
     document.getElementById("btnSave").hidden = false;
     document.getElementById("btnEdit").hidden = true;
     
@@ -151,6 +164,15 @@ const validateEntry = (editData) => {
     return errMsg.length > 0? false : true;
 
     
+  }
+
+  const validateUser = () => {
+  let pin = prompt("Please enter your security PIN:", "");
+  if (pin == "123456789") {
+    return true;
+  } else {
+    return false;
+  }
   }
 
 

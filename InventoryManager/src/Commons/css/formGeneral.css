@@ -38,7 +38,6 @@ form {
 	width: 90%;
 	margin: 0 auto;
 }
-
 fieldset {
     background-color: #d9d9d9;
 	margin: 25px 5px;
@@ -58,10 +57,10 @@ select, textarea, input[type=text], input[type=email], input[type=tel], input[ty
 	height: 25px;
 	width: 100%;
 }
-/*textarea {
+textarea {
 	height: 100px;
 }
-select {
+/*select {
 	height: 25px;
 }*/
 input[type=submit], button[type=submit], #btnSaveInv{

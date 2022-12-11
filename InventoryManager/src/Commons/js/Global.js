@@ -46,7 +46,7 @@ const globalData = {
         invoice.details = invDetails? invDetails : [] ;
         invoice.supplier = invSupplier? invSupplier : globalData.supplierData.data[0];
     } ),
-    orderData: new CrudData("order", basePath+"order.json", "orderID", (order) => {
+    orderData: new CrudData("order", basePath + "order.json", "orderID", (order) => {
         const ordCustomer = globalData.CustomerData.findByFK(order.customerID, 'id');
         ///const ordDetails = globalData.invoiceDetailData.findByFK(order.orderID, 'orderID');
         ///order.details = ordDetails? ordDetails : [] ;

@@ -54,7 +54,7 @@ viewOrderF.init = () => {
         else if (i == 1)
           cell.innerHTML = `${viewOrderF.order.orderDescription}`;
         else if (i == 2)
-          cell.innerHTML = `${viewOrderF.order.orderSubtotal/viewOrderF.order.orderQty}`;
+          cell.innerHTML = `${viewOrderF.order.orderTotal/viewOrderF.order.orderQty}`;
         else if (i == 3) {
           cell.innerHTML = `<label class="viewData">${viewOrderF.order.orderSubStatus}</label>
           <select name="subStatus" id="itemStatus" hidden class="editData">

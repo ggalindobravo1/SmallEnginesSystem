@@ -18,16 +18,22 @@
             </div>
             <div class="row p-1">
                 <div class="col">
+                    
                     <label><strong>Customer: </strong></label>
                     <label class="viewData" data-bind="customer" id="custFirstNameView"></label>
                     <label class="viewData" data-bind="customer" id="custLastNameView"></label>
                     <label class="editData" data-bind="customer" hidden id="custFirstNameEdit"></label>
                     <label class="editData" data-bind="customer" hidden id="custLastNameEdit"></label>
+                </div>
+                    <div class="col">
                     <label><strong>Email: </strong></label>
                     <label class="viewData" data-bind="customer" id="custEmailView"></label>
                     <label class="editData" data-bind="customer" hidden id="custEmailEdit"></label>
 
                 </div>
+            </div>
+            <div class="row p-1">
+
                 <div class="col">
                     <label><strong>Status: </strong></label>
                     <a data-bs-toggle="collapse" href="#collapseHelp" role="button" aria-expanded="false" aria-controls="collapseHelp">
@@ -42,19 +48,6 @@
                     </select>
                     <div class="collapse bg-primary text-white p-1" id="collapseHelp">
 						<span>General Delivery Status of the order</span>
-					</div>
-                </div>
-            </div>
-            <div class="row p-1">
-                <div class="col">
-                    <label><strong>External Number ID: </strong></label>
-                    <a data-bs-toggle="collapse" href="#collapseHelp2" role="button" aria-expanded="false" aria-controls="collapseHelp2">
-                        <i class="fa-solid fa-circle-info" title="ID number assigned by the supplier ordering system"></i>
-                    </a>
-                    <label class="viewData" data-bind="orderNumber"></label>
-                    <input type="number" hidden class="editData form-control form-control-sm" data-bind="orderNumber" />
-                    <div class="collapse bg-primary text-white p-1" id="collapseHelp2">
-						<span>ID number assigned by the supplier ordering system. Used for tracking purposes</span>
 					</div>
                 </div>
                 <div class="col">
@@ -73,6 +66,21 @@
 						<span>Specific Delivery Status of the order</span>
 					</div>
                 </div>
+            </div>
+            <div class="row p-1">
+                <div class="col">
+                    <label><strong>External Number ID: </strong></label>
+                    <a data-bs-toggle="collapse" href="#collapseHelp2" role="button" aria-expanded="false" aria-controls="collapseHelp2">
+                        <i class="fa-solid fa-circle-info" title="ID number assigned by the supplier ordering system"></i>
+                    </a>
+                    <label class="viewData" data-bind="orderNumber"></label>
+                    <input type="number" hidden class="editData form-control form-control-sm" data-bind="orderNumber" />
+                    <div class="collapse bg-primary text-white p-1" id="collapseHelp2">
+						<span>ID number assigned by the supplier ordering system. Used for tracking purposes</span>
+					</div>
+                </div>
+                <div class="col"></div>
+                
             </div>
             <br>
         </fieldset>

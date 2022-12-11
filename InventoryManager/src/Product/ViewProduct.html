@@ -10,18 +10,20 @@
                     </div>
                     <div>
                         <label class="viewData" data-bind="UPC"></label>
-                        <input id="UPC" name="UPC" placeholder="UPC number" type="number" data-bind="UPC" hidden="true" class="editData" required />
+                        <input id="UPC" name="UPC" placeholder="UPC number" type="number" data-bind="UPC" hidden="true" class="editData form-control form-control-sm" required />
                     </div>
 
                 </div>
-                <div class="col">                    
-                        <label for="productName"><strong>Product name (*):</strong></label>
-                        <a href="#collapseHelp2" data-bs-toggle="collapse" href="#collapseHelp2" role="button" aria-expanded="false" aria-controls="collapseHelp2">
+                <div class="col">     
+                    <div>               
+                        <label for="productName"><strong>Product name (*):</strong></label>                    
+                        <a data-bs-toggle="collapse" href="#collapseHelp2" role="button" aria-expanded="false" aria-controls="collapseHelp2">
                             <i class="fa-solid fa-circle-info" title="Name of the product given by the manufacturer"></i>
-                        </a>                
+                        </a>   
+                    </div>             
                         <label class="viewData" data-bind="productName"></label>
                         <input id="productName" name="productName" placeholder="Product Name" type="text"
-                            data-bind="productName" hidden="true" class="editData" required />
+                            data-bind="productName" hidden="true" class="editData form-control form-control-sm" required />
                             <div class="collapse bg-primary text-white p-1" id="collapseHelp2">
                                 <span>Name of the product given by the manufacturer</span>
                             </div>
@@ -36,7 +38,7 @@
                     <div>
                         <label class="viewData" data-bind="productBrand"></label>
                         <input id="productBrand" data-bind="productBrand" hidden="true" name="productBrand"
-                            placeholder="Brand of the product" class="editData" type="text" required />
+                            placeholder="Brand of the product" class="editData form-control form-control-sm" type="text" required />
                     </div>
                 </div>
                 <div class="col">
@@ -45,7 +47,7 @@
                     </div>
                     <div>
                         <label class="viewData" data-bind="productDetails"></label>
-                        <input id="productDetails" data-bind="productDetails" class="editData" hidden="true"
+                        <input id="productDetails" data-bind="productDetails" class="editData form-control form-control-sm" hidden="true"
                             name="productDetails" placeholder="Details of the product" type="text" required />
                     </div>
                 </div>
@@ -59,7 +61,7 @@
                 <div>
                     <label class="viewData" data-bind="productType"></label>
                     <input id="productType" data-bind="productType" name="productType" hidden="true"
-                        placeholder="Type of the product" class="editData" type="text" required />
+                        placeholder="Type of the product" class="editData form-control form-control-sm" type="text" required />
                 </div>
             </div>
                 <div class="col">
@@ -70,7 +72,7 @@
                         <label class="viewData" data-bind="productAVGCost"></label>
                         <div class="form-floating editData" hidden="true">
                             <input id="productAVGCost" data-bind="productAVGCost" class="form-control form-control-sm"
-                                placeholder="CA$ 200.00" type="number" class="editData form-control" required>
+                                placeholder="CA$ 200.00" type="number" required>
                             <label for="productAVGCost">EG: CA$ 100.00</label>
                         </div>
                     </div>
@@ -81,13 +83,22 @@
                 <div class="col">
                     <div>
                         <label for="productDescription"><strong>Description:</strong></label>
+                        <a data-bs-toggle="collapse" href="#collapseHelp" role="button" aria-expanded="false" aria-controls="collapseHelp2">
+                            <i class="fa-solid fa-circle-info" title="Description of the product given by the manufacturer"></i>
+                        </a>   
                     </div>
 
                     <div>
                         <label class="viewData" data-bind="productDescription"></label>
-                        <input id="productDescription" data-bind="productDescription" class="editData"
+                        <div class="form-floating">
+                        <textarea id="productDescription" data-bind="productDescription" class="editData form-control form-control-sm"
                             name="productDescription" hidden="true" placeholder="Description of the product" type="text"
-                            required />
+                            required ></textarea>
+                        <div class="collapse bg-primary text-white p-1" id="collapseHelp">
+                            <span>Description of the product given by the manufacturer</span>
+                        </div>
+                    </div>
+
                     </div>
                 </div>
                 <div class="col">
@@ -97,8 +108,8 @@
                     <div>
                         <label class="viewData" data-bind="productPrice"></label>
                         <div class="form-floating editData" hidden="true">
-                            <input id="productPrice" data-bind="productPrice" class="form-control form-control-sm"
-                                placeholder="CA$ 200.00" type="number" class="editData form-control" required>
+                            <input id="productPrice" data-bind="productPrice" placeholder="CA$ 200.00" type="number" 
+                            class="editData form-control form-control-sm" required>
                             <label for="productPrice">EG: CA$ 1000.00</label>
                         </div>
                     </div>
@@ -137,7 +148,6 @@
         </fieldset>
         <div class="row align-items-center">        
             <div class="col">
-                <p>(*) Mandatory fields</p>
             </div>
         </div>
 
@@ -151,7 +161,6 @@
             <div class="col">
             </div>
             <div class="col-5">
-                <code>* Mandatory Fields</code>
                 <div id="errorSubmit" hidden>
                     <div class="alert alert-danger d-flex align-items-center" role="alert">
                         <i class="fa-solid fa-triangle-exclamation" title="Mandatory fields empty"></i>

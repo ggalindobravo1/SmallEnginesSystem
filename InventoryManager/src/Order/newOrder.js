@@ -115,7 +115,7 @@ const cancelOrder = () => {
 
     clients.forEach(c => {
       output += "<tr>"
-      + "<td>" + c.fullName + "</td>"
+      + "<td>" + c.firstName + " " + c.lastName + "</td>"
       + "<td>" + c.email + "</td>"
       + "<td>" + c.phone + "</td>"
       + "<td>" + `<button type='button' class='btn btn-primary' onclick='viewCust(${c.id})' title='Preview Client Data'>`

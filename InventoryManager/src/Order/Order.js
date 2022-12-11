@@ -9,7 +9,7 @@ orderTableF.initTable = () => {
 
     orderTableF.orderTable = new TableActions(
         "orderTable",
-        ["orderNumber", "orderDescription", "orderSubtotal"],
+        ["orderNumber", "orderDescription", "orderSubtotal"], //{"key": "orderSubtotal", "action": (datavalue) => formatCurrencyNumber(dataValue)}],
         "orderID"
     );
     orderTableF.orderTable.addActionEdit("../Main/Main.html?page=viewOrder");
@@ -36,7 +36,7 @@ orderTableF.filerTable = () => {
             return i.orderID.toString().includes(filter) ||
                 i.orderNumber.toString().includes(filter) ||
                 i.orderDescription.toString().toUpperCase().includes(filter) ||
-               i.orderTotal.toString().includes(filter) ;
+               i.orderSubtotal.toString().includes(filter) ;
         });
         orderTableF.orderTable.refresh(jsonFiler);
 };

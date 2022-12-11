@@ -54,10 +54,10 @@ viewOrderF.init = () => {
         else if (i == 1)
           cell.innerHTML = `${viewOrderF.order.orderDescription}`;
         else if (i == 2)
-          cell.innerHTML = `${viewOrderF.order.orderTotal/viewOrderF.order.orderQty}`;
+          cell.innerHTML = `${viewOrderF.order.orderSubtotal/viewOrderF.order.orderQty}`;
         else if (i == 3) {
           cell.innerHTML = `<label class="viewData">${viewOrderF.order.orderSubStatus}</label>
-          <select name="subStatus" id="itemStatus" hidden class="editData">
+          <select name="subStatus" id="itemStatus" hidden class="editData form-control form-control-sm">
                                     <option value="Complete">Complete</option>
                                     <option value="Incomplete">Incomplete</option>
                                     <option value="Delivered">Delivered</option>
@@ -67,7 +67,7 @@ viewOrderF.init = () => {
           `;
         } else if (i == 4){
           cell.innerHTML = `<label class="viewData">${viewOrderF.order.orderUpdateAt}</label>
-          <input type="date" name="itemLastStatus" id="itemLastStatus" hidden class="editData" required />
+          <input type="date" name="itemLastStatus" id="itemLastStatus" hidden class="editData form-control form-control-sm" required />
           `;
         }
       }

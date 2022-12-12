@@ -67,7 +67,7 @@ const cancelOrder = () => {
        + `Total: $ ${new Intl.NumberFormat().format((shoppingCart.totalCart() * 1.13).toFixed(2))}\n`
        + `Items in Cart: ${shoppingCart.totalCount()} `);
        shoppingCart.clearCart();
-      window.open("../Reports/printInvoice.html", "_blank");
+      window.open("../Reports/printSale.html", "_blank");
       window.location.href = "../Main/Main.html?page=orderListView";
     }, 1000)
   }

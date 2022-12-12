@@ -14,7 +14,7 @@ invoiceTableF.initTable = () => {
     );
     invoiceTableF.invoiceTable.addActionEdit("../Main/Main.html?page=viewInvoice");
     invoiceTableF.invoiceTable.addActionView("../Main/Main.html?page=viewInvoice");
-    invoiceTableF.invoiceTable.addAction({ css: "fa-solid fa-print", redirectTo: "../Reports/printInvoice.html", title: "Print", target: "_blank" });
+    invoiceTableF.invoiceTable.addAction({ css: "fa-solid fa-print", redirectTo: "../Reports/printPurchase.html", title: "Print", target: "_blank" });
     invoiceTableF.invoiceTable.addActionDelete(
         globalData.invoiceData,
         () => invoiceTableF.filerTable(), "Are you sure you want to delete this Invoice?"

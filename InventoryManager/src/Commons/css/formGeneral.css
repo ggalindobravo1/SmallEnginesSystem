@@ -67,10 +67,11 @@ input[type=submit], button[type=submit], #btnSaveInv{
 	background: #e9a442;
 	color: whitesmoke;
 	border: 2px solid whitesmoke;
+	border-radius: 6px;
 	font-size: 16px;
 	margin-top: 15px;
     margin-bottom: 15px;
-	padding: 30px 25px;
+	padding: 20px 20px;
 }
 .two-col {
 	display: inline-block;
